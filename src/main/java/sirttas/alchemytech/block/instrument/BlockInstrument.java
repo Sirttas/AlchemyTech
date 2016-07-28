@@ -25,45 +25,26 @@ import sirttas.alchemytech.block.tile.instrument.IInstrument;
 
 public abstract class BlockInstrument extends BlockATContainer {
 
-	private List<AxisAlignedBB> boxes;
+	private static boolean doesVectorColide(AxisAlignedBB bb, Vec3d vec) {
+		return vec.xCoord >= bb.minX && vec.yCoord >= bb.minY && vec.zCoord >= bb.minZ && vec.xCoord <= bb.maxX
+				&& vec.yCoord <= bb.maxY && vec.zCoord <= bb.maxZ;
+	}
+
+	private final List<AxisAlignedBB> boxes;
 
 	public BlockInstrument(String name, Class<? extends TileEntity> tileEntity) {
 		super(name, tileEntity);
 		boxes = new ArrayList<AxisAlignedBB>();
 	}
 
-	@Override
-	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
-			@Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
-		IInstrument instrument = (IInstrument) world.getTileEntity(pos);
-
-		if (instrument != null) {
-			AxisAlignedBB boundingBox = getBoundingBox(state, world, pos);
-
-			return onBoundingBoxActivated(boundingBox, instrument, player, heldItem);
-		}
-		return false;
-	}
-
-	@SuppressWarnings("unused")
-	protected boolean onBoundingBoxActivated(AxisAlignedBB boundingBox, IInstrument instrument, EntityPlayer player,
-			ItemStack heldItem) {
-		return false;
-	}
-
 	protected void addBoundingBox(AxisAlignedBB box) {
 		boxes.add(box);
-	}
-
-	private static boolean doesVectorColide(AxisAlignedBB bb, Vec3d vec) {
-		return vec.xCoord >= bb.minX && vec.yCoord >= bb.minY && vec.zCoord >= bb.minZ && vec.xCoord <= bb.maxX
-				&& vec.yCoord <= bb.maxY && vec.zCoord <= bb.maxZ;
 	}
 
 	@Override
 	public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox,
 			List<AxisAlignedBB> collidingBoxes, @Nullable Entity entityIn) {
-		for (AxisAlignedBB box : boxes) {
+		for (final AxisAlignedBB box : boxes) {
 			addCollisionBoxToList(pos, entityBox, collidingBoxes, box);
 		}
 	}
@@ -75,11 +56,11 @@ public abstract class BlockInstrument extends BlockATContainer {
 		RayTraceResult lastResult = null;
 		double lastLength = 0;
 
-		for (AxisAlignedBB box : boxes) {
-			RayTraceResult result = this.rayTrace(pos, start, end, box);
+		for (final AxisAlignedBB box : boxes) {
+			final RayTraceResult result = rayTrace(pos, start, end, box);
 
 			if (result != null && result.typeOfHit == Type.BLOCK) {
-				double length = result.hitVec.subtract(start).lengthVector();
+				final double length = result.hitVec.subtract(start).lengthVector();
 
 				if (lastLength == 0 || length < lastLength) {
 					lastResult = result;
@@ -92,18 +73,13 @@ public abstract class BlockInstrument extends BlockATContainer {
 	}
 
 	@Override
-	public AxisAlignedBB getSelectedBoundingBox(IBlockState state, World worldIn, BlockPos pos) {
-		return getBoundingBox(state, worldIn, pos).offset(pos);
-	}
-
-	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
-		RayTraceResult result = Minecraft.getMinecraft().objectMouseOver;
+		final RayTraceResult result = Minecraft.getMinecraft().objectMouseOver;
 
 		if (result != null && result.typeOfHit == Type.BLOCK) {
-			Vec3d hit = result.hitVec;
+			final Vec3d hit = result.hitVec;
 
-			for (AxisAlignedBB box : boxes) {
+			for (final AxisAlignedBB box : boxes) {
 				if (doesVectorColide(box.offset(pos), hit)) {
 					return box;
 				}
@@ -111,6 +87,30 @@ public abstract class BlockInstrument extends BlockATContainer {
 		}
 
 		return super.getBoundingBox(state, worldIn, pos);
+	}
+
+	@Override
+	public AxisAlignedBB getSelectedBoundingBox(IBlockState state, World worldIn, BlockPos pos) {
+		return getBoundingBox(state, worldIn, pos).offset(pos);
+	}
+
+	@Override
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
+			@Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
+		final IInstrument instrument = (IInstrument) world.getTileEntity(pos);
+
+		if (instrument != null) {
+			final AxisAlignedBB boundingBox = getBoundingBox(state, world, pos);
+
+			return onBoundingBoxActivated(boundingBox, instrument, player, heldItem);
+		}
+		return false;
+	}
+
+	//@SuppressWarnings("unused")
+	protected boolean onBoundingBoxActivated(AxisAlignedBB boundingBox, IInstrument instrument, EntityPlayer player,
+			ItemStack heldItem) {
+		return false;
 	}
 
 }

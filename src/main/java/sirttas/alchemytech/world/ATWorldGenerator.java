@@ -30,34 +30,32 @@ public class ATWorldGenerator implements IWorldGenerator {
 
 	}
 
-	@SuppressWarnings("unused")
 	private void generateEnd(World world, Random random, int chunkX, int chunkZ) {
+
+	}
+
+	private void generateNether(World world, Random random, int chunkX, int chunkZ) {
 
 	}
 
 	private void generateSurface(World world, Random rand, int chunkX, int chunkZ) {
 		for (int k = 0; k < 20; k++) {
-			int firstBlockXCoord = chunkX + rand.nextInt(16);
-			int firstBlockYCoord = rand.nextInt(64);
-			int firstBlockZCoord = chunkZ + rand.nextInt(16);
+			final int firstBlockXCoord = chunkX + rand.nextInt(16);
+			final int firstBlockYCoord = rand.nextInt(64);
+			final int firstBlockZCoord = chunkZ + rand.nextInt(16);
 
 			new WorldGenMinable(ATBlocks.copperOre.getDefaultState(), rand.nextInt(10)).generate(world, rand,
 					new BlockPos(firstBlockXCoord, firstBlockYCoord, firstBlockZCoord));
 		}
 
 		for (int k = 0; k < 16; k++) {
-			int firstBlockXCoord = chunkX + rand.nextInt(16);
-			int firstBlockYCoord = rand.nextInt(64);
-			int firstBlockZCoord = chunkZ + rand.nextInt(16);
+			final int firstBlockXCoord = chunkX + rand.nextInt(16);
+			final int firstBlockYCoord = rand.nextInt(64);
+			final int firstBlockZCoord = chunkZ + rand.nextInt(16);
 
 			new WorldGenMinable(ATBlocks.zincOre.getDefaultState(), rand.nextInt(10)).generate(world, rand,
 					new BlockPos(firstBlockXCoord, firstBlockYCoord, firstBlockZCoord));
 		}
-
-	}
-
-	@SuppressWarnings("unused")
-	private void generateNether(World world, Random random, int chunkX, int chunkZ) {
 
 	}
 
