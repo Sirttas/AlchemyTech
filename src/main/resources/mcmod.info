@@ -1,0 +1,16 @@
+[
+{
+  "modid": "alchemytech",
+  "name": "Alchemy Tech",
+  "description": "",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Sirttas"],
+  "credits": "Thanks to Eyrion for his assets.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

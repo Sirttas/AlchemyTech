@@ -1,0 +1,30 @@
+itemGroup.alchemytech=Alchemy Tech
+
+item.preparation.name=Preparation
+item.brassIngot.name=Brass Ingot
+item.copperIngot.name=Copper Ingot
+item.zincIngot.name=Zinc Ingot
+item.pipe.name=Brass Pipe
+item.bowl.name=Iron Bowl
+item.shakerBarrel.name=Shudderer Barrel
+
+ingredient.redstone.name=Redstone
+ingredient.glowstone.name=Glowstone
+ingredient.lapys.name=Lapys
+ingredient.gunpowder.name=Gunpowder
+ingredient.sugar.name=Sugar
+ingredient.netherWart.name=Nether Wart
+ingredient.chorus.name=Chorus
+ingredient.alteration.name=Alteration Essence
+ingredient.energized.name=Energized Essence
+ingredient.glowing.name=Glowing Essence
+ingredient.salt.name=Salt
+
+tile.mixer.name=Blender
+tile.shaker.name=Shudderer
+tile.instrumentCore.name=Instrument Core
+tile.copperOre.name=Malachite
+tile.zincOre.name=Zinc Ore
+tile.copperBlock.name=Copper Block
+tile.zincBlock.name=Zinc Block
+tile.brassBlock.name=Brass Block
