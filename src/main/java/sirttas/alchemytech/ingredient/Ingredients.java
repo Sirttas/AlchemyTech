@@ -64,6 +64,8 @@ public class Ingredients {
 		IngredientRecipeRegistry.register(new ShakerRecipe(energized, new Ingredient[] { alteration, redstone }));
 		IngredientRecipeRegistry.register(new ShakerRecipe(glowing, new Ingredient[] { alteration, glowstone }));
 		IngredientRecipeRegistry.register(new ShakerRecipe(salt, new Ingredient[] { alteration, sugar }));
+		IngredientRecipeRegistry.register(new ShakerRecipe(new Ingredient[] { redstone, redstone, redstone }, new Ingredient[] { energized, sugar, sugar, sugar }));
+		IngredientRecipeRegistry.register(new ShakerRecipe(new Ingredient[] { glowstone, glowstone, glowstone }, new Ingredient[] { glowing, sugar, sugar, sugar }));
 
 		while (iterator.hasNext()) {
 			Ingredient ingredient = iterator.next();
