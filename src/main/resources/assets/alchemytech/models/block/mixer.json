@@ -2,8 +2,8 @@
 "__comment": "Designed by Eyrion with BDcraft Cubik PRO 0.96 Beta - http://bdcraft.net",
 "parent": "minecraft:block/block",
 "textures": {
-        "particle": "alchemytech:blocks/anvil_base",
-        "texture": "alchemytech:blocks/anvil_base",
+        "particle": "alchemytech:blocks/iron",
+        "texture": "alchemytech:blocks/iron",
         "brass": "alchemytech:blocks/brass"
     },
 "elements": [ 

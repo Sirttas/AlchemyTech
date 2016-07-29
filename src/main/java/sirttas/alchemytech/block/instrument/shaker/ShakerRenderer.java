@@ -10,7 +10,7 @@ import sirttas.alchemytech.model.ShakerBarrelModel;
 public class ShakerRenderer extends InstrumentRenderer<TileShaker> {
 
 	private static final ResourceLocation IRON_TEXTURE = new ResourceLocation("alchemytech",
-			"textures/blocks/anvil_base.png");
+			"textures/blocks/iron.png");
 
 	private ShakerBarrelModel barrel = new ShakerBarrelModel();
 
@@ -19,8 +19,8 @@ public class ShakerRenderer extends InstrumentRenderer<TileShaker> {
 		barrel = new ShakerBarrelModel();
 		GlStateManager.pushMatrix();
 		GlStateManager.translate((float) x + 0.5f, (float) y + 0.5f, (float) z + 0.5f);
-		this.bindTexture(IRON_TEXTURE);
-		barrel.barrel.rotateAngleX = (te.getProgress() % 20) / 10 * (float) Math.PI;
+		bindTexture(IRON_TEXTURE);
+		barrel.barrel.rotateAngleX = te.getProgress() % 20 / 10 * (float) Math.PI;
 		barrel.render(null, 0, 0, 0, 0, 0, 0.0625F);
 		GlStateManager.popMatrix();
 
