@@ -107,7 +107,7 @@ public abstract class BlockInstrument extends BlockATContainer {
 		return false;
 	}
 
-	//@SuppressWarnings("unused")
+	@SuppressWarnings("unused")
 	protected boolean onBoundingBoxActivated(AxisAlignedBB boundingBox, IInstrument instrument, EntityPlayer player,
 			ItemStack heldItem) {
 		return false;

@@ -30,10 +30,12 @@ public class ATWorldGenerator implements IWorldGenerator {
 
 	}
 
+	@SuppressWarnings("unused")
 	private void generateEnd(World world, Random random, int chunkX, int chunkZ) {
 
 	}
 
+	@SuppressWarnings("unused")
 	private void generateNether(World world, Random random, int chunkX, int chunkZ) {
 
 	}

@@ -8,23 +8,24 @@ import sirttas.alchemytech.AlchemyTech;
 
 public class IngredientRecipeRegistry {
 
-	private static List<IIngredientRecipe> registry = new ArrayList<IIngredientRecipe>();
+	private static List<IIngredientRecipe<?>> registry = new ArrayList<IIngredientRecipe<?>>();
 
-	public static void register(IIngredientRecipe recipe) {
-		registry.add(recipe);
-	}
-
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "unused" })
 	public static <T extends TileEntity> IIngredientRecipe<T> lookupRecipe(T instrument) {
-		for (IIngredientRecipe recipe : registry) {
+		for (final IIngredientRecipe<?> recipe : registry) {
 			try {
-				if (recipe.isAvalable(instrument)) {
-					return recipe;
+				final IIngredientRecipe<T> castedReciipe = (IIngredientRecipe<T>) recipe;
+				if (castedReciipe.isAvalable(instrument)) {
+					return castedReciipe;
 				}
-			} catch (ClassCastException e) {
+			} catch (final ClassCastException e) {
 				AlchemyTech.T.debug("Skiping recipe: " + recipe.getClass() + " for " + instrument.getClass());
 			}
 		}
 		return null;
+	}
+
+	public static void register(IIngredientRecipe<?> recipe) {
+		registry.add(recipe);
 	}
 }
