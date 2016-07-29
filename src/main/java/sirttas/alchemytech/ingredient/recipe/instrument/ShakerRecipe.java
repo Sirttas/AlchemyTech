@@ -8,13 +8,22 @@ import sirttas.alchemytech.item.ItemPreparation;
 
 public class ShakerRecipe implements IIngredientRecipe<TileShaker> {
 
-	Ingredient output;
+	Ingredient[] output;
 	Ingredient[] input;
 
+	public ShakerRecipe(Ingredient output, Ingredient input) {
+		this(output, new Ingredient[] { input });
+	}
+
 	public ShakerRecipe(Ingredient output, Ingredient[] input) {
+		this(new Ingredient[] { output }, input);
+	}
+
+	public ShakerRecipe(Ingredient[] output, Ingredient[] input) {
 		this.output = output;
 		this.input = input;
 	}
+
 
 	@Override
 	public void process(TileShaker shaker) {
@@ -25,7 +34,10 @@ public class ShakerRecipe implements IIngredientRecipe<TileShaker> {
 			for (Ingredient ingredient : input) {
 				preparation.removeIngredient(stack, ingredient);
 			}
-			preparation.addIngredient(stack, output);
+			for (Ingredient ingredient : output) {
+				preparation.addIngredient(stack, ingredient);
+			}
+
 		}
 
 	}
