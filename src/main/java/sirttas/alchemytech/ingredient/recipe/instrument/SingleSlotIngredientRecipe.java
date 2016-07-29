@@ -1,11 +1,12 @@
-package sirttas.alchemytech.ingredient.recipe;
+package sirttas.alchemytech.ingredient.recipe.instrument;
 
 import net.minecraft.item.ItemStack;
 import sirttas.alchemytech.block.tile.instrument.TileInstrument;
 import sirttas.alchemytech.ingredient.Ingredient;
+import sirttas.alchemytech.ingredient.recipe.IIngredientRecipe;
 import sirttas.alchemytech.item.ItemPreparation;
 
-public abstract class SingleSlotIngredientRecipe<T extends TileInstrument> implements IIngredientRecipe<T> {
+public class SingleSlotIngredientRecipe<T extends TileInstrument> implements IIngredientRecipe<T> {
 
 	protected Ingredient[] output;
 	protected Ingredient[] input;
