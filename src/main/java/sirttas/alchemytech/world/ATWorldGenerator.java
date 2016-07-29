@@ -41,19 +41,23 @@ public class ATWorldGenerator implements IWorldGenerator {
 	}
 
 	private void generateSurface(World world, Random rand, int chunkX, int chunkZ) {
+		int firstBlockXCoord;
+		int firstBlockYCoord;
+		int firstBlockZCoord;
+
 		for (int k = 0; k < 20; k++) {
-			final int firstBlockXCoord = chunkX + rand.nextInt(16);
-			final int firstBlockYCoord = rand.nextInt(64);
-			final int firstBlockZCoord = chunkZ + rand.nextInt(16);
+			firstBlockXCoord = chunkX + rand.nextInt(16);
+			firstBlockYCoord = rand.nextInt(64);
+			firstBlockZCoord = chunkZ + rand.nextInt(16);
 
 			new WorldGenMinable(ATBlocks.copperOre.getDefaultState(), rand.nextInt(10)).generate(world, rand,
 					new BlockPos(firstBlockXCoord, firstBlockYCoord, firstBlockZCoord));
 		}
 
 		for (int k = 0; k < 16; k++) {
-			final int firstBlockXCoord = chunkX + rand.nextInt(16);
-			final int firstBlockYCoord = rand.nextInt(64);
-			final int firstBlockZCoord = chunkZ + rand.nextInt(16);
+			firstBlockXCoord = chunkX + rand.nextInt(16);
+			firstBlockYCoord = rand.nextInt(64);
+			firstBlockZCoord = chunkZ + rand.nextInt(16);
 
 			new WorldGenMinable(ATBlocks.zincOre.getDefaultState(), rand.nextInt(10)).generate(world, rand,
 					new BlockPos(firstBlockXCoord, firstBlockYCoord, firstBlockZCoord));

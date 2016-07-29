@@ -19,6 +19,8 @@ public class Ingredients {
 	public static IngredientItem netherWart;
 	public static IngredientItem chorus;
 	public static Ingredient alteration;
+	public static Ingredient energized;
+	public static Ingredient glowing;
 	public static Ingredient salt;
 
 	public static void preInit() {
@@ -37,6 +39,8 @@ public class Ingredients {
 		chorus = (IngredientItem) GameRegistry
 				.register(new IngredientItem("chorus", new ItemStack(Items.CHORUS_FRUIT)).setColor(0x5F395F));
 		alteration = GameRegistry.register(new Ingredient("alteration").setColor(0x8F395F));
+		energized = GameRegistry.register(new Ingredient("energized").setColor(0xCF395F));
+		glowing = GameRegistry.register(new Ingredient("glowing").setColor(0xCF895F));
 		salt = GameRegistry.register(new Ingredient("salt").setColor(0xE0E0AA));
 	}
 
@@ -57,6 +61,8 @@ public class Ingredients {
 
 		IngredientRecipeRegistry.register(new MixerRecipe());
 		IngredientRecipeRegistry.register(new ShakerRecipe(alteration, new Ingredient[] { netherWart, chorus }));
+		IngredientRecipeRegistry.register(new ShakerRecipe(energized, new Ingredient[] { alteration, redstone }));
+		IngredientRecipeRegistry.register(new ShakerRecipe(glowing, new Ingredient[] { alteration, glowstone }));
 		IngredientRecipeRegistry.register(new ShakerRecipe(salt, new Ingredient[] { alteration, sugar }));
 
 		while (iterator.hasNext()) {
