@@ -72,7 +72,14 @@ public class TileShaker extends TileInstrument {
 	public void clear() {
 		super.clear();
 		slot = null;
+	}
 
+	@Override
+	public boolean isReciptAvalable() {
+		if (slot == null) {
+			return false;
+		}
+		return super.isReciptAvalable();
 	}
 
 	@Override

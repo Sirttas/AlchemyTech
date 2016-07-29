@@ -10,7 +10,7 @@ import sirttas.alchemytech.inventory.ATInventory;
 
 public class TileMixer extends TileInstrument {
 
-	private ATInventory input;
+	private final ATInventory input;
 	private ItemStack output;
 
 	public TileMixer() {
@@ -80,6 +80,14 @@ public class TileMixer extends TileInstrument {
 		super.clear();
 		input.clear();
 		output = null;
+	}
+
+	@Override
+	public boolean isReciptAvalable() {
+		if (output == null) {
+			return false;
+		}
+		return super.isReciptAvalable();
 	}
 
 	@Override
