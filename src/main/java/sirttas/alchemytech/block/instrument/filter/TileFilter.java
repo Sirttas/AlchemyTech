@@ -1,16 +1,14 @@
-package sirttas.alchemytech.block.instrument.shaker;
+package sirttas.alchemytech.block.instrument.filter;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
-import sirttas.alchemytech.block.instrument.shaker.ConfigShaker.NBT;
+import sirttas.alchemytech.block.instrument.filter.ConfigFilter.NBT;
 import sirttas.alchemytech.block.tile.instrument.TileInstrument;
 import sirttas.alchemytech.helpers.NBTHelper;
 import sirttas.alchemytech.item.ATItems;
 
-public class TileShaker extends TileInstrument {
+public class TileFilter extends TileInstrument {
 
 	ItemStack slot;
 
@@ -82,7 +80,7 @@ public class TileShaker extends TileInstrument {
 
 	@Override
 	public String getName() {
-		return ConfigShaker.UNLOCALIZED_NAME;
+		return ConfigFilter.UNLOCALIZED_NAME;
 	}
 
 	@Override
@@ -96,14 +94,6 @@ public class TileShaker extends TileInstrument {
 		super.writeToNBT(compound);
 		NBTHelper.writeItemStack(compound, NBT.SLOT, slot);
 		return compound;
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	protected void clientUpdate() {
-		if (progress > 0) {
-			progress++;
-		}
 	}
 
 }

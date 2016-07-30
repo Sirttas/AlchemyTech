@@ -49,7 +49,7 @@ public class BlockMixer extends BlockInstrument {
 
 	private boolean onBowlActivated(IInstrument instrument, EntityPlayer player, ItemStack heldItem, int index) {
 		if (heldItem == null || MixerRecipe.isMixable(heldItem)) {
-			return this.onSlotActivated(instrument, player, heldItem, index);
+			return onSlotActivated(instrument, player, heldItem, index);
 		}
 		return false;
 	}
@@ -66,8 +66,8 @@ public class BlockMixer extends BlockInstrument {
 		} else if (boundingBox.equals(ConfigMixer.BOWL4_AABB)) {
 			return onBowlActivated(instrument, player, heldItem, 3);
 		} else if (boundingBox.equals(ConfigMixer.OUTPUT_AABB) && (heldItem == null
-				|| (heldItem.getItem() instanceof ItemPotion
-						&& PotionUtils.getPotionFromItem(heldItem).equals(PotionTypes.WATER))
+				|| heldItem.getItem() instanceof ItemPotion
+						&& PotionUtils.getPotionFromItem(heldItem).equals(PotionTypes.WATER)
 				|| heldItem.getItem() instanceof ItemPreparation)) {
 			return onSlotActivated(instrument, player, heldItem, 4);
 		}
@@ -85,8 +85,6 @@ public class BlockMixer extends BlockInstrument {
 		if (mixer != null && mixer.getProgress() > 0) {
 			Minecraft.getMinecraft().effectRenderer
 					.addEffect(new ParticleMixerBubble(worldIn, x, y, z, 0.0D, 1.0D, 0.0D));
-			// worldIn.spawnParticle(EnumParticleTypes.WATER_BUBBLE, x, y, z,
-			// 0.0D, 1.0D, 0.0D, new int[0]);
 		}
 	}
 

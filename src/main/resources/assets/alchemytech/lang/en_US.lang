@@ -22,6 +22,7 @@ ingredient.salt.name=Salt
 
 tile.mixer.name=Blender
 tile.shaker.name=Shudderer
+tile.filter.name=Extractor
 tile.instrumentCore.name=Instrument Core
 tile.copperOre.name=Malachite
 tile.zincOre.name=Zinc Ore
