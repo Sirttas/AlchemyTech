@@ -50,9 +50,6 @@ public class ShakerBarrelModel extends ModelBase {
 		Elem48.addBox(-3F, -0.5F, -0.5F, 1.5F, 1, 1);
 		Elem48.setTextureSize(64, 32);
 		setRotation(Elem48, -0F, -0F, -0F);
-		// Elem48.rotateAngleX = -0F;
-		// Elem48.rotateAngleY = -0F;
-		// Elem48.rotateAngleZ = -0F;
 		Elem48.mirror = false;
 		barrel.addChild(Elem48);
 		// Element
@@ -60,9 +57,6 @@ public class ShakerBarrelModel extends ModelBase {
 		Elem47.addBox(1.5F, -0.5F, -0.5F, 1.5F, 1, 1);
 		Elem47.setTextureSize(64, 32);
 		setRotation(Elem47, -0F, -0F, -0F);
-		// Elem47.rotateAngleX = -0F;
-		// Elem47.rotateAngleY = -0F;
-		// Elem47.rotateAngleZ = -0F;
 		Elem47.mirror = false;
 		barrel.addChild(Elem47);
 		// Element
@@ -70,9 +64,6 @@ public class ShakerBarrelModel extends ModelBase {
 		Elem42.addBox(-1.5F, -2.5F, -1.5F, 0.5F, 6, 3);
 		Elem42.setTextureSize(64, 32);
 		setRotation(Elem42, -0F, -0F, -0F);
-		// Elem42.rotateAngleX = -0F;
-		// Elem42.rotateAngleY = -0F;
-		// Elem42.rotateAngleZ = -0F;
 		Elem42.mirror = false;
 		barrel.addChild(Elem42);
 		// Element
@@ -80,9 +71,6 @@ public class ShakerBarrelModel extends ModelBase {
 		Elem41.addBox(1F, -2.5F, -1.5F, 0.5F, 6, 3);
 		Elem41.setTextureSize(64, 32);
 		setRotation(Elem41, -0F, -0F, -0F);
-		// Elem41.rotateAngleX = -0F;
-		// Elem41.rotateAngleY = -0F;
-		// Elem41.rotateAngleZ = -0F;
 		Elem41.mirror = false;
 		barrel.addChild(Elem41);
 		// Element
@@ -90,9 +78,6 @@ public class ShakerBarrelModel extends ModelBase {
 		Elem40.addBox(-1.5F, 1F, -1.5F, 3, 2, 3);
 		Elem40.setTextureSize(64, 32);
 		setRotation(Elem40, -0F, -0F, -0F);
-		// Elem40.rotateAngleX = -0F;
-		// Elem40.rotateAngleY = -0F;
-		// Elem40.rotateAngleZ = -0F;
 		Elem40.mirror = false;
 		barrel.addChild(Elem40);
 		// Element
@@ -100,9 +85,6 @@ public class ShakerBarrelModel extends ModelBase {
 		Elem39.addBox(1F, -1F, -2F, 0.5F, 2, 0.5F);
 		Elem39.setTextureSize(64, 32);
 		setRotation(Elem39, -0F, -0F, -0F);
-		// Elem39.rotateAngleX = -0F;
-		// Elem39.rotateAngleY = -0F;
-		// Elem39.rotateAngleZ = -0F;
 		Elem39.mirror = false;
 		barrel.addChild(Elem39);
 		// Element
@@ -110,9 +92,6 @@ public class ShakerBarrelModel extends ModelBase {
 		Elem38.addBox(-1.5F, -1F, -2F, 0.5F, 2, 0.5F);
 		Elem38.setTextureSize(64, 32);
 		setRotation(Elem38, -0F, -0F, -0F);
-		// Elem38.rotateAngleX = -0F;
-		// Elem38.rotateAngleY = -0F;
-		// Elem38.rotateAngleZ = -0F;
 		Elem38.mirror = false;
 		barrel.addChild(Elem38);
 		// Element
@@ -120,9 +99,6 @@ public class ShakerBarrelModel extends ModelBase {
 		Elem37.addBox(-1.5F, 1F, -2F, 3, 2, 0.5F);
 		Elem37.setTextureSize(64, 32);
 		setRotation(Elem37, -0F, -0F, -0F);
-		// Elem37.rotateAngleX = -0F;
-		// Elem37.rotateAngleY = -0F;
-		// Elem37.rotateAngleZ = -0F;
 		Elem37.mirror = false;
 		barrel.addChild(Elem37);
 		// Element
@@ -130,9 +106,6 @@ public class ShakerBarrelModel extends ModelBase {
 		Elem36.addBox(-1.5F, -3.5F, -1.5F, 3, 1, 3);
 		Elem36.setTextureSize(64, 32);
 		setRotation(Elem36, -0F, -0F, -0F);
-		// Elem36.rotateAngleX = -0F;
-		// Elem36.rotateAngleY = -0F;
-		// Elem36.rotateAngleZ = -0F;
 		Elem36.mirror = false;
 		barrel.addChild(Elem36);
 		// Element
@@ -140,9 +113,6 @@ public class ShakerBarrelModel extends ModelBase {
 		Elem35.addBox(-1.5F, 3F, -1.5F, 3, 0.5F, 3);
 		Elem35.setTextureSize(64, 32);
 		setRotation(Elem35, -0F, -0F, -0F);
-		// Elem35.rotateAngleX = -0F;
-		// Elem35.rotateAngleY = -0F;
-		// Elem35.rotateAngleZ = -0F;
 		Elem35.mirror = false;
 		barrel.addChild(Elem35);
 		// Element
@@ -150,9 +120,6 @@ public class ShakerBarrelModel extends ModelBase {
 		Elem34.addBox(-2F, -0.5F, 0.5F, 0.5F, 1, 1);
 		Elem34.setTextureSize(64, 32);
 		setRotation(Elem34, -0F, -0F, -0F);
-		// Elem34.rotateAngleX = -0F;
-		// Elem34.rotateAngleY = -0F;
-		// Elem34.rotateAngleZ = -0F;
 		Elem34.mirror = false;
 		barrel.addChild(Elem34);
 		// Element
@@ -160,9 +127,6 @@ public class ShakerBarrelModel extends ModelBase {
 		Elem33.addBox(-2F, -0.5F, -1.5F, 0.5F, 1, 1);
 		Elem33.setTextureSize(64, 32);
 		setRotation(Elem33, -0F, -0F, -0F);
-		// Elem33.rotateAngleX = -0F;
-		// Elem33.rotateAngleY = -0F;
-		// Elem33.rotateAngleZ = -0F;
 		Elem33.mirror = false;
 		barrel.addChild(Elem33);
 		// Element
@@ -170,9 +134,6 @@ public class ShakerBarrelModel extends ModelBase {
 		Elem32.addBox(-2F, 0.5F, -1F, 0.5F, 2.5F, 2);
 		Elem32.setTextureSize(64, 32);
 		setRotation(Elem32, -0F, -0F, -0F);
-		// Elem32.rotateAngleX = -0F;
-		// Elem32.rotateAngleY = -0F;
-		// Elem32.rotateAngleZ = -0F;
 		Elem32.mirror = false;
 		barrel.addChild(Elem32);
 		// Element
@@ -180,9 +141,6 @@ public class ShakerBarrelModel extends ModelBase {
 		Elem31.addBox(-1.5F, -3F, -2F, 3, 2, 0.5F);
 		Elem31.setTextureSize(64, 32);
 		setRotation(Elem31, -0F, -0F, -0F);
-		// Elem31.rotateAngleX = -0F;
-		// Elem31.rotateAngleY = -0F;
-		// Elem31.rotateAngleZ = -0F;
 		Elem31.mirror = false;
 		barrel.addChild(Elem31);
 		// Element
@@ -190,9 +148,6 @@ public class ShakerBarrelModel extends ModelBase {
 		Elem30.addBox(1.5F, -0.5F, -1.5F, 0.5F, 1, 1);
 		Elem30.setTextureSize(64, 32);
 		setRotation(Elem30, -0F, -0F, -0F);
-		// Elem30.rotateAngleX = -0F;
-		// Elem30.rotateAngleY = -0F;
-		// Elem30.rotateAngleZ = -0F;
 		Elem30.mirror = false;
 		barrel.addChild(Elem30);
 		// Element
@@ -200,9 +155,6 @@ public class ShakerBarrelModel extends ModelBase {
 		Elem29.addBox(1.5F, -0.5F, 0.5F, 0.5F, 1, 1);
 		Elem29.setTextureSize(64, 32);
 		setRotation(Elem29, -0F, -0F, -0F);
-		// Elem29.rotateAngleX = -0F;
-		// Elem29.rotateAngleY = -0F;
-		// Elem29.rotateAngleZ = -0F;
 		Elem29.mirror = false;
 		barrel.addChild(Elem29);
 		// Element
@@ -210,9 +162,6 @@ public class ShakerBarrelModel extends ModelBase {
 		Elem28.addBox(1.5F, 0.5F, -1F, 0.5F, 2.5F, 2);
 		Elem28.setTextureSize(64, 32);
 		setRotation(Elem28, -0F, -0F, -0F);
-		// Elem28.rotateAngleX = -0F;
-		// Elem28.rotateAngleY = -0F;
-		// Elem28.rotateAngleZ = -0F;
 		Elem28.mirror = false;
 		barrel.addChild(Elem28);
 		// Element
@@ -220,9 +169,6 @@ public class ShakerBarrelModel extends ModelBase {
 		Elem27.addBox(1.5F, -3F, -1F, 0.5F, 2.5F, 2);
 		Elem27.setTextureSize(64, 32);
 		setRotation(Elem27, -0F, -0F, -0F);
-		// Elem27.rotateAngleX = -0F;
-		// Elem27.rotateAngleY = -0F;
-		// Elem27.rotateAngleZ = -0F;
 		Elem27.mirror = false;
 		barrel.addChild(Elem27);
 		// Element
@@ -230,9 +176,6 @@ public class ShakerBarrelModel extends ModelBase {
 		Elem26.addBox(-2F, -3F, -1F, 0.5F, 2.5F, 2);
 		Elem26.setTextureSize(64, 32);
 		setRotation(Elem26, -0F, -0F, -0F);
-		// Elem26.rotateAngleX = -0F;
-		// Elem26.rotateAngleY = -0F;
-		// Elem26.rotateAngleZ = -0F;
 		Elem26.mirror = false;
 		barrel.addChild(Elem26);
 		// Element
@@ -240,9 +183,6 @@ public class ShakerBarrelModel extends ModelBase {
 		Elem25.addBox(-1.5F, -3F, 1.5F, 3, 6, 0.5F);
 		Elem25.setTextureSize(64, 32);
 		setRotation(Elem25, -0F, -0F, -0F);
-		// Elem25.rotateAngleX = -0F;
-		// Elem25.rotateAngleY = -0F;
-		// Elem25.rotateAngleZ = -0F;
 		Elem25.mirror = false;
 		barrel.addChild(Elem25);
 		// Element
@@ -250,9 +190,6 @@ public class ShakerBarrelModel extends ModelBase {
 		Elem24.addBox(-1.5F, -3F, -1.5F, 3, 1.5F, 3);
 		Elem24.setTextureSize(64, 32);
 		setRotation(Elem24, -0F, -0F, -0F);
-		// Elem24.rotateAngleX = -0F;
-		// Elem24.rotateAngleY = -0F;
-		// Elem24.rotateAngleZ = -0F;
 		Elem24.mirror = false;
 		barrel.addChild(Elem24);
 	}

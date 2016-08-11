@@ -9,7 +9,7 @@ import sirttas.alchemytech.item.ATItems;
 
 public abstract class TileSingleSlotInstrument extends TileInstrument {
 
-	ItemStack slot;
+	protected ItemStack slot;
 
 	public TileSingleSlotInstrument() {
 		super();
