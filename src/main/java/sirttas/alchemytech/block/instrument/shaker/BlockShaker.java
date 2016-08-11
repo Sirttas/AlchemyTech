@@ -28,7 +28,7 @@ public class BlockShaker extends BlockInstrument {
 	protected boolean onBoundingBoxActivated(AxisAlignedBB boundingBox, IInstrument instrument, EntityPlayer player,
 			ItemStack heldItem) {
 		if (heldItem == null || heldItem.getItem() instanceof ItemPreparation) {
-			return this.onSlotActivated(instrument, player, heldItem, 0);
+			return onSlotActivated(instrument, player, heldItem, 0);
 		}
 		return false;
 	}

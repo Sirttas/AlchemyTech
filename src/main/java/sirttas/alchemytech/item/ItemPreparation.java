@@ -116,6 +116,10 @@ public class ItemPreparation extends ItemAT {
 
 	@Deprecated
 	public void transferIngredient(ItemStack from, ItemStack to) {
+		// FIXME: this method isn't deprecated but it doesn't work properly,
+		// 1. it could be less heavy
+		// 2. some check need to be done like if the destination can receive
+		// more ingredients
 		ItemPreparation fromPrep = (ItemPreparation) from.getItem();
 		ItemPreparation toPrep = (ItemPreparation) to.getItem();
 		Ingredient ingredient = fromPrep.removeIngredient(from, 0);
@@ -128,7 +132,9 @@ public class ItemPreparation extends ItemAT {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
-		for (Ingredient ingredient : this.getIngredients(stack)) {
+		// TODO: line per ingredient types instead of ingredients
+
+		for (Ingredient ingredient : getIngredients(stack)) {
 			tooltip.add(ingredient.getDisplayName());
 		}
 	}

@@ -27,7 +27,6 @@ public class SingleSlotIngredientRecipe<T extends TileInstrument> implements IIn
 		this.input = input;
 	}
 
-
 	@Override
 	public void process(T instrument) {
 		ItemStack stack = instrument.getStackInSlot(0);

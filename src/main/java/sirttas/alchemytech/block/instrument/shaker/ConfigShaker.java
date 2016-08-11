@@ -8,6 +8,8 @@ public class ConfigShaker extends ConfigInstrument {
 
 	public static final String UNLOCALIZED_NAME = "tile." + NAME + ".name";
 
+	// TODO: create a BoundingBox for the shaker
+
 	public class NBT extends ConfigInstrument.NBT {
 
 	}
