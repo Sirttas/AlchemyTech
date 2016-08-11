@@ -1,9 +1,8 @@
-package sirttas.alchemytech.ingredient.recipe.instrument;
+package sirttas.alchemytech.ingredient.recipe;
 
 import net.minecraft.item.ItemStack;
 import sirttas.alchemytech.block.tile.instrument.TileInstrument;
 import sirttas.alchemytech.ingredient.Ingredient;
-import sirttas.alchemytech.ingredient.recipe.IIngredientRecipe;
 import sirttas.alchemytech.item.ItemPreparation;
 
 public class SingleSlotIngredientRecipe<T extends TileInstrument> implements IIngredientRecipe<T> {

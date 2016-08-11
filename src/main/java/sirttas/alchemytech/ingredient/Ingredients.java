@@ -7,8 +7,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import sirttas.alchemytech.block.instrument.shaker.TileShaker;
 import sirttas.alchemytech.ingredient.recipe.IngredientRecipeRegistry;
+import sirttas.alchemytech.ingredient.recipe.SingleSlotIngredientRecipe;
 import sirttas.alchemytech.ingredient.recipe.instrument.MixerRecipe;
-import sirttas.alchemytech.ingredient.recipe.instrument.SingleSlotIngredientRecipe;
 
 public class Ingredients {
 

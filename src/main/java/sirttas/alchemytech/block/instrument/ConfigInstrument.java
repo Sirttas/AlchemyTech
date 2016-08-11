@@ -8,5 +8,6 @@ public class ConfigInstrument {
 
 	public class NBT {
 		public static final String PROGRESS = "progress";
+		public static final String SLOT = "slot";
 	}
 }

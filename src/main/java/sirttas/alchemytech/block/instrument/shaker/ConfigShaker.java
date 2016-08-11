@@ -10,7 +10,6 @@ public class ConfigShaker extends ConfigInstrument {
 
 	public class NBT extends ConfigInstrument.NBT {
 
-		public static final String SLOT = "slot";
 	}
 
 }
