@@ -73,6 +73,7 @@ public abstract class BlockInstrument extends BlockATContainer {
 	}
 
 	@Override
+	@SuppressWarnings("deprecation")
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
 		final RayTraceResult result = Minecraft.getMinecraft().objectMouseOver;
 
@@ -107,7 +108,6 @@ public abstract class BlockInstrument extends BlockATContainer {
 		return false;
 	}
 
-	@SuppressWarnings("unused")
 	protected boolean onBoundingBoxActivated(AxisAlignedBB boundingBox, IInstrument instrument, EntityPlayer player,
 			ItemStack heldItem) {
 		return false;

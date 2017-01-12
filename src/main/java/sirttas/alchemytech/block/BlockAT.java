@@ -47,6 +47,7 @@ public class BlockAT extends Block implements IBlockAT {
 		return this;
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 		if (bounds == null) {

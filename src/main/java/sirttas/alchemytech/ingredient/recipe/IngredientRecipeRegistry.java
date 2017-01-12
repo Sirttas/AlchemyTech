@@ -10,7 +10,7 @@ public class IngredientRecipeRegistry {
 
 	private static List<IIngredientRecipe<?>> registry = new ArrayList<IIngredientRecipe<?>>();
 
-	@SuppressWarnings({ "unchecked", "unused" })
+	@SuppressWarnings("unchecked")
 	public static <T extends TileEntity> IIngredientRecipe<T> lookupRecipe(T instrument) {
 		for (final IIngredientRecipe<?> recipe : registry) {
 			try {

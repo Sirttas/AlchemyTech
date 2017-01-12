@@ -18,7 +18,7 @@ public class ATItems {
 	public static ItemAT zincIngot;
 	public static ItemAT pipe;
 	public static ItemAT bowl;
-	public static ItemAT shakerBarrel;
+	public static ItemAT centrifugeBarrel;
 
 	public static void preInit() {
 		preparation = GameRegistry.register(new ItemPreparation());
@@ -27,7 +27,7 @@ public class ATItems {
 		zincIngot = GameRegistry.register(new ItemAT("zincIngot"));
 		pipe = GameRegistry.register(new ItemAT("pipe"));
 		bowl = GameRegistry.register(new ItemAT("bowl"));
-		shakerBarrel = GameRegistry.register(new ItemAT("shakerBarrel"));
+		centrifugeBarrel = GameRegistry.register(new ItemAT("centrifugeBarrel"));
 
 		OreDictionary.registerOre("ingotBrass", brassIngot);
 		OreDictionary.registerOre("ingotCopper", copperIngot);
@@ -45,7 +45,7 @@ public class ATItems {
 		zincIngot.initModel();
 		pipe.initModel();
 		bowl.initModel();
-		shakerBarrel.initModel();
+		centrifugeBarrel.initModel();
 	}
 
 	public static void postInit() {
@@ -57,7 +57,7 @@ public class ATItems {
 				new ShapedOreRecipe(new ItemStack(pipe, 2), new Object[] { "B", "B", "B", 'B', "ingotBrass" }));
 		GameRegistry.addRecipe(
 				new ShapedOreRecipe(bowl, new Object[] { "I I", " B ", 'B', "ingotBrass", 'I', Items.IRON_INGOT }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(shakerBarrel,
+		GameRegistry.addRecipe(new ShapedOreRecipe(centrifugeBarrel,
 				new Object[] { "IBI", "I I", "IBI", 'B', bowl, 'I', Items.IRON_INGOT }));
 
 		FurnaceRecipes.instance().addSmeltingRecipeForBlock(ATBlocks.copperOre, new ItemStack(copperIngot), 1.0F);

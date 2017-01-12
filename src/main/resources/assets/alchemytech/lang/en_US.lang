@@ -15,10 +15,13 @@ ingredient.gunpowder.name=Gunpowder
 ingredient.sugar.name=Sugar
 ingredient.netherWart.name=Nether Wart
 ingredient.chorus.name=Chorus
+ingredient.organicMatter.name=Organic Matter
 ingredient.alteration.name=Alteration Essence
 ingredient.energized.name=Energized Essence
 ingredient.glowing.name=Glowing Essence
 ingredient.salt.name=Salt
+ingredient.oil.name=Oil
+ingredient.waste.name=Waste
 
 tile.mixer.name=Blender
 tile.shaker.name=Shudderer

@@ -7,7 +7,7 @@ import net.minecraft.item.ItemPotion;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionUtils;
 import sirttas.alchemytech.block.instrument.mixer.TileMixer;
-import sirttas.alchemytech.ingredient.IngredientItem;
+import sirttas.alchemytech.ingredient.ItemIngredient;
 import sirttas.alchemytech.ingredient.recipe.IIngredientRecipe;
 import sirttas.alchemytech.item.ATItems;
 import sirttas.alchemytech.item.ItemPreparation;
@@ -39,7 +39,7 @@ public class MixerRecipe implements IIngredientRecipe<TileMixer> {
 							mixer.setInventorySlotContents(i, new ItemStack(Items.GLASS_BOTTLE));
 						}
 					} else {
-						ATItems.preparation.addIngredient(result, IngredientItem.getIngredientFromStack(stack));
+						ATItems.preparation.addIngredient(result, ItemIngredient.getIngredientFromStack(stack));
 						mixer.setInventorySlotContents(i, null);
 					}
 				}
@@ -77,7 +77,7 @@ public class MixerRecipe implements IIngredientRecipe<TileMixer> {
 		if (stack != null) {
 			Item item = stack.getItem();
 
-			return item instanceof ItemPreparation || IngredientItem.isIngredient(stack);
+			return item instanceof ItemPreparation || ItemIngredient.isIngredient(stack);
 		}
 		return false;
 	}

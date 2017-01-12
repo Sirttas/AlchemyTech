@@ -5,18 +5,18 @@ import static sirttas.alchemytech.block.BlockAT.BIT_SIZE;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;
 import sirttas.alchemytech.block.tile.renderer.InstrumentRenderer;
-import sirttas.alchemytech.model.ShakerBarrelModel;
+import sirttas.alchemytech.model.CentrifugeBarrelModel;
 
 public class ShakerRenderer extends InstrumentRenderer<TileShaker> {
 
 	private static final ResourceLocation IRON_TEXTURE = new ResourceLocation("alchemytech",
 			"textures/blocks/iron.png");
 
-	private ShakerBarrelModel barrel = new ShakerBarrelModel();
+	private CentrifugeBarrelModel barrel = new CentrifugeBarrelModel();
 
 	@Override
 	public void renderTileEntityAt(TileShaker te, double x, double y, double z, float partialTicks, int destroyStage) {
-		barrel = new ShakerBarrelModel();
+		barrel = new CentrifugeBarrelModel();
 		GlStateManager.pushMatrix();
 		GlStateManager.translate((float) x + 0.5f, (float) y + 0.5f, (float) z + 0.5f);
 		bindTexture(IRON_TEXTURE);

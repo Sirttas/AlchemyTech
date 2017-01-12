@@ -6,21 +6,21 @@ import java.util.List;
 import net.minecraft.item.ItemStack;
 import sirttas.alchemytech.AlchemyTech;
 
-public class IngredientItem extends Ingredient implements IPostInitIngredient {
+public class ItemIngredient extends Ingredient implements IPostInitIngredient, IItemIngredient {
 
-	private static List<IngredientItem> itemToIngredient = new ArrayList<IngredientItem>();
+	static List<IItemIngredient> itemToIngredient = new ArrayList<IItemIngredient>();
 
 	private ItemStack stack;
 
-	public IngredientItem() {
+	public ItemIngredient() {
 		this(null);
 	}
 
-	public IngredientItem(String name) {
+	public ItemIngredient(String name) {
 		super(name);
 	}
 
-	public IngredientItem(String name, ItemStack stack) {
+	public ItemIngredient(String name, ItemStack stack) {
 		super(name);
 		setStack(stack);
 	}
@@ -35,9 +35,9 @@ public class IngredientItem extends Ingredient implements IPostInitIngredient {
 	}
 
 	public static Ingredient getIngredientFromStack(ItemStack stack) {
-		for (IngredientItem ingredient : itemToIngredient) {
-			if (ingredient.stack.isItemEqual(stack)) {
-				return ingredient;
+		for (IItemIngredient ingredient : itemToIngredient) {
+			if (ingredient instanceof Ingredient && ingredient.producedFromItem(stack)) {
+				return (Ingredient)ingredient;
 			}
 		}
 		return null;
@@ -51,9 +51,14 @@ public class IngredientItem extends Ingredient implements IPostInitIngredient {
 		return stack.copy();
 	}
 
-	public IngredientItem setStack(ItemStack stack) {
+	public ItemIngredient setStack(ItemStack stack) {
 		this.stack = stack.copy();
 		return this;
+	}
+
+	@Override
+	public boolean producedFromItem(ItemStack stack) {
+		return this.stack.isItemEqual(stack);
 	}
 
 }

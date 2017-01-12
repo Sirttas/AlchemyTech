@@ -9,7 +9,7 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class ShakerBarrelModel extends ModelBase {
+public class CentrifugeBarrelModel extends ModelBase {
 
 	public ModelRenderer barrel;
 
@@ -35,7 +35,7 @@ public class ShakerBarrelModel extends ModelBase {
 	FloatModelRenderer Elem25;// Element
 	FloatModelRenderer Elem24;// Element
 
-	public ShakerBarrelModel() {
+	public CentrifugeBarrelModel() {
 		textureWidth = 64;
 		textureHeight = 32;
 

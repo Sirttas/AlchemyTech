@@ -12,37 +12,44 @@ import sirttas.alchemytech.ingredient.recipe.instrument.MixerRecipe;
 
 public class Ingredients {
 
-	public static IngredientItem redstone;
-	public static IngredientItem glowstone;
-	public static IngredientItem lapys;
-	public static IngredientItem gunpowder;
-	public static IngredientItem sugar;
-	public static IngredientItem netherWart;
-	public static IngredientItem chorus;
+	public static ItemIngredient redstone;
+	public static ItemIngredient glowstone;
+	public static ItemIngredient lapys;
+	public static ItemIngredient gunpowder;
+	public static ItemIngredient sugar;
+	public static ItemIngredient netherWart;
+	public static ItemIngredient chorus;
+	public static MultipleItemIngredient organicMatter;
 	public static Ingredient alteration;
 	public static Ingredient energized;
 	public static Ingredient glowing;
 	public static Ingredient salt;
+	public static Ingredient oil;
+	public static Ingredient waste;
 
 	public static void preInit() {
-		redstone = (IngredientItem) GameRegistry
-				.register(new IngredientItem("redstone", new ItemStack(Items.REDSTONE)).setColor(0x720000));
-		glowstone = (IngredientItem) GameRegistry
-				.register(new IngredientItem("glowstone", new ItemStack(Items.GLOWSTONE_DUST)).setColor(0xD2D200));
-		lapys = (IngredientItem) GameRegistry
-				.register(new IngredientItem("lapys", new ItemStack(Items.DYE, 1, 4)).setColor(0x345EC3));
-		gunpowder = (IngredientItem) GameRegistry
-				.register(new IngredientItem("gunpowder", new ItemStack(Items.GUNPOWDER)).setColor(0x727272));
-		sugar = (IngredientItem) GameRegistry
-				.register(new IngredientItem("sugar", new ItemStack(Items.SUGAR)).setColor(0xEAEAEA));
-		netherWart = (IngredientItem) GameRegistry
-				.register(new IngredientItem("netherWart", new ItemStack(Items.NETHER_WART)).setColor(0xA62530));
-		chorus = (IngredientItem) GameRegistry
-				.register(new IngredientItem("chorus", new ItemStack(Items.CHORUS_FRUIT)).setColor(0x5F395F));
+		redstone = (ItemIngredient) GameRegistry
+				.register(new ItemIngredient("redstone", new ItemStack(Items.REDSTONE)).setColor(0x720000));
+		glowstone = (ItemIngredient) GameRegistry
+				.register(new ItemIngredient("glowstone", new ItemStack(Items.GLOWSTONE_DUST)).setColor(0xD2D200));
+		lapys = (ItemIngredient) GameRegistry
+				.register(new ItemIngredient("lapys", new ItemStack(Items.DYE, 1, 4)).setColor(0x345EC3));
+		gunpowder = (ItemIngredient) GameRegistry
+				.register(new ItemIngredient("gunpowder", new ItemStack(Items.GUNPOWDER)).setColor(0x727272));
+		sugar = (ItemIngredient) GameRegistry
+				.register(new ItemIngredient("sugar", new ItemStack(Items.SUGAR)).setColor(0xEAEAEA));
+		netherWart = (ItemIngredient) GameRegistry
+				.register(new ItemIngredient("netherWart", new ItemStack(Items.NETHER_WART)).setColor(0xA62530));
+		chorus = (ItemIngredient) GameRegistry
+				.register(new ItemIngredient("chorus", new ItemStack(Items.CHORUS_FRUIT)).setColor(0x5F395F));
+		organicMatter = (MultipleItemIngredient) GameRegistry.register(new MultipleItemIngredient("organicMatter",
+				new ItemStack[] { new ItemStack(Items.BEEF), new ItemStack(Items.PORKCHOP) }).setColor(0x66000A));
 		alteration = GameRegistry.register(new Ingredient("alteration").setColor(0x8F395F));
 		energized = GameRegistry.register(new Ingredient("energized").setColor(0xCF395F));
 		glowing = GameRegistry.register(new Ingredient("glowing").setColor(0xCF895F));
 		salt = GameRegistry.register(new Ingredient("salt").setColor(0xE0E0AA));
+		oil = GameRegistry.register(new Ingredient("oil").setColor(0xDBE2A3));
+		waste = GameRegistry.register(new Ingredient("waste").setColor(0x50585B));
 	}
 
 	public static void init() {
@@ -75,6 +82,8 @@ public class Ingredients {
 		IngredientRecipeRegistry.register(
 				new SingleSlotIngredientRecipe<TileShaker>(new Ingredient[] { glowstone, glowstone, glowstone },
 						new Ingredient[] { glowing, sugar, sugar, sugar }));
+		IngredientRecipeRegistry.register(new SingleSlotIngredientRecipe<TileShaker>(new Ingredient[] { oil, waste },
+				new Ingredient[] { organicMatter }));
 
 		while (iterator.hasNext()) {
 			Ingredient ingredient = iterator.next();

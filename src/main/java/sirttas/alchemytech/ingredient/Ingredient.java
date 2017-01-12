@@ -4,6 +4,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.RegistryNamespaced;
 import net.minecraft.util.text.translation.I18n;
 
+@SuppressWarnings("deprecation")
 public class Ingredient extends net.minecraftforge.fml.common.registry.IForgeRegistryEntry.Impl<Ingredient> {
 	public static final RegistryNamespaced<ResourceLocation, Ingredient> REGISTRY = IngredientRegistry
 			.getIngredienRegistry();
