@@ -12,7 +12,7 @@ public class CentrifugeRenderer extends InstrumentRenderer<TileCentrifuge> {
 	private static final ResourceLocation IRON_TEXTURE = new ResourceLocation("alchemytech",
 			"textures/blocks/iron.png");
 
-	private CentrifugeBarrelModel barrel = new CentrifugeBarrelModel();
+	private CentrifugeBarrelModel barrel;
 
 	@Override
 	public void renderTileEntityAt(TileCentrifuge te, double x, double y, double z, float partialTicks, int destroyStage) {

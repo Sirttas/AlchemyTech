@@ -6,7 +6,7 @@ item.copperIngot.name=Copper Ingot
 item.zincIngot.name=Zinc Ingot
 item.pipe.name=Brass Pipe
 item.bowl.name=Iron Bowl
-item.shakerBarrel.name=Shudderer Barrel
+item.centrifugeBarrel.name=Centrifuge Barrel
 
 ingredient.redstone.name=Redstone
 ingredient.glowstone.name=Glowstone
