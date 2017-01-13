@@ -26,39 +26,39 @@ public class ShakerPlateModel  extends ModelBase {
 
 		// Element
 		Elem0 = new FloatModelRenderer(this, 0, 0);
-		Elem0.addBox(-5F, -6F, -5F, 10, 1F, 10);
+		Elem0.addBox(-5F, -2F, -5F, 10, 1F, 10);
 		Elem0.setTextureSize(64, 32);
 		setRotation(Elem0, -0F, -0F, -0F);
 		Elem0.mirror = false;
 		plate.addChild(Elem0);
 		// Element
-//		Elem1 = new FloatModelRenderer(this, 0, 0);
-//		Elem1.addBox(3F, 6.5F, 3F, 13, 7, 3.5F);
-//		Elem1.setTextureSize(64, 32);
-//		setRotation(Elem1, -0F, -0F, -0F);
-//		Elem1.mirror = false;
-//		plate.addChild(Elem1);
-//		// Element
-//		Elem2 = new FloatModelRenderer(this, 0, 0);
-//		Elem2.addBox(3, 6.5F, 12.5F, 13, 7, 13);
-//		Elem2.setTextureSize(64, 32);
-//		setRotation(Elem2, -0F, -0F, -0F);
-//		Elem2.mirror = false;
-//		plate.addChild(Elem2);
-//		// Element
-//		Elem3 = new FloatModelRenderer(this, 0, 0);
-//		Elem3.addBox(3, 6.5F, 3, 3.5F, 7, 13);
-//		Elem3.setTextureSize(64, 32);
-//		setRotation(Elem3, -0F, -0F, -0F);
-//		Elem3.mirror = false;
-//		plate.addChild(Elem3);
-//		// Element
-//		Elem4 = new FloatModelRenderer(this, 0, 0);
-//		Elem4.addBox(12.5F, 6.5F, 3, 13, 7, 13);
-//		Elem4.setTextureSize(64, 32);
-//		setRotation(Elem4, -0F, -0F, -0F);
-//		Elem4.mirror = false;
-//		plate.addChild(Elem4);
+		Elem1 = new FloatModelRenderer(this, 0, 0);
+		Elem1.addBox(-5F, -1.5F, -5.5F, 10, 1.5F, 0.5F);
+		Elem1.setTextureSize(64, 32);
+		setRotation(Elem1, -0F, -0F, -0F);
+		Elem1.mirror = false;
+		plate.addChild(Elem1);
+		// Element
+		Elem2 = new FloatModelRenderer(this, 0, 0);
+		Elem2.addBox(-5F, -1.5F, 5F, 10, 1.5F, 0.5F);
+		Elem2.setTextureSize(64, 32);
+		setRotation(Elem2, -0F, -0F, -0F);
+		Elem2.mirror = false;
+		plate.addChild(Elem2);
+		// Element
+		Elem3 = new FloatModelRenderer(this, 0, 0);
+		Elem3.addBox(5F, -1.5F, -5F, 0.5F, 1.5F, 10F);
+		Elem3.setTextureSize(64, 32);
+		setRotation(Elem3, -0F, -0F, -0F);
+		Elem3.mirror = false;
+		plate.addChild(Elem3);
+		// Element
+		Elem4 = new FloatModelRenderer(this, 0, 0);
+		Elem4.addBox(-5.5F, -1.5F, -5F, 0.5F, 1.5F, 10F);
+		Elem4.setTextureSize(64, 32);
+		setRotation(Elem4, -0F, -0F, -0F);
+		Elem4.mirror = false;
+		plate.addChild(Elem4);
 	}
 	
 	@Override
