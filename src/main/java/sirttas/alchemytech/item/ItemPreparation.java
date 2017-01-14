@@ -20,6 +20,7 @@ public class ItemPreparation extends ItemAT {
 	private static final String NAME = "preparation";
 	private static final String INGREDIENTS_TAG = "ingredients";
 
+	// TODO: add an option for max ingredients
 	public static final int MAX_INGREDIENTS = 10;
 
 	public ItemPreparation() {

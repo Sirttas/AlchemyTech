@@ -5,6 +5,8 @@ import java.util.Iterator;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import sirttas.alchemytech.ingredient.api.IInitIngredient;
+import sirttas.alchemytech.ingredient.api.IPostInitIngredient;
 import sirttas.alchemytech.ingredient.recipe.IngredientRecipeRegistry;
 import sirttas.alchemytech.ingredient.recipe.instrument.CentrifugeRecipe;
 import sirttas.alchemytech.ingredient.recipe.instrument.MixerRecipe;
