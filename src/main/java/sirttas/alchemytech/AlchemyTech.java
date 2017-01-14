@@ -10,6 +10,8 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import sirttas.alchemytech.command.CommandAddIngredient;
 import sirttas.alchemytech.network.IProxy;
 
 @Mod(modid = AlchemyTech.MODID, name = AlchemyTech.NAME, version = AlchemyTech.VERSION)
@@ -39,5 +41,10 @@ public class AlchemyTech {
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
 		proxy.postInit(event);
+	}
+
+	@EventHandler
+	public void serverLoad(FMLServerStartingEvent event) {
+		event.registerServerCommand(new CommandAddIngredient());
 	}
 }
