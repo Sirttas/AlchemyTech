@@ -9,6 +9,7 @@ import sirttas.alchemytech.ingredient.api.IInitIngredient;
 import sirttas.alchemytech.ingredient.api.IPostInitIngredient;
 import sirttas.alchemytech.ingredient.recipe.IngredientRecipeRegistry;
 import sirttas.alchemytech.ingredient.recipe.instrument.CentrifugeRecipe;
+import sirttas.alchemytech.ingredient.recipe.instrument.FilterRecipe;
 import sirttas.alchemytech.ingredient.recipe.instrument.MixerRecipe;
 import sirttas.alchemytech.ingredient.recipe.instrument.ShakerRecipe;
 
@@ -77,6 +78,7 @@ public class Ingredients {
 		Iterator<Ingredient> iterator = Ingredient.REGISTRY.iterator();
 
 		IngredientRecipeRegistry.register(new MixerRecipe());
+		IngredientRecipeRegistry.register(new FilterRecipe());
 		IngredientRecipeRegistry.register(new ShakerRecipe(alteration, new Ingredient[] { netherWart, chorus }));
 		IngredientRecipeRegistry.register(new ShakerRecipe(energized, new Ingredient[] { alteration, redstone }));
 		IngredientRecipeRegistry.register(new ShakerRecipe(glowing, new Ingredient[] { alteration, glowstone }));
