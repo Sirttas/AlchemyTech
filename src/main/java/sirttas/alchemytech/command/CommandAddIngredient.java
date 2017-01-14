@@ -36,8 +36,9 @@ public class CommandAddIngredient extends CommandBase {
 
 	@Override
 	public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
-		if (checkPermission(server, sender)) {
-			ItemStack preparation = ((EntityPlayer) sender).getActiveItemStack();
+		if (sender != null && sender instanceof EntityPlayer) {
+			EntityPlayer player = (EntityPlayer) sender;
+			ItemStack preparation = player.getHeldItemMainhand();
 
 			if (preparation.getItem() instanceof ItemPreparation) {
 				ItemPreparation item = ((ItemPreparation) preparation.getItem());
@@ -50,14 +51,6 @@ public class CommandAddIngredient extends CommandBase {
 				}
 			}
 		}
-	}
-
-	@Override
-	public boolean checkPermission(MinecraftServer server, ICommandSender sender) {
-		if (sender != null && sender instanceof EntityPlayer) {
-			return ((EntityPlayer) sender).isCreative();
-		}
-		return false;
 	}
 
 	@Override
