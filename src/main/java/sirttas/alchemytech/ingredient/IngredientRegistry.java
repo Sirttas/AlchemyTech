@@ -45,22 +45,14 @@ public class IngredientRegistry {
 		public void onAdd(Ingredient item, int blockId, Map<ResourceLocation, ?> slaves) {
 		}
 
-		public void onClear(Map<ResourceLocation, ?> slaveset) {
-		}
-
-		public void onCreate(Map<ResourceLocation, ?> slaveset) {
-		}
-
 		@Override
 		public void onCreate(Map<ResourceLocation, ?> slaveset,
 				BiMap<ResourceLocation, ? extends IForgeRegistry<?>> registries) {
-			// TODO Auto-generated method stub
 
 		}
 
 		@Override
 		public void onClear(IForgeRegistry<Ingredient> is, Map<ResourceLocation, ?> slaveset) {
-			// TODO Auto-generated method stub
 
 		}
 	}
