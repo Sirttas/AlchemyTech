@@ -2,6 +2,8 @@ package sirttas.alchemytech.ingredient;
 
 import java.util.Map;
 
+import com.google.common.collect.BiMap;
+
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.FMLControlledNamespacedRegistry;
 import net.minecraftforge.fml.common.registry.IForgeRegistry;
@@ -24,6 +26,7 @@ public class IngredientRegistry {
 	}
 
 	private IngredientRegistry() {
+		// TODO: use registry builder
 		registry = PersistentRegistryManager.createRegistry(INGREDIENTS, Ingredient.class, null, MIN_INGREDIENT_ID,
 				MAX_INGREDIENT_ID, true, IngredientsCallbacks.INSTANCE, IngredientsCallbacks.INSTANCE,
 				IngredientsCallbacks.INSTANCE);
@@ -42,12 +45,23 @@ public class IngredientRegistry {
 		public void onAdd(Ingredient item, int blockId, Map<ResourceLocation, ?> slaves) {
 		}
 
-		@Override
 		public void onClear(Map<ResourceLocation, ?> slaveset) {
 		}
 
-		@Override
 		public void onCreate(Map<ResourceLocation, ?> slaveset) {
+		}
+
+		@Override
+		public void onCreate(Map<ResourceLocation, ?> slaveset,
+				BiMap<ResourceLocation, ? extends IForgeRegistry<?>> registries) {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void onClear(IForgeRegistry<Ingredient> is, Map<ResourceLocation, ?> slaveset) {
+			// TODO Auto-generated method stub
+
 		}
 	}
 }
