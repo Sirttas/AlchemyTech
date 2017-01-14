@@ -51,8 +51,10 @@ public class ATItems {
 	public static void postInit() {
 		preparation.initColors();
 
+		// TODO: add option to disable this craft
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(brassIngot, 4),
-				new Object[] { "ingotCopper", "ingotCopper", "ingotCopper", zincIngot }));
+				new Object[] { "ingotCopper", "ingotCopper", "ingotCopper", "ingotZinc" })); 
+		
 		GameRegistry.addRecipe(
 				new ShapedOreRecipe(new ItemStack(pipe, 2), new Object[] { "B", "B", "B", 'B', "ingotBrass" }));
 		GameRegistry.addRecipe(

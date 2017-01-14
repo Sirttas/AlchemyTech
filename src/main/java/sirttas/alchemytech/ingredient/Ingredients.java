@@ -5,10 +5,10 @@ import java.util.Iterator;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import sirttas.alchemytech.block.instrument.shaker.TileShaker;
 import sirttas.alchemytech.ingredient.recipe.IngredientRecipeRegistry;
-import sirttas.alchemytech.ingredient.recipe.SingleSlotIngredientRecipe;
+import sirttas.alchemytech.ingredient.recipe.instrument.CentrifugeRecipe;
 import sirttas.alchemytech.ingredient.recipe.instrument.MixerRecipe;
+import sirttas.alchemytech.ingredient.recipe.instrument.ShakerRecipe;
 
 public class Ingredients {
 
@@ -26,6 +26,13 @@ public class Ingredients {
 	public static Ingredient salt;
 	public static Ingredient oil;
 	public static Ingredient waste;
+	// coal
+	// blazePowder
+	// fireEssende
+	// diamondBit
+	// diamond
+	// iron
+	// gold
 
 	public static void preInit() {
 		redstone = (ItemIngredient) GameRegistry
@@ -68,22 +75,16 @@ public class Ingredients {
 		Iterator<Ingredient> iterator = Ingredient.REGISTRY.iterator();
 
 		IngredientRecipeRegistry.register(new MixerRecipe());
-		IngredientRecipeRegistry.register(
-				new SingleSlotIngredientRecipe<TileShaker>(alteration, new Ingredient[] { netherWart, chorus }));
-		IngredientRecipeRegistry.register(
-				new SingleSlotIngredientRecipe<TileShaker>(energized, new Ingredient[] { alteration, redstone }));
-		IngredientRecipeRegistry.register(
-				new SingleSlotIngredientRecipe<TileShaker>(glowing, new Ingredient[] { alteration, glowstone }));
+		IngredientRecipeRegistry.register(new ShakerRecipe(alteration, new Ingredient[] { netherWart, chorus }));
+		IngredientRecipeRegistry.register(new ShakerRecipe(energized, new Ingredient[] { alteration, redstone }));
+		IngredientRecipeRegistry.register(new ShakerRecipe(glowing, new Ingredient[] { alteration, glowstone }));
+		IngredientRecipeRegistry.register(new ShakerRecipe(salt, new Ingredient[] { alteration, sugar }));
+		IngredientRecipeRegistry.register(new ShakerRecipe(new Ingredient[] { redstone, redstone, redstone },
+				new Ingredient[] { energized, sugar, sugar, sugar }));
+		IngredientRecipeRegistry.register(new ShakerRecipe(new Ingredient[] { glowstone, glowstone, glowstone },
+				new Ingredient[] { glowing, sugar, sugar, sugar }));
 		IngredientRecipeRegistry
-				.register(new SingleSlotIngredientRecipe<TileShaker>(salt, new Ingredient[] { alteration, sugar }));
-		IngredientRecipeRegistry
-				.register(new SingleSlotIngredientRecipe<TileShaker>(new Ingredient[] { redstone, redstone, redstone },
-						new Ingredient[] { energized, sugar, sugar, sugar }));
-		IngredientRecipeRegistry.register(
-				new SingleSlotIngredientRecipe<TileShaker>(new Ingredient[] { glowstone, glowstone, glowstone },
-						new Ingredient[] { glowing, sugar, sugar, sugar }));
-		IngredientRecipeRegistry.register(new SingleSlotIngredientRecipe<TileShaker>(new Ingredient[] { oil, waste },
-				new Ingredient[] { organicMatter }));
+				.register(new CentrifugeRecipe(new Ingredient[] { oil, waste }, new Ingredient[] { organicMatter }));
 
 		while (iterator.hasNext()) {
 			Ingredient ingredient = iterator.next();
