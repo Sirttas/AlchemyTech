@@ -13,7 +13,6 @@ import net.minecraft.util.math.BlockPos;
 import sirttas.alchemytech.ingredient.Ingredient;
 import sirttas.alchemytech.item.ItemPreparation;
 
-// TODO the whole command
 public class CommandAddIngredient extends CommandBase {
 
 	/**
@@ -56,7 +55,7 @@ public class CommandAddIngredient extends CommandBase {
 	@Override
 	public List<String> getTabCompletionOptions(MinecraftServer server, ICommandSender sender, String[] args,
 			BlockPos pos) {
-		return null;
+		return getListOfStringsMatchingLastWord(args, Ingredient.REGISTRY.getKeys());
 	}
 
 	@Override
