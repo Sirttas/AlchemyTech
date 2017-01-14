@@ -1,13 +1,8 @@
 package sirttas.alchemytech.ingredient;
 
-import java.util.Map;
-
-import com.google.common.collect.BiMap;
-
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.FMLControlledNamespacedRegistry;
-import net.minecraftforge.fml.common.registry.IForgeRegistry;
-import net.minecraftforge.fml.common.registry.PersistentRegistryManager;
+import net.minecraftforge.fml.common.registry.RegistryBuilder;
 import sirttas.alchemytech.AlchemyTech;
 
 public class IngredientRegistry {
@@ -26,34 +21,15 @@ public class IngredientRegistry {
 	}
 
 	private IngredientRegistry() {
-		// TODO: use registry builder
-		registry = PersistentRegistryManager.createRegistry(INGREDIENTS, Ingredient.class, null, MIN_INGREDIENT_ID,
-				MAX_INGREDIENT_ID, true, IngredientsCallbacks.INSTANCE, IngredientsCallbacks.INSTANCE,
-				IngredientsCallbacks.INSTANCE);
+		RegistryBuilder<Ingredient> builder = new RegistryBuilder<Ingredient>();
+		builder.setName(INGREDIENTS);
+		builder.setIDRange(MIN_INGREDIENT_ID, MAX_INGREDIENT_ID);
+		builder.setType(Ingredient.class);
+		registry = (FMLControlledNamespacedRegistry<Ingredient>) builder.create();
 		AlchemyTech.T.info("Ingredients registry loaded.");
 	}
 
 	static final FMLControlledNamespacedRegistry<Ingredient> getIngredienRegistry() {
 		return getInstance().registry;
-	}
-
-	private static class IngredientsCallbacks implements IForgeRegistry.AddCallback<Ingredient>,
-			IForgeRegistry.ClearCallback<Ingredient>, IForgeRegistry.CreateCallback<Ingredient> {
-		static final IngredientsCallbacks INSTANCE = new IngredientsCallbacks();
-
-		@Override
-		public void onAdd(Ingredient item, int blockId, Map<ResourceLocation, ?> slaves) {
-		}
-
-		@Override
-		public void onCreate(Map<ResourceLocation, ?> slaveset,
-				BiMap<ResourceLocation, ? extends IForgeRegistry<?>> registries) {
-
-		}
-
-		@Override
-		public void onClear(IForgeRegistry<Ingredient> is, Map<ResourceLocation, ?> slaveset) {
-
-		}
 	}
 }
