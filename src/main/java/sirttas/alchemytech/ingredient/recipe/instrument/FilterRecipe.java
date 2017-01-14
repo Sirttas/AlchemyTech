@@ -1,6 +1,7 @@
 package sirttas.alchemytech.ingredient.recipe.instrument;
 
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -29,6 +30,7 @@ public class FilterRecipe implements IIngredientRecipe<TileFilter> {
 					world.spawnEntityInWorld(item);
 				}
 			}
+			instrument.setInventorySlotContents(0, new ItemStack(Items.GLASS_BOTTLE));
 		}
 
 	}
