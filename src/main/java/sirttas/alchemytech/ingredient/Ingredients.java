@@ -22,14 +22,15 @@ public class Ingredients {
 	public static ItemIngredient sugar;
 	public static ItemIngredient netherWart;
 	public static ItemIngredient chorus;
+	public static ItemIngredient coal;
 	public static MultipleItemIngredient organicMatter;
 	public static Ingredient alteration;
 	public static Ingredient energized;
 	public static Ingredient glowing;
 	public static Ingredient salt;
 	public static Ingredient oil;
+	public static Ingredient graphite;
 	public static Ingredient waste;
-	// coal
 	// blazePowder
 	// fireEssende
 	// diamondBit
@@ -52,13 +53,20 @@ public class Ingredients {
 				.register(new ItemIngredient("netherWart", new ItemStack(Items.NETHER_WART)).setColor(0xA62530));
 		chorus = (ItemIngredient) GameRegistry
 				.register(new ItemIngredient("chorus", new ItemStack(Items.CHORUS_FRUIT)).setColor(0x5F395F));
-		organicMatter = (MultipleItemIngredient) GameRegistry.register(new MultipleItemIngredient("organicMatter",
-				new ItemStack[] { new ItemStack(Items.BEEF), new ItemStack(Items.PORKCHOP) }).setColor(0x66000A));
+		coal = (ItemIngredient) GameRegistry
+				.register(new ItemIngredient("coal", new ItemStack(Items.COAL)).setColor(0x1F2021));
+		organicMatter = (MultipleItemIngredient) GameRegistry
+				.register(
+						new MultipleItemIngredient("organicMatter",
+								new ItemStack[] { new ItemStack(Items.BEEF), new ItemStack(Items.PORKCHOP),
+										new ItemStack(Items.WHEAT), new ItemStack(Items.ROTTEN_FLESH) })
+												.setColor(0x66000A));
 		alteration = GameRegistry.register(new Ingredient("alteration").setColor(0x8F395F));
 		energized = GameRegistry.register(new Ingredient("energized").setColor(0xCF395F));
 		glowing = GameRegistry.register(new Ingredient("glowing").setColor(0xCF895F));
 		salt = GameRegistry.register(new Ingredient("salt").setColor(0xE0E0AA));
 		oil = GameRegistry.register(new Ingredient("oil").setColor(0xDBE2A3));
+		graphite = GameRegistry.register(new Ingredient("graphite").setColor(0x4E5156));
 		waste = GameRegistry.register(new Ingredient("waste").setColor(0x50585B));
 	}
 
@@ -89,6 +97,8 @@ public class Ingredients {
 				new Ingredient[] { glowing, sugar, sugar, sugar }));
 		IngredientRecipeRegistry
 				.register(new CentrifugeRecipe(new Ingredient[] { oil, waste }, new Ingredient[] { organicMatter }));
+		IngredientRecipeRegistry
+				.register(new CentrifugeRecipe(new Ingredient[] { graphite, waste }, new Ingredient[] { coal }));
 
 		while (iterator.hasNext()) {
 			Ingredient ingredient = iterator.next();
