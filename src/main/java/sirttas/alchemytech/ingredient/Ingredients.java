@@ -23,11 +23,8 @@ public class Ingredients {
 	public static ItemIngredient netherWart;
 	public static ItemIngredient chorus;
 	public static ItemIngredient coal;
-<<<<<<< HEAD
 	public static ItemIngredient iron;
 	public static ItemIngredient gold;
-=======
->>>>>>> branch 'master' of https://github.com/Sirttas/AlchemyTech.git
 	public static MultipleItemIngredient organicMatter;
 	public static Ingredient alteration;
 	public static Ingredient energized;
@@ -58,13 +55,10 @@ public class Ingredients {
 				.register(new ItemIngredient("chorus", new ItemStack(Items.CHORUS_FRUIT)).setColor(0x5F395F));
 		coal = (ItemIngredient) GameRegistry
 				.register(new ItemIngredient("coal", new ItemStack(Items.COAL)).setColor(0x1F2021));
-<<<<<<< HEAD
 		iron = (ItemIngredient) GameRegistry
 				.register(new ItemIngredient("iron", new ItemStack(Items.IRON_INGOT)).setColor(0xBDC3CC));
 		gold = (ItemIngredient) GameRegistry
 				.register(new ItemIngredient("gold", new ItemStack(Items.GOLD_INGOT)).setColor(0xD4E07D));
-=======
->>>>>>> branch 'master' of https://github.com/Sirttas/AlchemyTech.git
 		organicMatter = (MultipleItemIngredient) GameRegistry
 				.register(
 						new MultipleItemIngredient("organicMatter",
