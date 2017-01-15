@@ -16,8 +16,11 @@ ingredient.sugar.name=Sugar
 ingredient.netherWart.name=Nether Wart
 ingredient.chorus.name=Chorus
 ingredient.coal.name=Coal
+<<<<<<< HEAD
 ingredient.iron.name=Iron
 ingredient.gold.name=Gold
+=======
+>>>>>>> branch 'master' of https://github.com/Sirttas/AlchemyTech.git
 ingredient.organicMatter.name=Organic Matter
 ingredient.alteration.name=Alteration Essence
 ingredient.energized.name=Energized Essence
