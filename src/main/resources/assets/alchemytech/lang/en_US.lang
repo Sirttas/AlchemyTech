@@ -18,6 +18,8 @@ ingredient.chorus.name=Chorus
 ingredient.coal.name=Coal
 ingredient.iron.name=Iron
 ingredient.gold.name=Gold
+ingredient.diamond.name=Diamond
+ingredient.blaze.name=Blaze Powder
 ingredient.organicMatter.name=Organic Matter
 ingredient.alteration.name=Alteration Essence
 ingredient.energized.name=Energized Essence
@@ -25,6 +27,8 @@ ingredient.glowing.name=Glowing Essence
 ingredient.salt.name=Salt
 ingredient.oil.name=Oil
 ingredient.graphite.name=Graphite
+ingredient.diamondBit.name=Diamond Bit
+ingredient.fire.name=Fire Essence
 ingredient.waste.name=Waste
 
 tile.mixer.name=Blender

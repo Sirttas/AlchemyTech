@@ -25,6 +25,8 @@ public class Ingredients {
 	public static ItemIngredient coal;
 	public static ItemIngredient iron;
 	public static ItemIngredient gold;
+	public static ItemIngredient diamond;
+	public static ItemIngredient blaze;
 	public static MultipleItemIngredient organicMatter;
 	public static Ingredient alteration;
 	public static Ingredient energized;
@@ -32,11 +34,9 @@ public class Ingredients {
 	public static Ingredient salt;
 	public static Ingredient oil;
 	public static Ingredient graphite;
+	public static Ingredient diamondBit;
+	public static Ingredient fire;
 	public static Ingredient waste;
-	// blazePowder
-	// fireEssende
-	// diamondBit
-	// diamond
 
 	public static void preInit() {
 		redstone = (ItemIngredient) GameRegistry
@@ -59,6 +59,10 @@ public class Ingredients {
 				.register(new ItemIngredient("iron", new ItemStack(Items.IRON_INGOT)).setColor(0xBDC3CC));
 		gold = (ItemIngredient) GameRegistry
 				.register(new ItemIngredient("gold", new ItemStack(Items.GOLD_INGOT)).setColor(0xD4E07D));
+		diamond = (ItemIngredient) GameRegistry
+				.register(new ItemIngredient("diamond", new ItemStack(Items.DIAMOND)).setColor(0xBECDE5));
+		blaze = (ItemIngredient) GameRegistry
+				.register(new ItemIngredient("blaze", new ItemStack(Items.BLAZE_POWDER)).setColor(0xAD8203));
 		organicMatter = (MultipleItemIngredient) GameRegistry
 				.register(
 						new MultipleItemIngredient("organicMatter",
@@ -73,6 +77,8 @@ public class Ingredients {
 		salt = GameRegistry.register(new Ingredient("salt").setColor(0xE0E0AA));
 		oil = GameRegistry.register(new Ingredient("oil").setColor(0xDBE2A3));
 		graphite = GameRegistry.register(new Ingredient("graphite").setColor(0x4E5156));
+		diamondBit = GameRegistry.register(new Ingredient("diamondBit").setColor(0xBECDE5));
+		fire = GameRegistry.register(new Ingredient("fire").setColor(0xDDB849));
 		waste = GameRegistry.register(new Ingredient("waste").setColor(0x50585B));
 	}
 
@@ -101,6 +107,11 @@ public class Ingredients {
 		IngredientRecipeRegistry.register(new ShakerRecipe(iron, new Ingredient[] { graphite, sugar, oil }));
 		IngredientRecipeRegistry.register(new ShakerRecipe(gold, new Ingredient[] { alteration, iron }));
 		IngredientRecipeRegistry.register(new ShakerRecipe(iron, new Ingredient[] { alteration, gold }));
+		IngredientRecipeRegistry.register(new ShakerRecipe(fire, new Ingredient[] { blaze, coal, oil, gunpowder }));
+		IngredientRecipeRegistry
+				.register(new ShakerRecipe(diamondBit, new Ingredient[] { fire, graphite, graphite, graphite }));
+		IngredientRecipeRegistry.register(
+				new ShakerRecipe(diamond, new Ingredient[] { diamondBit, diamondBit, diamondBit, diamondBit }));
 		IngredientRecipeRegistry.register(new ShakerRecipe(new Ingredient[] { redstone, redstone, redstone },
 				new Ingredient[] { energized, sugar, sugar, sugar }));
 		IngredientRecipeRegistry.register(new ShakerRecipe(new Ingredient[] { glowstone, glowstone, glowstone },
@@ -108,7 +119,7 @@ public class Ingredients {
 		IngredientRecipeRegistry
 				.register(new CentrifugeRecipe(new Ingredient[] { oil, waste }, new Ingredient[] { organicMatter }));
 		IngredientRecipeRegistry
-				.register(new CentrifugeRecipe(new Ingredient[] { graphite, waste }, new Ingredient[] { coal }));
+				.register(new CentrifugeRecipe(new Ingredient[] { graphite/* , waste */ }, new Ingredient[] { coal }));
 
 		while (iterator.hasNext()) {
 			Ingredient ingredient = iterator.next();
