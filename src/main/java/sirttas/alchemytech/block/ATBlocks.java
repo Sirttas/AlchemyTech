@@ -75,6 +75,8 @@ public class ATBlocks {
 
 		GameRegistry.addRecipe(new ShapedOreRecipe(mixer, new Object[] { "PbP", "UIU", "IBI", 'I', Items.IRON_INGOT,
 				'B', Blocks.IRON_BLOCK, 'b', "ingotBrass", 'U', ATItems.bowl, 'P', ATItems.pipe }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(filter, new Object[] { " P ", "bUb", "IBI", 'I', Items.IRON_INGOT,
+				'B', Blocks.IRON_BLOCK, 'b', "ingotBrass", 'U', ATItems.bowl, 'P', ATItems.pipe }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(centrifuge,
 				new Object[] { "pOp", "bUb", "IBI", 'I', Items.IRON_INGOT, 'B', Blocks.IRON_BLOCK, 'b', "ingotBrass",
 						'O', ATItems.centrifugeBarrel, 'U', ATItems.bowl, 'p', Blocks.PISTON }));
