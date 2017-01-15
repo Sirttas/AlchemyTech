@@ -40,7 +40,7 @@ public class ATBlocks {
 		mixer = new BlockMixer();
 		shaker = new BlockShaker();
 		filter = new BlockFilter();
-		boiler = new BlockBoiler();
+		// boiler = new BlockBoiler();
 		centrifuge = new BlockCentrifuge();
 		copperOre = new BlockAT("copperOre", Material.IRON);
 		zincOre = new BlockAT("zincOre", Material.IRON);
