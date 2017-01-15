@@ -68,6 +68,8 @@ public class Ingredients {
 		alteration = GameRegistry.register(new Ingredient("alteration").setColor(0x8F395F));
 		energized = GameRegistry.register(new Ingredient("energized").setColor(0xCF395F));
 		glowing = GameRegistry.register(new Ingredient("glowing").setColor(0xCF895F));
+		// TODO: add salt as ItemIngredient in case it is present as an item (or
+		// in config)
 		salt = GameRegistry.register(new Ingredient("salt").setColor(0xE0E0AA));
 		oil = GameRegistry.register(new Ingredient("oil").setColor(0xDBE2A3));
 		graphite = GameRegistry.register(new Ingredient("graphite").setColor(0x4E5156));
@@ -95,6 +97,7 @@ public class Ingredients {
 		IngredientRecipeRegistry.register(new ShakerRecipe(energized, new Ingredient[] { alteration, redstone }));
 		IngredientRecipeRegistry.register(new ShakerRecipe(glowing, new Ingredient[] { alteration, glowstone }));
 		IngredientRecipeRegistry.register(new ShakerRecipe(salt, new Ingredient[] { alteration, sugar }));
+		IngredientRecipeRegistry.register(new ShakerRecipe(sugar, new Ingredient[] { alteration, salt }));
 		IngredientRecipeRegistry.register(new ShakerRecipe(iron, new Ingredient[] { graphite, sugar, oil }));
 		IngredientRecipeRegistry.register(new ShakerRecipe(gold, new Ingredient[] { alteration, iron }));
 		IngredientRecipeRegistry.register(new ShakerRecipe(iron, new Ingredient[] { alteration, gold }));
