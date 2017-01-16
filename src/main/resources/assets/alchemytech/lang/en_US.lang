@@ -31,9 +31,9 @@ ingredient.diamondBit.name=Diamond Bit
 ingredient.fire.name=Fire Essence
 ingredient.waste.name=Waste
 
-tile.mixer.name=Blender
-tile.shaker.name=Shudderer
-tile.filter.name=Extractor
+tile.mixer.name=Mixer
+tile.shaker.name=Shaker
+tile.extractor.name=Extractor
 tile.centrifuge.name=Centrifuge
 tile.boiler.name=Boiler
 tile.instrumentCore.name=Instrument Core

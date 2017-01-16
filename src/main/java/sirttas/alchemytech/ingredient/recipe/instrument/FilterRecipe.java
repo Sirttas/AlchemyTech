@@ -5,16 +5,16 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import sirttas.alchemytech.block.instrument.filter.TileFilter;
+import sirttas.alchemytech.block.instrument.extractor.TileExtractor;
 import sirttas.alchemytech.ingredient.Ingredient;
 import sirttas.alchemytech.ingredient.ItemIngredient;
 import sirttas.alchemytech.ingredient.recipe.IIngredientRecipe;
 import sirttas.alchemytech.item.ItemPreparation;
 
-public class FilterRecipe implements IIngredientRecipe<TileFilter> {
+public class FilterRecipe implements IIngredientRecipe<TileExtractor> {
 
 	@Override
-	public void process(TileFilter instrument) {
+	public void process(TileExtractor instrument) {
 		ItemStack stack = instrument.getStackInSlot(0);
 		if (stack != null && stack.getItem() instanceof ItemPreparation) {
 			ItemPreparation preparation = (ItemPreparation) stack.getItem();
@@ -36,7 +36,7 @@ public class FilterRecipe implements IIngredientRecipe<TileFilter> {
 	}
 
 	@Override
-	public boolean isAvalable(TileFilter instrument) {
+	public boolean isAvalable(TileExtractor instrument) {
 		ItemStack stack = instrument.getStackInSlot(0);
 		if (stack != null && stack.getItem() instanceof ItemPreparation) {
 			return true;

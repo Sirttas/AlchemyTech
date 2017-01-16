@@ -1,10 +1,10 @@
-package sirttas.alchemytech.block.instrument.filter;
+package sirttas.alchemytech.block.instrument.extractor;
 
 import sirttas.alchemytech.block.instrument.ConfigInstrument;
 
-public class ConfigFilter extends ConfigInstrument {
+public class ConfigExtractor extends ConfigInstrument {
 
-	public static final String NAME = "filter";
+	public static final String NAME = "extractor";
 
 	public static final String UNLOCALIZED_NAME = "tile." + NAME + ".name";
 

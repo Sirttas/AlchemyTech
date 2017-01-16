@@ -1,4 +1,4 @@
-package sirttas.alchemytech.block.instrument.filter;
+package sirttas.alchemytech.block.instrument.extractor;
 
 import static sirttas.alchemytech.block.BlockAT.BIT_SIZE;
 
@@ -20,16 +20,16 @@ import sirttas.alchemytech.block.tile.instrument.IInstrument;
 import sirttas.alchemytech.item.ItemPreparation;
 import sirttas.alchemytech.particle.ParticleMixerBubble;
 
-public class BlockFilter extends BlockInstrument {
+public class BlockExtractor extends BlockInstrument {
 
-	public BlockFilter() {
-		super(ConfigFilter.NAME, TileFilter.class);
+	public BlockExtractor() {
+		super(ConfigExtractor.NAME, TileExtractor.class);
 		addBoundingBox(FULL_BLOCK_AABB);
 	}
 
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta) {
-		return new TileFilter();
+		return new TileExtractor();
 	}
 
 	@Override
@@ -45,7 +45,7 @@ public class BlockFilter extends BlockInstrument {
 	@SideOnly(Side.CLIENT)
 	public void initModel() {
 		super.initModel();
-		ClientRegistry.bindTileEntitySpecialRenderer(TileFilter.class, new FilterRenderer());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileExtractor.class, new ExtractorRenderer());
 	}
 
 	@Override
@@ -54,7 +54,7 @@ public class BlockFilter extends BlockInstrument {
 		double x = pos.getX() + (5 + rand.nextDouble() * 6) * BIT_SIZE;
 		double y = pos.getY() + 10 * BIT_SIZE;
 		double z = pos.getZ() + (5 + rand.nextDouble() * 6) * BIT_SIZE;
-		TileFilter filter = (TileFilter) worldIn.getTileEntity(pos);
+		TileExtractor filter = (TileExtractor) worldIn.getTileEntity(pos);
 
 		if (filter != null && filter.getProgress() > 0) {
 			Minecraft.getMinecraft().effectRenderer
