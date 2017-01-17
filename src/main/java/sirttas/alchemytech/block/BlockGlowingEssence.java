@@ -22,7 +22,8 @@ public class BlockGlowingEssence extends Block {
 		this.setResistance(6000001.0F);
 		this.disableStats();
 		this.translucent = true;
-		this.setLightLevel(10);
+		this.setLightLevel(14);
+		this.setTickRandomly(true);
 
 	}
 
