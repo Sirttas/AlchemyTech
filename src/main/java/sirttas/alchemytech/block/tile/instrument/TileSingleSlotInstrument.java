@@ -6,6 +6,7 @@ import net.minecraft.util.EnumFacing;
 import sirttas.alchemytech.block.instrument.ConfigInstrument.NBT;
 import sirttas.alchemytech.helpers.NBTHelper;
 import sirttas.alchemytech.item.ATItems;
+import sirttas.alchemytech.item.ItemPreparation;
 
 public abstract class TileSingleSlotInstrument extends TileInstrument {
 
@@ -22,7 +23,7 @@ public abstract class TileSingleSlotInstrument extends TileInstrument {
 
 	@Override
 	public boolean canInsertItem(int index, ItemStack itemStackIn, EnumFacing direction) {
-		return index == 0;
+		return index == 0 && itemStackIn.getItem() instanceof ItemPreparation;
 	}
 
 	@Override

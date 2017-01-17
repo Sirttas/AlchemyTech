@@ -1,12 +1,16 @@
 package sirttas.alchemytech.block.instrument.mixer;
 
+import net.minecraft.init.PotionTypes;
+import net.minecraft.item.ItemPotion;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.EnumFacing;
 import sirttas.alchemytech.block.instrument.mixer.ConfigMixer.NBT;
 import sirttas.alchemytech.block.tile.instrument.TileInstrument;
 import sirttas.alchemytech.helpers.NBTHelper;
 import sirttas.alchemytech.inventory.ATInventory;
+import sirttas.alchemytech.item.ItemPreparation;
 
 public class TileMixer extends TileInstrument {
 
@@ -24,12 +28,17 @@ public class TileMixer extends TileInstrument {
 
 	@Override
 	public boolean canInsertItem(int index, ItemStack itemStackIn, EnumFacing direction) {
+		if (index == 4 && itemStackIn != null && itemStackIn.getItem() instanceof ItemPotion
+				&& (PotionUtils.getPotionFromItem(itemStackIn).equals(PotionTypes.WATER)
+						|| itemStackIn.getItem() instanceof ItemPreparation)) {
+			return true;
+		}
 		return index < 4;
 	}
 
 	@Override
 	public boolean canExtractItem(int index, ItemStack stack, EnumFacing direction) {
-		return true;
+		return index == 4;
 	}
 
 	@Override
