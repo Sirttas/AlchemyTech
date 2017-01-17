@@ -28,14 +28,14 @@ public class Ingredients {
 	public static ItemIngredient diamond;
 	public static ItemIngredient blaze;
 	public static MultipleItemIngredient organicMatter;
-	public static Ingredient alteration;
-	public static Ingredient energized;
-	public static Ingredient glowing;
+	public static EssenceIngredient alteration;
+	public static EssenceIngredient energized;
+	public static EssenceIngredient glowing;
+	public static EssenceIngredient fire;
 	public static Ingredient salt;
 	public static Ingredient oil;
 	public static Ingredient graphite;
 	public static Ingredient diamondBit;
-	public static Ingredient fire;
 	public static Ingredient waste;
 
 	public static void preInit() {
@@ -69,16 +69,16 @@ public class Ingredients {
 								new ItemStack[] { new ItemStack(Items.BEEF), new ItemStack(Items.PORKCHOP),
 										new ItemStack(Items.WHEAT), new ItemStack(Items.ROTTEN_FLESH) })
 												.setColor(0x66000A));
-		alteration = GameRegistry.register(new Ingredient("alteration").setColor(0x8F395F));
-		energized = GameRegistry.register(new Ingredient("energized").setColor(0xCF395F));
-		glowing = GameRegistry.register(new Ingredient("glowing").setColor(0xCF895F));
+		alteration = (EssenceIngredient) GameRegistry.register(new EssenceIngredient("alteration").setColor(0x8F395F));
+		energized = (EssenceIngredient) GameRegistry.register(new EssenceIngredient("energized").setColor(0xCF395F));
+		glowing = (EssenceIngredient) GameRegistry.register(new EssenceIngredient("glowing").setColor(0xCF895F));
+		fire = (EssenceIngredient) GameRegistry.register(new EssenceIngredient("fire").setColor(0xDDB849));
+
 		// TODO: add salt as ItemIngredient in case it is present as an item (or
 		// in config)
 		salt = GameRegistry.register(new Ingredient("salt").setColor(0xE0E0AA));
 		oil = GameRegistry.register(new Ingredient("oil").setColor(0xDBE2A3));
 		graphite = GameRegistry.register(new Ingredient("graphite").setColor(0x4E5156));
-		diamondBit = GameRegistry.register(new Ingredient("diamondBit").setColor(0xBECDE5));
-		fire = GameRegistry.register(new Ingredient("fire").setColor(0xDDB849));
 		waste = GameRegistry.register(new Ingredient("waste").setColor(0x50585B));
 	}
 
