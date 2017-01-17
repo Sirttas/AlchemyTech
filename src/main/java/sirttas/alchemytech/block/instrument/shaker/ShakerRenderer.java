@@ -29,5 +29,4 @@ public class ShakerRenderer extends InstrumentRenderer<TileShaker> {
 					z + 0.5, 1);
 		}
 	}
-
 }

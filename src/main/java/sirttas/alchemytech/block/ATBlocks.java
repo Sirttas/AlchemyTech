@@ -32,6 +32,7 @@ public class ATBlocks {
 	public static BlockAT copperBlock;
 	public static BlockAT zincBlock;
 	public static BlockAT brassBlock;
+	public static BlockGlowingEssence glowingEssence;
 
 	public static List<IBlockAT> blocks = new ArrayList<IBlockAT>();
 
@@ -47,6 +48,7 @@ public class ATBlocks {
 		copperBlock = new BlockAT("copperBlock", Material.IRON);
 		zincBlock = new BlockAT("zincBlock", Material.IRON);
 		brassBlock = new BlockAT("brassBlock", Material.IRON);
+		glowingEssence = new BlockGlowingEssence();
 
 		for (IBlockAT block : blocks) {
 			block.register();

@@ -8,6 +8,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import sirttas.alchemytech.ingredient.api.IInitIngredient;
 import sirttas.alchemytech.ingredient.api.IPostInitIngredient;
 import sirttas.alchemytech.ingredient.essence.EssenceIngredient;
+import sirttas.alchemytech.ingredient.essence.GlowingEssenceIngredient;
 import sirttas.alchemytech.ingredient.recipe.IngredientRecipeRegistry;
 import sirttas.alchemytech.ingredient.recipe.instrument.CentrifugeRecipe;
 import sirttas.alchemytech.ingredient.recipe.instrument.FilterRecipe;
@@ -31,7 +32,7 @@ public class Ingredients {
 	public static MultipleItemIngredient organicMatter;
 	public static EssenceIngredient alteration;
 	public static EssenceIngredient energized;
-	public static EssenceIngredient glowing;
+	public static GlowingEssenceIngredient glowing;
 	public static EssenceIngredient fire;
 	public static Ingredient salt;
 	public static Ingredient oil;
@@ -72,7 +73,7 @@ public class Ingredients {
 												.setColor(0x66000A));
 		alteration = (EssenceIngredient) GameRegistry.register(new EssenceIngredient("alteration").setColor(0x8F395F));
 		energized = (EssenceIngredient) GameRegistry.register(new EssenceIngredient("energized").setColor(0xCF395F));
-		glowing = (EssenceIngredient) GameRegistry.register(new EssenceIngredient("glowing").setColor(0xCF895F));
+		glowing = (GlowingEssenceIngredient) GameRegistry.register(new GlowingEssenceIngredient().setColor(0xCF895F));
 		fire = (EssenceIngredient) GameRegistry.register(new EssenceIngredient("fire").setColor(0xDDB849));
 
 		// TODO: add salt as ItemIngredient in case it is present as an item (or

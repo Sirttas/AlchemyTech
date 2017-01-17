@@ -15,9 +15,8 @@ public class EssenceIngredient extends Ingredient implements IEssenceIngredient 
 	}
 
 	@Override
-	public void applyOnEntity(Entity eneity, int strenth) {
-		// TODO Auto-generated method stub
-
+	public void applyOnEntity(Entity entity, int strenth) {
+		entity.getEntityData().setInteger("GLOWING", 200);
 	}
 
 }

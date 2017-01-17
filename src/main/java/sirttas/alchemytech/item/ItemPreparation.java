@@ -10,10 +10,15 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.nbt.NBTTagString;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import sirttas.alchemytech.ingredient.Ingredient;
+import sirttas.alchemytech.ingredient.api.IEssenceIngredient;
 
 public class ItemPreparation extends ItemAT {
 
@@ -167,5 +172,23 @@ public class ItemPreparation extends ItemAT {
 			}
 		}, new Item[] { this });
 
+	}
+
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@Override
+	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn,
+			EnumHand hand) {
+
+		if (itemStackIn.getItem() instanceof ItemPreparation) {
+			playerIn.setActiveHand(hand);
+			for (Ingredient ingredient : this.getIngredients(itemStackIn)) {
+				if (ingredient instanceof IEssenceIngredient) {
+					((IEssenceIngredient) ingredient).applyOnEntity(playerIn, 1);
+				}
+			}
+
+			return new ActionResult(EnumActionResult.SUCCESS, itemStackIn);
+		}
+		return new ActionResult(EnumActionResult.FAIL, itemStackIn);
 	}
 }
