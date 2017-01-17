@@ -19,7 +19,7 @@ public class TileMixer extends TileInstrument {
 
 	@Override
 	public int[] getSlotsForFace(EnumFacing side) {
-		return new int[] { 0, 1, 2, 3, 4 };
+		return new int[] { 4, 0, 1, 2, 3 };
 	}
 
 	@Override
