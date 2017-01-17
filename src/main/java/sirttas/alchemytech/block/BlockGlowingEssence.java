@@ -21,7 +21,7 @@ public class BlockGlowingEssence extends Block {
 		this.setBlockUnbreakable();
 		this.setResistance(6000001.0F);
 		this.translucent = true;
-		this.setLightLevel(0.5F);
+		this.setLightLevel(0.8F);
 		this.setTickRandomly(true);
 	}
 
@@ -57,6 +57,19 @@ public class BlockGlowingEssence extends Block {
 	@Override
 	public void randomTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
 		worldIn.setBlockToAir(pos);
+	}
+
+	@Override
+	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
+		worldIn.setBlockToAir(pos);
+	}
+
+	/**
+	 * How many world ticks before ticking
+	 */
+	@Override
+	public int tickRate(World worldIn) {
+		return 1;
 	}
 
 }
