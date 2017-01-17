@@ -1,6 +1,7 @@
-package sirttas.alchemytech.ingredient;
+package sirttas.alchemytech.ingredient.essence;
 
 import net.minecraft.entity.Entity;
+import sirttas.alchemytech.ingredient.Ingredient;
 import sirttas.alchemytech.ingredient.api.IEssenceIngredient;
 
 public class EssenceIngredient extends Ingredient implements IEssenceIngredient {
