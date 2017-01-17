@@ -1,9 +1,11 @@
 package sirttas.alchemytech.network;
 
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import sirttas.alchemytech.EventManager;
 import sirttas.alchemytech.block.ATBlocks;
 import sirttas.alchemytech.ingredient.Ingredients;
 import sirttas.alchemytech.item.ATItems;
@@ -20,6 +22,7 @@ public class ATCommon implements IProxy {
 	 */
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
+		MinecraftForge.EVENT_BUS.register(new EventManager());
 		ATItems.preInit();
 		ATBlocks.preInit();
 		Ingredients.preInit();
