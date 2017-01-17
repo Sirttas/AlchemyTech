@@ -12,6 +12,6 @@ public class GlowingEssenceIngredient extends EssenceIngredient {
 
 	@Override
 	public void applyOnEntity(Entity entity, int strenth) {
-		entity.getEntityData();
+		entity.getEntityData().setInteger("GLOWING", 200);
 	}
 }
