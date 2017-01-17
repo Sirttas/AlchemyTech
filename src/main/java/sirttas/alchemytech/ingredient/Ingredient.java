@@ -9,12 +9,6 @@ public class Ingredient extends net.minecraftforge.fml.common.registry.IForgeReg
 	public static final RegistryNamespaced<ResourceLocation, Ingredient> REGISTRY = IngredientRegistry
 			.getIngredienRegistry();
 
-	public static final int NO_FREEZING = -101;
-	public static final int NO_BOILING = 101;
-
-	private int freezingPoint;
-	private int boilingPoint;
-
 	private String unlocalizedName;
 
 	private int color;
@@ -28,24 +22,6 @@ public class Ingredient extends net.minecraftforge.fml.common.registry.IForgeReg
 			setRegistryName(name);
 			setUnlocalizedName(name);
 		}
-	}
-
-	public int getFreezingPoint() {
-		return freezingPoint;
-	}
-
-	public Ingredient setFreezingPoint(int freezingPoint) {
-		this.freezingPoint = freezingPoint;
-		return this;
-	}
-
-	public int getBoilingPoint() {
-		return boilingPoint;
-	}
-
-	public Ingredient setBoilingPoint(int boilingPoint) {
-		this.boilingPoint = boilingPoint;
-		return this;
 	}
 
 	public String getUnlocalizedName() {
