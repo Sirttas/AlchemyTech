@@ -178,17 +178,17 @@ public class ItemPreparation extends ItemAT {
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn,
 			EnumHand hand) {
+		boolean success = false;
 
 		if (itemStackIn.getItem() instanceof ItemPreparation) {
 			playerIn.setActiveHand(hand);
 			for (Ingredient ingredient : this.getIngredients(itemStackIn)) {
 				if (ingredient instanceof IEssenceIngredient) {
 					((IEssenceIngredient) ingredient).applyOnEntity(playerIn, 1);
+					success = true;
 				}
 			}
-
-			return new ActionResult(EnumActionResult.SUCCESS, itemStackIn);
 		}
-		return new ActionResult(EnumActionResult.FAIL, itemStackIn);
+		return new ActionResult(success == true ? EnumActionResult.SUCCESS : EnumActionResult.FAIL, itemStackIn);
 	}
 }
