@@ -74,7 +74,7 @@ public class Ingredients {
 										new ItemStack(Items.WHEAT), new ItemStack(Items.ROTTEN_FLESH) })
 												.setColor(0x66000A));
 		alteration = (EssenceIngredient) GameRegistry.register(new EssenceIngredient("alteration").setColor(0x8F395F));
-		brewing = (EssenceIngredient) GameRegistry.register(new EssenceIngredient("brewing").setColor(0x82624c));
+		brewing = (EssenceIngredient) GameRegistry.register(new EssenceIngredient("brewing").setColor(0x82624C));
 		energized = (EnergizedEssenceIngredient) GameRegistry
 				.register(new EnergizedEssenceIngredient().setColor(0xCF395F));
 		glowing = (GlowingEssenceIngredient) GameRegistry.register(new GlowingEssenceIngredient().setColor(0xCF895F));

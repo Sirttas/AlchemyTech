@@ -2,9 +2,13 @@ package sirttas.alchemytech.item;
 
 import java.util.List;
 
+import javax.annotation.Nullable;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.color.IItemColor;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -181,21 +185,54 @@ public class ItemPreparation extends ItemAT {
 
 	}
 
+	/**
+	 * returns the action that specifies what animation to play when the items
+	 * is being used
+	 */
+	@Override
+	public EnumAction getItemUseAction(ItemStack stack) {
+		return EnumAction.DRINK;
+	}
+
+	/**
+	 * How long it takes to use or consume an item
+	 */
+	@Override
+	public int getMaxItemUseDuration(ItemStack stack) {
+		return 32;
+	}
+
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn,
 			EnumHand hand) {
-		boolean success = false;
 
 		if (itemStackIn.getItem() instanceof ItemPreparation) {
-			playerIn.setActiveHand(hand);
 			for (Ingredient ingredient : this.getIngredients(itemStackIn)) {
 				if (ingredient instanceof IEssenceIngredient) {
-					((IEssenceIngredient) ingredient).applyOnEntity(playerIn, 1);
-					success = true;
+					playerIn.setActiveHand(hand);
+					return new ActionResult(EnumActionResult.SUCCESS, itemStackIn);
 				}
 			}
 		}
-		return new ActionResult(success == true ? EnumActionResult.SUCCESS : EnumActionResult.FAIL, itemStackIn);
+		return new ActionResult(EnumActionResult.FAIL, itemStackIn);
+	}
+
+	/**
+	 * Called when the player finishes using this Item (E.g. finishes eating.).
+	 * Not called when the player stops using the Item before the action is
+	 * complete.
+	 */
+	@Override
+	@Nullable
+	public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
+		if (stack.getItem() instanceof ItemPreparation) {
+			for (Ingredient ingredient : this.getIngredients(stack)) {
+				if (ingredient instanceof IEssenceIngredient) {
+					((IEssenceIngredient) ingredient).applyOnEntity(entityLiving, 1);
+				}
+			}
+		}
+		return stack;
 	}
 }
