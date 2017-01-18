@@ -2,11 +2,11 @@ package sirttas.alchemytech.ingredient.essence;
 
 import net.minecraft.entity.Entity;
 
-public class GlowingEssenceIngredient extends EssenceIngredient {
+public class EnergizedEssenceIngredient extends EssenceIngredient {
 
-	private static final String NAME = "glowing";
+	private static final String NAME = "energized";
 
-	public GlowingEssenceIngredient() {
+	public EnergizedEssenceIngredient() {
 		super(NAME);
 	}
 

@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import sirttas.alchemytech.ingredient.api.IInitIngredient;
 import sirttas.alchemytech.ingredient.api.IPostInitIngredient;
+import sirttas.alchemytech.ingredient.essence.EnergizedEssenceIngredient;
 import sirttas.alchemytech.ingredient.essence.EssenceIngredient;
 import sirttas.alchemytech.ingredient.essence.GlowingEssenceIngredient;
 import sirttas.alchemytech.ingredient.recipe.IngredientRecipeRegistry;
@@ -31,7 +32,7 @@ public class Ingredients {
 	public static ItemIngredient blaze;
 	public static MultipleItemIngredient organicMatter;
 	public static EssenceIngredient alteration;
-	public static EssenceIngredient energized;
+	public static EnergizedEssenceIngredient energized;
 	public static GlowingEssenceIngredient glowing;
 	public static EssenceIngredient fire;
 	public static Ingredient salt;
@@ -72,7 +73,8 @@ public class Ingredients {
 										new ItemStack(Items.WHEAT), new ItemStack(Items.ROTTEN_FLESH) })
 												.setColor(0x66000A));
 		alteration = (EssenceIngredient) GameRegistry.register(new EssenceIngredient("alteration").setColor(0x8F395F));
-		energized = (EssenceIngredient) GameRegistry.register(new EssenceIngredient("energized").setColor(0xCF395F));
+		energized = (EnergizedEssenceIngredient) GameRegistry
+				.register(new EnergizedEssenceIngredient().setColor(0xCF395F));
 		glowing = (GlowingEssenceIngredient) GameRegistry.register(new GlowingEssenceIngredient().setColor(0xCF895F));
 		fire = (EssenceIngredient) GameRegistry.register(new EssenceIngredient("fire").setColor(0xDDB849));
 
