@@ -19,6 +19,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import sirttas.alchemytech.ingredient.Ingredient;
 import sirttas.alchemytech.ingredient.api.IEssenceIngredient;
+import sirttas.alchemytech.ingredient.api.IItemIngredient;
 
 public class ItemPreparation extends ItemAT {
 
@@ -141,7 +142,13 @@ public class ItemPreparation extends ItemAT {
 		// TODO: line per ingredient types instead of ingredients
 
 		for (Ingredient ingredient : getIngredients(stack)) {
-			tooltip.add(ingredient.getDisplayName());
+			if (ingredient instanceof IEssenceIngredient) {
+				tooltip.add("§b" + ingredient.getDisplayName());
+			} else if (ingredient instanceof IItemIngredient) {
+				tooltip.add("§f" + ingredient.getDisplayName());
+			} else {
+				tooltip.add(ingredient.getDisplayName());
+			}
 		}
 	}
 
