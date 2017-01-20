@@ -11,7 +11,7 @@ public class FireEssenceIngredient extends EssenceIngredient {
 	}
 
 	@Override
-	public void applyOnEntity(Entity entity, int strenth) {
+	public void applyOnEntity(Entity entity, int strength) {
 		entity.setFire(10);
 	}
 }

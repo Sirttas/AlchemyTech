@@ -9,24 +9,24 @@ public class EnergizedEssenceIngredient extends EssenceIngredient {
 
 	private static final String NAME = "energized";
 	private PotionEffect speed;
-	private PotionEffect strenth;
+	private PotionEffect strength;
 
 	public EnergizedEssenceIngredient() {
 		super(NAME);
 	}
 
 	@Override
-	public void applyOnEntity(Entity entity, int strenth) {
+	public void applyOnEntity(Entity entity, int strength) {
 		if (entity instanceof EntityLivingBase) {
 			EntityLivingBase livingEntity = (EntityLivingBase) entity;
 
-			if (speed == null || this.strenth == null) {
+			if (speed == null || this.strength == null) {
 				speed = new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:speed"), 10, 1);
-				this.strenth = new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:strenth"), 10, 1);
+				this.strength = new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:strength"), 10, 1);
 			}
 
 			livingEntity.addPotionEffect(speed);
-			livingEntity.addPotionEffect(this.strenth);
+			livingEntity.addPotionEffect(this.strength);
 		}
 	}
 }

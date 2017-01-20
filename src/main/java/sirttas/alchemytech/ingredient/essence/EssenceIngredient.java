@@ -11,11 +11,11 @@ public class EssenceIngredient extends Ingredient implements IEssenceIngredient 
 	}
 
 	public EssenceIngredient(String name) {
-		super(name);
+		super(name + "Essence");
 	}
 
 	@Override
-	public void applyOnEntity(Entity entity, int strenth) {
+	public void applyOnEntity(Entity entity, int strength) {
 	}
 
 }
