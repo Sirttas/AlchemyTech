@@ -9,6 +9,7 @@ import sirttas.alchemytech.ingredient.api.IInitIngredient;
 import sirttas.alchemytech.ingredient.api.IPostInitIngredient;
 import sirttas.alchemytech.ingredient.essence.EnergizedEssenceIngredient;
 import sirttas.alchemytech.ingredient.essence.EssenceIngredient;
+import sirttas.alchemytech.ingredient.essence.FireEssenceIngredient;
 import sirttas.alchemytech.ingredient.essence.GlowingEssenceIngredient;
 import sirttas.alchemytech.ingredient.recipe.IngredientRecipeRegistry;
 import sirttas.alchemytech.ingredient.recipe.instrument.CentrifugeRecipe;
@@ -35,7 +36,7 @@ public class Ingredients {
 	public static EssenceIngredient brewing;
 	public static EnergizedEssenceIngredient energized;
 	public static GlowingEssenceIngredient glowing;
-	public static EssenceIngredient fire;
+	public static FireEssenceIngredient fire;
 	public static Ingredient salt;
 	public static Ingredient oil;
 	public static Ingredient graphite;
@@ -78,7 +79,7 @@ public class Ingredients {
 		energized = (EnergizedEssenceIngredient) GameRegistry
 				.register(new EnergizedEssenceIngredient().setColor(0xCF395F));
 		glowing = (GlowingEssenceIngredient) GameRegistry.register(new GlowingEssenceIngredient().setColor(0xCF895F));
-		fire = (EssenceIngredient) GameRegistry.register(new EssenceIngredient("fire").setColor(0xDDB849));
+		fire = (FireEssenceIngredient) GameRegistry.register(new FireEssenceIngredient().setColor(0xDDB849));
 
 		// TODO: add salt as ItemIngredient in case it is present as an item (or
 		// in config)
