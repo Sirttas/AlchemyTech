@@ -21,7 +21,7 @@ public class EventManager {
 
 		if (data.hasKey(GLOWING)) {
 			data.setInteger(GLOWING, data.getInteger(GLOWING) - 1);
-			if (entity.getEntityWorld().isAirBlock(entity.getPosition())) {
+			if (data.getInteger(GLOWING) % 10 == 0 && entity.getEntityWorld().isAirBlock(entity.getPosition())) {
 				entity.getEntityWorld().setBlockState(entity.getPosition(), ATBlocks.glowingEssence.getDefaultState());
 			}
 			if (data.getInteger(GLOWING) == 0) {
