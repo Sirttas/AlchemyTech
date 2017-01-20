@@ -38,7 +38,7 @@ public class ItemIngredient extends Ingredient implements IPostInitIngredient, I
 
 	public static Ingredient getIngredientFromStack(ItemStack stack) {
 		for (IItemIngredient ingredient : itemToIngredient) {
-			if (ingredient instanceof Ingredient && ingredient.producedFromItem(stack)) {
+			if (ingredient instanceof Ingredient && ingredient.isProducedFromItem(stack)) {
 				return (Ingredient)ingredient;
 			}
 		}
@@ -59,7 +59,7 @@ public class ItemIngredient extends Ingredient implements IPostInitIngredient, I
 	}
 
 	@Override
-	public boolean producedFromItem(ItemStack stack) {
+	public boolean isProducedFromItem(ItemStack stack) {
 		return this.stack.isItemEqual(stack);
 	}
 

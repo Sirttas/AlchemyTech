@@ -4,5 +4,5 @@ import net.minecraft.item.ItemStack;
 
 public interface IItemIngredient {
 	
-	public boolean producedFromItem(ItemStack stack);
+	public boolean isProducedFromItem(ItemStack stack);
 }

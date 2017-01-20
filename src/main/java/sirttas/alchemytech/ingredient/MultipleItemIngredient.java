@@ -42,7 +42,7 @@ public class MultipleItemIngredient extends Ingredient implements IPostInitIngre
 	}
 
 	@Override
-	public boolean producedFromItem(ItemStack stack) {
+	public boolean isProducedFromItem(ItemStack stack) {
 		for (ItemStack item : stacks) {
 			if (item.isItemEqual(stack)) {
 				return true;
