@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import sirttas.alchemytech.ingredient.api.IInitIngredient;
 import sirttas.alchemytech.ingredient.api.IPostInitIngredient;
+import sirttas.alchemytech.ingredient.essence.DiamondEssenceIngredient;
 import sirttas.alchemytech.ingredient.essence.EnergizedEssenceIngredient;
 import sirttas.alchemytech.ingredient.essence.EssenceIngredient;
 import sirttas.alchemytech.ingredient.essence.FireEssenceIngredient;
@@ -34,6 +35,7 @@ public class Ingredients {
 	public static MultipleItemIngredient organicMatter;
 	public static EssenceIngredient alteration;
 	public static EssenceIngredient brewing;
+	public static DiamondEssenceIngredient diamondEssence;
 	public static EnergizedEssenceIngredient energized;
 	public static GlowingEssenceIngredient glowing;
 	public static FireEssenceIngredient fire;
@@ -76,6 +78,8 @@ public class Ingredients {
 												.setColor(0x66000A));
 		alteration = (EssenceIngredient) GameRegistry.register(new EssenceIngredient("alteration").setColor(0x8F395F));
 		brewing = (EssenceIngredient) GameRegistry.register(new EssenceIngredient("brewing").setColor(0x82624C));
+		diamondEssence = (DiamondEssenceIngredient) GameRegistry
+				.register(new DiamondEssenceIngredient().setColor(0xBECDE5));
 		energized = (EnergizedEssenceIngredient) GameRegistry
 				.register(new EnergizedEssenceIngredient().setColor(0xCF395F));
 		glowing = (GlowingEssenceIngredient) GameRegistry.register(new GlowingEssenceIngredient().setColor(0xCF895F));
@@ -123,6 +127,8 @@ public class Ingredients {
 				new Ingredient[] { energized, sugar, sugar, sugar }));
 		IngredientRecipeRegistry.register(new ShakerRecipe(new Ingredient[] { glowstone, glowstone, glowstone },
 				new Ingredient[] { glowing, sugar, sugar, sugar }));
+		IngredientRecipeRegistry
+				.register(new ShakerRecipe(diamondEssence, new Ingredient[] { alteration, diamond, fire }));
 		IngredientRecipeRegistry
 				.register(new CentrifugeRecipe(new Ingredient[] { oil, waste }, new Ingredient[] { organicMatter }));
 		IngredientRecipeRegistry
