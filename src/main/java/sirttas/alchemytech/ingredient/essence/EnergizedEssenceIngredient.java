@@ -8,8 +8,6 @@ import net.minecraft.potion.PotionEffect;
 public class EnergizedEssenceIngredient extends EssenceIngredient {
 
 	private static final String NAME = "energized";
-	private PotionEffect speed;
-	private PotionEffect strength;
 
 	public EnergizedEssenceIngredient() {
 		super(NAME);
@@ -20,13 +18,10 @@ public class EnergizedEssenceIngredient extends EssenceIngredient {
 		if (entity instanceof EntityLivingBase) {
 			EntityLivingBase livingEntity = (EntityLivingBase) entity;
 
-			if (speed == null || this.strength == null) {
-				speed = new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:speed"), 10, 1);
-				this.strength = new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:strength"), 10, 1);
-			}
-
-			livingEntity.addPotionEffect(speed);
-			livingEntity.addPotionEffect(this.strength);
+			livingEntity.addPotionEffect(
+					new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:speed"), 1200, 0));
+			livingEntity.addPotionEffect(
+					new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:strength"), 1200, 0));
 		}
 	}
 }
