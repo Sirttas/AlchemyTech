@@ -14,7 +14,6 @@ import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 import sirttas.alchemytech.block.ATBlocks;
-import sirttas.alchemytech.ingredient.Ingredient;
 
 public class ATItems {
 	public static ItemPreparation preparation;
@@ -63,16 +62,10 @@ public class ATItems {
 			public int getColorFromItemstack(ItemStack stack, int tintIndex) {
 				if (tintIndex == 0) {
 					return preparation.getIngredientsColor(stack);
-				} else if (tintIndex == 1) {
-					Ingredient ingredient = pipette.getIngredient(stack);
-
-					if (ingredient != null) {
-						return ingredient.getColor();
-					}
 				}
 				return -1;
 			}
-		}, new Item[] { preparation, pipette });
+		}, new Item[] { preparation });
 
 	}
 
