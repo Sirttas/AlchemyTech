@@ -188,7 +188,6 @@ public class ItemPreparation extends ItemAT {
 		return 32;
 	}
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn,
 			EnumHand hand) {
@@ -197,11 +196,11 @@ public class ItemPreparation extends ItemAT {
 			for (Ingredient ingredient : this.getIngredients(itemStackIn)) {
 				if (ingredient instanceof IEssenceIngredient) {
 					playerIn.setActiveHand(hand);
-					return new ActionResult(EnumActionResult.SUCCESS, itemStackIn);
+					return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
 				}
 			}
 		}
-		return new ActionResult(EnumActionResult.FAIL, itemStackIn);
+		return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemStackIn);
 	}
 
 	/**

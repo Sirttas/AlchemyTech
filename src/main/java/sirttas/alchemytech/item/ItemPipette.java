@@ -2,10 +2,13 @@ package sirttas.alchemytech.item;
 
 import java.util.List;
 
+import javax.annotation.Nullable;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
@@ -67,12 +70,45 @@ public class ItemPipette extends ItemAT {
 		}
 	}
 
+	private ItemStack findPreparation(EntityPlayer player) {
+		if (this.isPreparation(player.getHeldItem(EnumHand.OFF_HAND))) {
+			return player.getHeldItem(EnumHand.OFF_HAND);
+		} else if (this.isPreparation(player.getHeldItem(EnumHand.MAIN_HAND))) {
+			return player.getHeldItem(EnumHand.MAIN_HAND);
+		} else {
+			for (int i = 0; i < player.inventory.getSizeInventory(); ++i) {
+				ItemStack itemstack = player.inventory.getStackInSlot(i);
+
+				if (this.isPreparation(itemstack)) {
+					return itemstack;
+				}
+			}
+			return null;
+		}
+	}
+
+	protected boolean isPreparation(@Nullable ItemStack stack) {
+		return stack != null && stack.getItem() instanceof ItemPreparation;
+	}
+
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn,
 			EnumHand hand) {
+		ItemStack stack = findPreparation(playerIn);
 
-		// return new ActionResult(EnumActionResult.SUCCESS, itemStackIn);
-		return super.onItemRightClick(itemStackIn, worldIn, playerIn, hand);
+		if (stack != null) {
+			ItemPreparation preparation = (ItemPreparation) stack.getItem();
+			Ingredient ingredient = this.getIngredient(itemStackIn);
+
+			if (ingredient == null) {
+				this.setIngredient(itemStackIn, preparation.removeIngredientAt(stack, 0));
+			} else {
+				this.setIngredient(itemStackIn, null);
+				preparation.addIngredient(stack, ingredient);
+			}
+			return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemStackIn);
+		}
+		return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemStackIn);
 	}
 
 }
