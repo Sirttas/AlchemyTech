@@ -1,6 +1,7 @@
 itemGroup.alchemytech=Alchemy Tech
 
 item.preparation.name=Preparation
+item.pipette.name=Pipette
 item.brassIngot.name=Brass Ingot
 item.copperIngot.name=Copper Ingot
 item.zincIngot.name=Zinc Ingot
@@ -21,10 +22,11 @@ ingredient.gold.name=Gold
 ingredient.diamond.name=Diamond
 ingredient.blaze.name=Blaze Powder
 ingredient.organicMatter.name=Organic Matter
-ingredient.alteration.name=Alteration Essence
-ingredient.energized.name=Energized Essence
-ingredient.glowing.name=Glowing Essence
-ingredient.fire.name=Fire Essence
+ingredient.alterationEssence.name=Alteration Essence
+ingredient.energizedEssence.name=Energized Essence
+ingredient.glowingEssence.name=Glowing Essence
+ingredient.fireEssence.name=Fire Essence
+ingredient.diamondEssence.name=Diamond Essence
 ingredient.salt.name=Salt
 ingredient.oil.name=Oil
 ingredient.graphite.name=Graphite
