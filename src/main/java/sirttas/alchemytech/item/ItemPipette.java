@@ -88,7 +88,8 @@ public class ItemPipette extends ItemAT {
 	}
 
 	protected boolean isPreparation(@Nullable ItemStack stack) {
-		return stack != null && stack.getItem() instanceof ItemPreparation;
+		return stack != null && stack.getItem() instanceof ItemPreparation && !(this.getIngredient(stack) != null
+				&& ((ItemPreparation) stack.getItem()).getIngredientCount(stack) == 10);
 	}
 
 	@Override
