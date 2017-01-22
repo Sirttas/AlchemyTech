@@ -2,10 +2,7 @@ package sirttas.alchemytech.item;
 
 import java.util.List;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
@@ -59,29 +56,22 @@ public class ItemPipette extends ItemAT {
 	public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
 		Ingredient ingredient = this.getIngredient(stack);
 
-		if (ingredient instanceof IEssenceIngredient) {
-			tooltip.add("§b" + ingredient.getDisplayName());
-		} else if (ingredient instanceof IItemIngredient) {
-			tooltip.add("§f" + ingredient.getDisplayName());
-		} else {
-			tooltip.add(ingredient.getDisplayName());
-		}
-	}
-
-	@SideOnly(Side.CLIENT)
-	public void initColors() {
-		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new IItemColor() {
-			@Override
-			public int getColorFromItemstack(ItemStack stack, int tintIndex) {
-				return tintIndex > 0 ? -1 : getIngredient(stack).getColor();
+		if (ingredient != null) {
+			if (ingredient instanceof IEssenceIngredient) {
+				tooltip.add("§b" + ingredient.getDisplayName());
+			} else if (ingredient instanceof IItemIngredient) {
+				tooltip.add("§f" + ingredient.getDisplayName());
+			} else {
+				tooltip.add(ingredient.getDisplayName());
 			}
-		}, new Item[] { this });
-
+		}
 	}
 
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn,
 			EnumHand hand) {
+
+		// return new ActionResult(EnumActionResult.SUCCESS, itemStackIn);
 		return super.onItemRightClick(itemStackIn, worldIn, playerIn, hand);
 	}
 

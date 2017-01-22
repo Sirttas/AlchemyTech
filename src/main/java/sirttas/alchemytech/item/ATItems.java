@@ -1,7 +1,10 @@
 package sirttas.alchemytech.item;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -11,6 +14,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 import sirttas.alchemytech.block.ATBlocks;
+import sirttas.alchemytech.ingredient.Ingredient;
 
 public class ATItems {
 	public static ItemPreparation preparation;
@@ -52,9 +56,28 @@ public class ATItems {
 		centrifugeBarrel.initModel();
 	}
 
+	@SideOnly(Side.CLIENT)
+	public static void initColors() {
+		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new IItemColor() {
+			@Override
+			public int getColorFromItemstack(ItemStack stack, int tintIndex) {
+				if (tintIndex == 0) {
+					return preparation.getIngredientsColor(stack);
+				} else if (tintIndex == 1) {
+					Ingredient ingredient = pipette.getIngredient(stack);
+
+					if (ingredient != null) {
+						return ingredient.getColor();
+					}
+				}
+				return -1;
+			}
+		}, new Item[] { preparation, pipette });
+
+	}
+
 	public static void postInit() {
-		preparation.initColors();
-		pipette.initColors();
+		initColors();
 
 		// TODO: add option to disable this craft
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(brassIngot, 4),

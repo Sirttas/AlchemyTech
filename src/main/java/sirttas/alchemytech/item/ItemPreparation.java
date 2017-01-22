@@ -4,12 +4,9 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -172,17 +169,6 @@ public class ItemPreparation extends ItemAT {
 			B += (color & 0xff) * ratio;
 		}
 		return R << 16 | G << 8 | B;
-	}
-
-	@SideOnly(Side.CLIENT)
-	public void initColors() {
-		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new IItemColor() {
-			@Override
-			public int getColorFromItemstack(ItemStack stack, int tintIndex) {
-				return tintIndex > 0 ? -1 : getIngredientsColor(stack);
-			}
-		}, new Item[] { this });
-
 	}
 
 	/**
