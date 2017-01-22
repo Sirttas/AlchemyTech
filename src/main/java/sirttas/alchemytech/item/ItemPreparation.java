@@ -75,7 +75,7 @@ public class ItemPreparation extends ItemAT {
 		return getIngredientsTagList(stack).tagCount();
 	}
 
-	public Ingredient removeIngredient(ItemStack stack, int index) {
+	public Ingredient removeIngredientAt(ItemStack stack, int index) {
 		NBTTagList list = getIngredientsTagList(stack);
 		int size = list.tagCount();
 
@@ -133,7 +133,7 @@ public class ItemPreparation extends ItemAT {
 		// more ingredients
 		ItemPreparation fromPrep = (ItemPreparation) from.getItem();
 		ItemPreparation toPrep = (ItemPreparation) to.getItem();
-		Ingredient ingredient = fromPrep.removeIngredient(from, 0);
+		Ingredient ingredient = fromPrep.removeIngredientAt(from, 0);
 
 		if (ingredient != null) {
 			toPrep.addIngredient(to, ingredient);

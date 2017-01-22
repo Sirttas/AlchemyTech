@@ -33,7 +33,7 @@ public class MixerRecipe implements IIngredientRecipe<TileMixer> {
 
 						while (preparation.getIngredientCount(stack) > 0
 								&& ATItems.preparation.getIngredientCount(result) < ItemPreparation.MAX_INGREDIENTS) {
-							ATItems.preparation.addIngredient(result, preparation.removeIngredient(stack, 0));
+							ATItems.preparation.addIngredient(result, preparation.removeIngredientAt(stack, 0));
 						}
 						if (preparation.getIngredientCount(stack) == 0) {
 							mixer.setInventorySlotContents(i, new ItemStack(Items.GLASS_BOTTLE));
