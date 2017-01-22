@@ -27,7 +27,7 @@ public class ATItems {
 
 	public static void preInit() {
 		preparation = GameRegistry.register(new ItemPreparation());
-		pipette = new ItemPipette();
+		pipette = GameRegistry.register(new ItemPipette());
 		brassIngot = GameRegistry.register(new ItemAT("brassIngot"));
 		copperIngot = GameRegistry.register(new ItemAT("copperIngot"));
 		zincIngot = GameRegistry.register(new ItemAT("zincIngot"));
