@@ -72,7 +72,7 @@ public class Ingredients {
 		blaze = (ItemIngredient) GameRegistry
 				.register(new ItemIngredient("blaze", new ItemStack(Items.BLAZE_POWDER)).setColor(0xAD8203));
 		coal = ((MultipleItemIngredient) GameRegistry.register(new MultipleItemIngredient("coal",
-				new ItemStack[] { new ItemStack(Items.COAL), new ItemStack(Items.COAL, 1) }).setColor(0x1F2021)))
+				new ItemStack[] { new ItemStack(Items.COAL), new ItemStack(Items.COAL, 1, 1) }).setColor(0x1F2021)))
 						.setReturnStackIndex(0);
 		organicMatter = (MultipleItemIngredient) GameRegistry
 				.register(
