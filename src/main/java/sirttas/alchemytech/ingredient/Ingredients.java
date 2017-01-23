@@ -6,7 +6,6 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import sirttas.alchemytech.ingredient.api.IInitIngredient;
-import sirttas.alchemytech.ingredient.api.IItemIngredient;
 import sirttas.alchemytech.ingredient.api.IPostInitIngredient;
 import sirttas.alchemytech.ingredient.essence.DiamondEssenceIngredient;
 import sirttas.alchemytech.ingredient.essence.EnergizedEssenceIngredient;
@@ -23,7 +22,7 @@ public class Ingredients {
 
 	public static ItemIngredient redstone;
 	public static ItemIngredient glowstone;
-	public static IItemIngredient lapys;
+	public static ItemIngredient lapys;
 	public static ItemIngredient gunpowder;
 	public static ItemIngredient sugar;
 	public static ItemIngredient netherWart;
@@ -53,7 +52,7 @@ public class Ingredients {
 				.register(new ItemIngredient("redstone", new ItemStack(Items.REDSTONE)).setColor(0x720000));
 		glowstone = (ItemIngredient) GameRegistry
 				.register(new ItemIngredient("glowstone", new ItemStack(Items.GLOWSTONE_DUST)).setColor(0xD2D200));
-		lapys = (IItemIngredient) GameRegistry
+		lapys = (ItemIngredient) GameRegistry
 				.register(new ItemIngredient("lapys", new ItemStack(Items.DYE, 1, 4)).setColor(0x345EC3));
 		gunpowder = (ItemIngredient) GameRegistry
 				.register(new ItemIngredient("gunpowder", new ItemStack(Items.GUNPOWDER)).setColor(0x727272));
