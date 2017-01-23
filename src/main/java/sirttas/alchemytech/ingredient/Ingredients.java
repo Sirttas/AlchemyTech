@@ -41,12 +41,12 @@ public class Ingredients {
 	public static GlowingEssenceIngredient glowing;
 	public static FireEssenceIngredient fire;
 	public static EssenceIngredient fortune;
-	public static Ingredient salt;
+	public static OreDictionaryItemIngredient salt;
+	public static OreDictionaryItemIngredient sulfur;
+	public static OreDictionaryItemIngredient salpetre;
+	public static OreDictionaryItemIngredient graphite;
 	public static Ingredient oil;
-	public static Ingredient graphite;
 	public static Ingredient diamondBit;
-	public static Ingredient sulfur;
-	public static Ingredient salpetre;
 	public static Ingredient waste;
 
 	public static void preInit() {
@@ -74,6 +74,7 @@ public class Ingredients {
 				.register(new ItemIngredient("blaze", new ItemStack(Items.BLAZE_POWDER)).setColor(0xAD8203));
 		quartz = (ItemIngredient) GameRegistry
 				.register(new ItemIngredient("quartz", new ItemStack(Items.QUARTZ)).setColor(0xFDFFEF));
+
 		coal = ((MultipleItemIngredient) GameRegistry.register(new MultipleItemIngredient("coal",
 				new ItemStack[] { new ItemStack(Items.COAL), new ItemStack(Items.COAL, 1, 1) }).setColor(0x1F2021)))
 						.setReturnStackIndex(0);
@@ -83,6 +84,7 @@ public class Ingredients {
 								new ItemStack[] { new ItemStack(Items.BEEF), new ItemStack(Items.PORKCHOP),
 										new ItemStack(Items.WHEAT), new ItemStack(Items.ROTTEN_FLESH) })
 												.setColor(0x66000A));
+
 		alteration = (EssenceIngredient) GameRegistry.register(new EssenceIngredient("alteration").setColor(0x8F395F));
 		brewing = (EssenceIngredient) GameRegistry.register(new EssenceIngredient("brewing").setColor(0x82624C));
 		diamondEssence = (DiamondEssenceIngredient) GameRegistry
@@ -93,13 +95,17 @@ public class Ingredients {
 		fire = (FireEssenceIngredient) GameRegistry.register(new FireEssenceIngredient().setColor(0xDDB849));
 		fortune = (EssenceIngredient) GameRegistry.register(new EssenceIngredient("fortune").setColor(0xBAD0f4));
 
-		// TODO: add salt as ItemIngredient in case it is present as an item (or
-		// in config)
-		salt = GameRegistry.register(new Ingredient("salt").setColor(0xE0E0AA));
+		salt = (OreDictionaryItemIngredient) GameRegistry
+				.register(new OreDictionaryItemIngredient("salt").setColor(0xE0E0AA));
+		graphite = (OreDictionaryItemIngredient) GameRegistry
+				.register(new OreDictionaryItemIngredient("graphite").setColor(0x4E5156));
+		sulfur = (OreDictionaryItemIngredient) GameRegistry
+				.register(new OreDictionaryItemIngredient("sulfur").setColor(0xE5F26F));
+		salpetre = (OreDictionaryItemIngredient) GameRegistry
+				.register(new OreDictionaryItemIngredient("salpetre").setColor(0xFDFFEF));
+
 		oil = GameRegistry.register(new Ingredient("oil").setColor(0xDBE2A3));
-		graphite = GameRegistry.register(new Ingredient("graphite").setColor(0x4E5156));
-		sulfur = GameRegistry.register(new Ingredient("sulfur").setColor(0xE5F26F));
-		salpetre = GameRegistry.register(new Ingredient("salpetre").setColor(0xFDFFEF));
+		diamondBit = GameRegistry.register(new Ingredient("diamondBit").setColor(0xBECDE5));
 		waste = GameRegistry.register(new Ingredient("waste").setColor(0x50585B));
 	}
 
@@ -153,14 +159,10 @@ public class Ingredients {
 				.register(new ShakerRecipe(diamondEssence, new Ingredient[] { alteration, diamond, fire }));
 		IngredientRecipeRegistry
 				.register(new ShakerRecipe(fortune, new Ingredient[] { alteration, diamond, quartz, lapys }));
-		IngredientRecipeRegistry
-				.register(new ShakerRecipe(gunpowder, new Ingredient[] { coal, sulfur, salpetre }));
+		IngredientRecipeRegistry.register(new ShakerRecipe(gunpowder, new Ingredient[] { coal, sulfur, salpetre }));
 
-		IngredientRecipeRegistry
-				.register(new CentrifugeRecipe(new Ingredient[] { oil, waste }, organicMatter));
-		IngredientRecipeRegistry
-				.register(new CentrifugeRecipe(new Ingredient[] { graphite, waste }, coal));
-		IngredientRecipeRegistry
-				.register(new CentrifugeRecipe(new Ingredient[] { coal, sulfur, salpetre }, gunpowder));
+		IngredientRecipeRegistry.register(new CentrifugeRecipe(new Ingredient[] { oil, waste }, organicMatter));
+		IngredientRecipeRegistry.register(new CentrifugeRecipe(new Ingredient[] { graphite, waste }, coal));
+		IngredientRecipeRegistry.register(new CentrifugeRecipe(new Ingredient[] { coal, sulfur, salpetre }, gunpowder));
 	}
 }

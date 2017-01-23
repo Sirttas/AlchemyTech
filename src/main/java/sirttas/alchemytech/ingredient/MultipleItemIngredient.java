@@ -27,7 +27,7 @@ public class MultipleItemIngredient extends Ingredient implements IPostInitIngre
 			this.stacks.add(stack);
 		}
 	}
-	
+
 	@Override
 	public void postInit() {
 		ItemIngredient.itemToIngredient.add(this);
@@ -55,7 +55,7 @@ public class MultipleItemIngredient extends Ingredient implements IPostInitIngre
 	@Override
 	public ItemStack getStack() {
 		if (returnStack >= 0 && returnStack < this.stacks.size()) {
-			return this.stacks.get(returnStack);
+			return this.stacks.get(returnStack).copy();
 		}
 		return null;
 	}
