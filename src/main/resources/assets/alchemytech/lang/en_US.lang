@@ -31,6 +31,8 @@ ingredient.salt.name=Salt
 ingredient.oil.name=Oil
 ingredient.graphite.name=Graphite
 ingredient.diamondBit.name=Diamond Bit
+ingredient.sulfur.name=Sulfur
+ingredient.salpetre.name=Salpetre
 ingredient.waste.name=§cWaste
 
 tile.mixer.name=Mixer

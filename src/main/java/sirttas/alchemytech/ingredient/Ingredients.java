@@ -43,6 +43,8 @@ public class Ingredients {
 	public static Ingredient oil;
 	public static Ingredient graphite;
 	public static Ingredient diamondBit;
+	public static Ingredient sulfur;
+	public static Ingredient salpetre;
 	public static Ingredient waste;
 
 	public static void preInit() {
@@ -90,6 +92,8 @@ public class Ingredients {
 		salt = GameRegistry.register(new Ingredient("salt").setColor(0xE0E0AA));
 		oil = GameRegistry.register(new Ingredient("oil").setColor(0xDBE2A3));
 		graphite = GameRegistry.register(new Ingredient("graphite").setColor(0x4E5156));
+		sulfur = GameRegistry.register(new Ingredient("sulfur").setColor(0xE5F26F));
+		salpetre = GameRegistry.register(new Ingredient("salpetre").setColor(0xFDFFEF));
 		waste = GameRegistry.register(new Ingredient("waste").setColor(0x50585B));
 	}
 
@@ -130,9 +134,11 @@ public class Ingredients {
 		IngredientRecipeRegistry
 				.register(new ShakerRecipe(diamondEssence, new Ingredient[] { alteration, diamond, fire }));
 		IngredientRecipeRegistry
-				.register(new CentrifugeRecipe(new Ingredient[] { oil, waste }, new Ingredient[] { organicMatter }));
+				.register(new CentrifugeRecipe(new Ingredient[] { oil, waste }, organicMatter));
 		IngredientRecipeRegistry
-				.register(new CentrifugeRecipe(new Ingredient[] { graphite/* , waste */ }, new Ingredient[] { coal }));
+				.register(new CentrifugeRecipe(new Ingredient[] { graphite, waste }, coal));
+		IngredientRecipeRegistry
+				.register(new CentrifugeRecipe(new Ingredient[] { coal, sulfur, salpetre }, gunpowder));
 
 		while (iterator.hasNext()) {
 			Ingredient ingredient = iterator.next();
