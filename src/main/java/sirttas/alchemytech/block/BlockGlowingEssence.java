@@ -27,10 +27,8 @@ public class BlockGlowingEssence extends Block {
 		super(Material.BARRIER);
 		this.setRegistryName("glowingEssence");
 		this.setUnlocalizedName("glowingEssence");
-		this.setBlockUnbreakable();
-		this.setResistance(6000001.0F);
 		this.translucent = true;
-		this.setLightLevel(1F);
+		this.setLightLevel(0.8F);
 	}
 
 	@Override
