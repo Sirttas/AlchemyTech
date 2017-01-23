@@ -49,11 +49,12 @@ public class ItemIngredient extends Ingredient implements IPostInitIngredient, I
 		return getIngredientFromStack(stack) != null;
 	}
 
+	@Override
 	public ItemStack getStack() {
 		return stack.copy();
 	}
 
-	public ItemIngredient setStack(ItemStack stack) {
+	public IItemIngredient setStack(ItemStack stack) {
 		this.stack = stack.copy();
 		return this;
 	}

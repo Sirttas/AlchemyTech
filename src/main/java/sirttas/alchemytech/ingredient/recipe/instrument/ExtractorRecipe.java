@@ -7,11 +7,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import sirttas.alchemytech.block.instrument.extractor.TileExtractor;
 import sirttas.alchemytech.ingredient.Ingredient;
-import sirttas.alchemytech.ingredient.ItemIngredient;
+import sirttas.alchemytech.ingredient.api.IItemIngredient;
 import sirttas.alchemytech.ingredient.recipe.IIngredientRecipe;
 import sirttas.alchemytech.item.ItemPreparation;
 
-public class FilterRecipe implements IIngredientRecipe<TileExtractor> {
+public class ExtractorRecipe implements IIngredientRecipe<TileExtractor> {
 
 	@Override
 	public void process(TileExtractor instrument) {
@@ -23,11 +23,15 @@ public class FilterRecipe implements IIngredientRecipe<TileExtractor> {
 			BlockPos pos = instrument.getPos();
 
 			for (Ingredient ingredient : ingredients) {
-				if (ingredient instanceof ItemIngredient) {
-					EntityItem item = new EntityItem(world, pos.getX() + 0.5, pos.getY() + 1.1, pos.getZ() + 0.5,
-							((ItemIngredient) ingredient).getStack());
+				if (ingredient instanceof IItemIngredient) {
+					ItemStack popup = ((IItemIngredient) ingredient).getStack();
 
-					world.spawnEntityInWorld(item);
+					if (popup != null) {
+						EntityItem item = new EntityItem(world, pos.getX() + 0.5, pos.getY() + 1.1, pos.getZ() + 0.5,
+								popup);
+
+						world.spawnEntityInWorld(item);
+					}
 				}
 			}
 			instrument.setInventorySlotContents(0, new ItemStack(Items.GLASS_BOTTLE));

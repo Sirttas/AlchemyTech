@@ -6,6 +6,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import sirttas.alchemytech.ingredient.api.IInitIngredient;
+import sirttas.alchemytech.ingredient.api.IItemIngredient;
 import sirttas.alchemytech.ingredient.api.IPostInitIngredient;
 import sirttas.alchemytech.ingredient.essence.DiamondEssenceIngredient;
 import sirttas.alchemytech.ingredient.essence.EnergizedEssenceIngredient;
@@ -14,7 +15,7 @@ import sirttas.alchemytech.ingredient.essence.FireEssenceIngredient;
 import sirttas.alchemytech.ingredient.essence.GlowingEssenceIngredient;
 import sirttas.alchemytech.ingredient.recipe.IngredientRecipeRegistry;
 import sirttas.alchemytech.ingredient.recipe.instrument.CentrifugeRecipe;
-import sirttas.alchemytech.ingredient.recipe.instrument.FilterRecipe;
+import sirttas.alchemytech.ingredient.recipe.instrument.ExtractorRecipe;
 import sirttas.alchemytech.ingredient.recipe.instrument.MixerRecipe;
 import sirttas.alchemytech.ingredient.recipe.instrument.ShakerRecipe;
 
@@ -22,16 +23,16 @@ public class Ingredients {
 
 	public static ItemIngredient redstone;
 	public static ItemIngredient glowstone;
-	public static ItemIngredient lapys;
+	public static IItemIngredient lapys;
 	public static ItemIngredient gunpowder;
 	public static ItemIngredient sugar;
 	public static ItemIngredient netherWart;
 	public static ItemIngredient chorus;
-	public static ItemIngredient coal;
 	public static ItemIngredient iron;
 	public static ItemIngredient gold;
 	public static ItemIngredient diamond;
 	public static ItemIngredient blaze;
+	public static MultipleItemIngredient coal;
 	public static MultipleItemIngredient organicMatter;
 	public static EssenceIngredient alteration;
 	public static EssenceIngredient brewing;
@@ -52,7 +53,7 @@ public class Ingredients {
 				.register(new ItemIngredient("redstone", new ItemStack(Items.REDSTONE)).setColor(0x720000));
 		glowstone = (ItemIngredient) GameRegistry
 				.register(new ItemIngredient("glowstone", new ItemStack(Items.GLOWSTONE_DUST)).setColor(0xD2D200));
-		lapys = (ItemIngredient) GameRegistry
+		lapys = (IItemIngredient) GameRegistry
 				.register(new ItemIngredient("lapys", new ItemStack(Items.DYE, 1, 4)).setColor(0x345EC3));
 		gunpowder = (ItemIngredient) GameRegistry
 				.register(new ItemIngredient("gunpowder", new ItemStack(Items.GUNPOWDER)).setColor(0x727272));
@@ -62,8 +63,6 @@ public class Ingredients {
 				.register(new ItemIngredient("netherWart", new ItemStack(Items.NETHER_WART)).setColor(0xA62530));
 		chorus = (ItemIngredient) GameRegistry
 				.register(new ItemIngredient("chorus", new ItemStack(Items.CHORUS_FRUIT)).setColor(0x5F395F));
-		coal = (ItemIngredient) GameRegistry
-				.register(new ItemIngredient("coal", new ItemStack(Items.COAL)).setColor(0x1F2021));
 		iron = (ItemIngredient) GameRegistry
 				.register(new ItemIngredient("iron", new ItemStack(Items.IRON_INGOT)).setColor(0xBDC3CC));
 		gold = (ItemIngredient) GameRegistry
@@ -72,6 +71,9 @@ public class Ingredients {
 				.register(new ItemIngredient("diamond", new ItemStack(Items.DIAMOND)).setColor(0xBECDE5));
 		blaze = (ItemIngredient) GameRegistry
 				.register(new ItemIngredient("blaze", new ItemStack(Items.BLAZE_POWDER)).setColor(0xAD8203));
+		coal = ((MultipleItemIngredient) GameRegistry.register(new MultipleItemIngredient("coal",
+				new ItemStack[] { new ItemStack(Items.COAL), new ItemStack(Items.COAL, 1) }).setColor(0x1F2021)))
+						.setReturnStackIndex(0);
 		organicMatter = (MultipleItemIngredient) GameRegistry
 				.register(
 						new MultipleItemIngredient("organicMatter",
@@ -113,7 +115,7 @@ public class Ingredients {
 		Iterator<Ingredient> iterator = Ingredient.REGISTRY.iterator();
 
 		IngredientRecipeRegistry.register(new MixerRecipe());
-		IngredientRecipeRegistry.register(new FilterRecipe());
+		IngredientRecipeRegistry.register(new ExtractorRecipe());
 		IngredientRecipeRegistry.register(new ShakerRecipe(alteration, new Ingredient[] { netherWart, chorus }));
 		IngredientRecipeRegistry.register(new ShakerRecipe(energized, new Ingredient[] { alteration, redstone }));
 		IngredientRecipeRegistry.register(new ShakerRecipe(glowing, new Ingredient[] { alteration, glowstone }));

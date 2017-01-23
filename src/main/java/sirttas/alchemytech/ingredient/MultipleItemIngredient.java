@@ -11,6 +11,7 @@ import sirttas.alchemytech.ingredient.api.IPostInitIngredient;
 public class MultipleItemIngredient extends Ingredient implements IPostInitIngredient, IItemIngredient {
 
 	private List<ItemStack> stacks = new ArrayList<ItemStack>();
+	private int returnStack = -1;
 
 	public MultipleItemIngredient() {
 		this(null);
@@ -49,6 +50,19 @@ public class MultipleItemIngredient extends Ingredient implements IPostInitIngre
 			}
 		}
 		return false;
+	}
+
+	@Override
+	public ItemStack getStack() {
+		if (returnStack >= 0 && returnStack < this.stacks.size()) {
+			return this.stacks.get(returnStack);
+		}
+		return null;
+	}
+
+	public MultipleItemIngredient setReturnStackIndex(int returnStack) {
+		this.returnStack = returnStack;
+		return this;
 	}
 
 }
