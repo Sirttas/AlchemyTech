@@ -40,6 +40,7 @@ public class Ingredients {
 	public static EnergizedEssenceIngredient energized;
 	public static GlowingEssenceIngredient glowing;
 	public static FireEssenceIngredient fire;
+	public static EssenceIngredient fortune;
 	public static Ingredient salt;
 	public static Ingredient oil;
 	public static Ingredient graphite;
@@ -90,6 +91,7 @@ public class Ingredients {
 				.register(new EnergizedEssenceIngredient().setColor(0xCF395F));
 		glowing = (GlowingEssenceIngredient) GameRegistry.register(new GlowingEssenceIngredient().setColor(0xCF895F));
 		fire = (FireEssenceIngredient) GameRegistry.register(new FireEssenceIngredient().setColor(0xDDB849));
+		fortune = (EssenceIngredient) GameRegistry.register(new EssenceIngredient("fortune").setColor(0xBAD0f4));
 
 		// TODO: add salt as ItemIngredient in case it is present as an item (or
 		// in config)
@@ -116,6 +118,18 @@ public class Ingredients {
 	public static void postInit() {
 		Iterator<Ingredient> iterator = Ingredient.REGISTRY.iterator();
 
+		initRecipes();
+
+		while (iterator.hasNext()) {
+			Ingredient ingredient = iterator.next();
+
+			if (ingredient instanceof IPostInitIngredient) {
+				((IPostInitIngredient) ingredient).postInit();
+			}
+		}
+	}
+
+	private static void initRecipes() {
 		IngredientRecipeRegistry.register(new MixerRecipe());
 		IngredientRecipeRegistry.register(new ExtractorRecipe());
 		IngredientRecipeRegistry.register(new ShakerRecipe(alteration, new Ingredient[] { netherWart, chorus }));
@@ -138,18 +152,15 @@ public class Ingredients {
 		IngredientRecipeRegistry
 				.register(new ShakerRecipe(diamondEssence, new Ingredient[] { alteration, diamond, fire }));
 		IngredientRecipeRegistry
+				.register(new ShakerRecipe(fortune, new Ingredient[] { alteration, diamond, quartz, lapys }));
+		IngredientRecipeRegistry
+				.register(new ShakerRecipe(gunpowder, new Ingredient[] { coal, sulfur, salpetre }));
+
+		IngredientRecipeRegistry
 				.register(new CentrifugeRecipe(new Ingredient[] { oil, waste }, organicMatter));
 		IngredientRecipeRegistry
 				.register(new CentrifugeRecipe(new Ingredient[] { graphite, waste }, coal));
 		IngredientRecipeRegistry
 				.register(new CentrifugeRecipe(new Ingredient[] { coal, sulfur, salpetre }, gunpowder));
-
-		while (iterator.hasNext()) {
-			Ingredient ingredient = iterator.next();
-
-			if (ingredient instanceof IPostInitIngredient) {
-				((IPostInitIngredient) ingredient).postInit();
-			}
-		}
 	}
 }
