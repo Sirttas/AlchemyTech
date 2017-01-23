@@ -96,13 +96,13 @@ public class Ingredients {
 		fortune = (EssenceIngredient) GameRegistry.register(new EssenceIngredient("fortune").setColor(0xBAD0f4));
 
 		salt = (OreDictionaryItemIngredient) GameRegistry
-				.register(new OreDictionaryItemIngredient("salt").setColor(0xE0E0AA));
+				.register(new OreDictionaryItemIngredient("salt", "foodSalt").setColor(0xE0E0AA));
 		graphite = (OreDictionaryItemIngredient) GameRegistry
-				.register(new OreDictionaryItemIngredient("graphite").setColor(0x4E5156));
+				.register(new OreDictionaryItemIngredient("graphite", "ingotGraphite").setColor(0x4E5156));
 		sulfur = (OreDictionaryItemIngredient) GameRegistry
-				.register(new OreDictionaryItemIngredient("sulfur").setColor(0xE5F26F));
+				.register(new OreDictionaryItemIngredient("sulfur", "dustSulfur").setColor(0xE5F26F));
 		salpetre = (OreDictionaryItemIngredient) GameRegistry
-				.register(new OreDictionaryItemIngredient("salpetre").setColor(0xFDFFEF));
+				.register(new OreDictionaryItemIngredient("salpetre", "dustSalpeter").setColor(0xFDFFEF));
 
 		oil = GameRegistry.register(new Ingredient("oil").setColor(0xDBE2A3));
 		diamondBit = GameRegistry.register(new Ingredient("diamondBit").setColor(0xBECDE5));
