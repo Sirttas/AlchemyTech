@@ -11,6 +11,7 @@ import sirttas.alchemytech.ingredient.essence.DiamondEssenceIngredient;
 import sirttas.alchemytech.ingredient.essence.EnergizedEssenceIngredient;
 import sirttas.alchemytech.ingredient.essence.EssenceIngredient;
 import sirttas.alchemytech.ingredient.essence.FireEssenceIngredient;
+import sirttas.alchemytech.ingredient.essence.FortuneEssenceIngredient;
 import sirttas.alchemytech.ingredient.essence.GlowingEssenceIngredient;
 import sirttas.alchemytech.ingredient.recipe.IngredientRecipeRegistry;
 import sirttas.alchemytech.ingredient.recipe.instrument.CentrifugeRecipe;
@@ -40,7 +41,7 @@ public class Ingredients {
 	public static EnergizedEssenceIngredient energized;
 	public static GlowingEssenceIngredient glowing;
 	public static FireEssenceIngredient fire;
-	public static EssenceIngredient fortune;
+	public static FortuneEssenceIngredient fortune;
 	public static OreDictionaryItemIngredient salt;
 	public static OreDictionaryItemIngredient sulfur;
 	public static OreDictionaryItemIngredient salpetre;
@@ -93,7 +94,7 @@ public class Ingredients {
 				.register(new EnergizedEssenceIngredient().setColor(0xCF395F));
 		glowing = (GlowingEssenceIngredient) GameRegistry.register(new GlowingEssenceIngredient().setColor(0xCF895F));
 		fire = (FireEssenceIngredient) GameRegistry.register(new FireEssenceIngredient().setColor(0xDDB849));
-		fortune = (EssenceIngredient) GameRegistry.register(new EssenceIngredient("fortune").setColor(0xBAD0f4));
+		fortune = (FortuneEssenceIngredient) GameRegistry.register(new FortuneEssenceIngredient().setColor(0xBAD0f4));
 
 		salt = (OreDictionaryItemIngredient) GameRegistry
 				.register(new OreDictionaryItemIngredient("salt", "foodSalt").setColor(0xE0E0AA));
