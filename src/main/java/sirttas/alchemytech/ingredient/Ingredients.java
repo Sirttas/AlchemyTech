@@ -161,6 +161,9 @@ public class Ingredients {
 		IngredientRecipeRegistry
 				.register(new ShakerRecipe(fortune, new Ingredient[] { alteration, diamond, quartz, lapys }));
 		IngredientRecipeRegistry.register(new ShakerRecipe(gunpowder, new Ingredient[] { coal, sulfur, salpetre }));
+		IngredientRecipeRegistry.register(new ShakerRecipe(quartz, new Ingredient[] { graphite, salpetre }));
+		IngredientRecipeRegistry.register(new ShakerRecipe(quartz, new Ingredient[] { alteration, lapys }));
+		IngredientRecipeRegistry.register(new ShakerRecipe(lapys, new Ingredient[] { alteration, quartz }));
 
 		IngredientRecipeRegistry.register(new CentrifugeRecipe(new Ingredient[] { oil, waste }, organicMatter));
 		IngredientRecipeRegistry.register(new CentrifugeRecipe(new Ingredient[] { graphite, waste }, coal));
