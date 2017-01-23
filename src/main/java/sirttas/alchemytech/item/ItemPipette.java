@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
@@ -25,6 +26,7 @@ public class ItemPipette extends ItemAT {
 
 	public ItemPipette() {
 		super(NAME);
+		this.setMaxStackSize(1);
 	}
 
 	public Ingredient getIngredient(ItemStack stack) {
@@ -103,6 +105,10 @@ public class ItemPipette extends ItemAT {
 
 			if (ingredient == null) {
 				this.setIngredient(itemStackIn, preparation.removeIngredientAt(stack, 0));
+				if (preparation.getIngredientCount(stack) == 0) {
+					playerIn.inventory.removeStackFromSlot(playerIn.inventory.getSlotFor(stack));
+					playerIn.inventory.addItemStackToInventory(new ItemStack(Items.GLASS_BOTTLE));
+				}
 			} else {
 				this.setIngredient(itemStackIn, null);
 				preparation.addIngredient(stack, ingredient);

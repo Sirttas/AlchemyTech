@@ -32,6 +32,7 @@ public class ItemPreparation extends ItemAT {
 
 	public ItemPreparation() {
 		super(NAME);
+		this.setMaxStackSize(1);
 	}
 
 	protected NBTTagList getIngredientsTagList(ItemStack stack) {
