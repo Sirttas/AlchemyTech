@@ -40,9 +40,7 @@ public abstract class SingleSlotIngredientRecipe<T extends TileInstrument> imple
 			for (Ingredient ingredient : output) {
 				preparation.addIngredient(stack, ingredient);
 			}
-
 		}
-
 	}
 
 	@Override
