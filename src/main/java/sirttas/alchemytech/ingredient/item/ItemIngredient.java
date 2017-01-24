@@ -1,10 +1,11 @@
-package sirttas.alchemytech.ingredient;
+package sirttas.alchemytech.ingredient.item;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import net.minecraft.item.ItemStack;
 import sirttas.alchemytech.AlchemyTech;
+import sirttas.alchemytech.ingredient.Ingredient;
 import sirttas.alchemytech.ingredient.api.IItemIngredient;
 import sirttas.alchemytech.ingredient.api.IPostInitIngredient;
 

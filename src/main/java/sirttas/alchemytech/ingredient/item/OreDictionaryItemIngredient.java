@@ -1,9 +1,10 @@
-package sirttas.alchemytech.ingredient;
+package sirttas.alchemytech.ingredient.item;
 
 import java.util.List;
 
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
+import sirttas.alchemytech.ingredient.Ingredient;
 import sirttas.alchemytech.ingredient.api.IItemIngredient;
 import sirttas.alchemytech.ingredient.api.IPostInitIngredient;
 

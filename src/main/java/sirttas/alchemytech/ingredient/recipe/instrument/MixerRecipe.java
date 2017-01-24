@@ -7,7 +7,7 @@ import net.minecraft.item.ItemPotion;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionUtils;
 import sirttas.alchemytech.block.instrument.mixer.TileMixer;
-import sirttas.alchemytech.ingredient.ItemIngredient;
+import sirttas.alchemytech.ingredient.item.ItemIngredient;
 import sirttas.alchemytech.ingredient.recipe.IIngredientRecipe;
 import sirttas.alchemytech.item.ATItems;
 import sirttas.alchemytech.item.ItemPreparation;
