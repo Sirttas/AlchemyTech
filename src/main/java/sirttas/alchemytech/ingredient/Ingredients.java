@@ -17,6 +17,7 @@ import sirttas.alchemytech.ingredient.item.ItemIngredient;
 import sirttas.alchemytech.ingredient.item.MultipleItemIngredient;
 import sirttas.alchemytech.ingredient.item.OreDictionaryItemIngredient;
 import sirttas.alchemytech.ingredient.recipe.IngredientRecipeRegistry;
+import sirttas.alchemytech.ingredient.recipe.instrument.BoilerRecipe;
 import sirttas.alchemytech.ingredient.recipe.instrument.CentrifugeRecipe;
 import sirttas.alchemytech.ingredient.recipe.instrument.ExtractorRecipe;
 import sirttas.alchemytech.ingredient.recipe.instrument.MixerRecipe;
@@ -147,26 +148,27 @@ public class Ingredients {
 		IngredientRecipeRegistry.register(new ShakerRecipe(glowing, new Ingredient[] { alteration, glowstone }));
 		IngredientRecipeRegistry.register(new ShakerRecipe(salt, new Ingredient[] { alteration, sugar }));
 		IngredientRecipeRegistry.register(new ShakerRecipe(sugar, new Ingredient[] { alteration, salt }));
-		IngredientRecipeRegistry.register(new ShakerRecipe(iron, new Ingredient[] { graphite, sugar, oil }));
 		IngredientRecipeRegistry.register(new ShakerRecipe(gold, new Ingredient[] { alteration, iron }));
 		IngredientRecipeRegistry.register(new ShakerRecipe(iron, new Ingredient[] { alteration, gold }));
-		IngredientRecipeRegistry.register(new ShakerRecipe(fire, new Ingredient[] { blaze, coal, oil, gunpowder }));
-		IngredientRecipeRegistry
-				.register(new ShakerRecipe(diamondBit, new Ingredient[] { fire, graphite, graphite, graphite }));
-		IngredientRecipeRegistry.register(
-				new ShakerRecipe(diamond, new Ingredient[] { diamondBit, diamondBit, diamondBit, diamondBit }));
 		IngredientRecipeRegistry.register(new ShakerRecipe(new Ingredient[] { redstone, redstone, redstone },
 				new Ingredient[] { energized, sugar, sugar, sugar }));
 		IngredientRecipeRegistry.register(new ShakerRecipe(new Ingredient[] { glowstone, glowstone, glowstone },
 				new Ingredient[] { glowing, sugar, sugar, sugar }));
-		IngredientRecipeRegistry
-				.register(new ShakerRecipe(diamondEssence, new Ingredient[] { alteration, diamond, fire }));
-		IngredientRecipeRegistry
-				.register(new ShakerRecipe(fortune, new Ingredient[] { alteration, diamond, quartz, lapys }));
 		IngredientRecipeRegistry.register(new ShakerRecipe(gunpowder, new Ingredient[] { coal, sulfur, salpetre }));
-		IngredientRecipeRegistry.register(new ShakerRecipe(quartz, new Ingredient[] { graphite, salpetre }));
 		IngredientRecipeRegistry.register(new ShakerRecipe(quartz, new Ingredient[] { alteration, lapys }));
 		IngredientRecipeRegistry.register(new ShakerRecipe(lapys, new Ingredient[] { alteration, quartz }));
+
+		IngredientRecipeRegistry.register(new BoilerRecipe(quartz, new Ingredient[] { graphite, salpetre }));
+		IngredientRecipeRegistry
+				.register(new BoilerRecipe(diamondEssence, new Ingredient[] { alteration, diamond, fire }));
+		IngredientRecipeRegistry
+				.register(new BoilerRecipe(fortune, new Ingredient[] { alteration, diamond, quartz, lapys }));
+		IngredientRecipeRegistry.register(new BoilerRecipe(iron, new Ingredient[] { graphite, sugar, oil }));
+		IngredientRecipeRegistry
+				.register(new BoilerRecipe(diamondBit, new Ingredient[] { fire, graphite, graphite, graphite }));
+		IngredientRecipeRegistry.register(
+				new BoilerRecipe(diamond, new Ingredient[] { diamondBit, diamondBit, diamondBit, diamondBit }));
+		IngredientRecipeRegistry.register(new BoilerRecipe(fire, new Ingredient[] { blaze, coal, oil, gunpowder }));
 
 		IngredientRecipeRegistry.register(new CentrifugeRecipe(new Ingredient[] { oil, waste }, organicMatter));
 		IngredientRecipeRegistry.register(new CentrifugeRecipe(new Ingredient[] { graphite, waste }, coal));

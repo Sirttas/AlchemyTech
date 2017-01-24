@@ -1,5 +1,5 @@
 {
     "variants": {
-        "normal": { "model": "alchemytech:mixer" }
+        "normal": { "model": "alchemytech:boiler" }
     }
 }

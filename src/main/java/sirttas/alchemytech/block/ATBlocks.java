@@ -24,7 +24,7 @@ public class ATBlocks {
 	public static BlockInstrumentCore instrumentCore;
 	public static BlockMixer mixer;
 	public static BlockShaker shaker;
-	public static BlockExtractor filter;
+	public static BlockExtractor extractor;
 	public static BlockBoiler boiler;
 	public static BlockCentrifuge centrifuge;
 	public static BlockAT copperOre;
@@ -40,8 +40,8 @@ public class ATBlocks {
 		instrumentCore = new BlockInstrumentCore();
 		mixer = new BlockMixer();
 		shaker = new BlockShaker();
-		filter = new BlockExtractor();
-		// boiler = new BlockBoiler();
+		extractor = new BlockExtractor();
+		boiler = new BlockBoiler();
 		centrifuge = new BlockCentrifuge();
 		copperOre = new BlockAT("copperOre", Material.IRON);
 		zincOre = new BlockAT("zincOre", Material.IRON);
@@ -77,8 +77,10 @@ public class ATBlocks {
 
 		GameRegistry.addRecipe(new ShapedOreRecipe(mixer, new Object[] { "PbP", "UIU", "IBI", 'I', Items.IRON_INGOT,
 				'B', Blocks.IRON_BLOCK, 'b', "ingotBrass", 'U', ATItems.bowl, 'P', ATItems.pipe }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(filter, new Object[] { " P ", "bUb", "IBI", 'I', Items.IRON_INGOT,
+		GameRegistry.addRecipe(new ShapedOreRecipe(extractor, new Object[] { " P ", "bUb", "IBI", 'I', Items.IRON_INGOT,
 				'B', Blocks.IRON_BLOCK, 'b', "ingotBrass", 'U', ATItems.bowl, 'P', ATItems.pipe }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(boiler, new Object[] { "IUI", "bUb", "IBI", 'I', Items.IRON_INGOT,
+				'B', Blocks.IRON_BLOCK, 'b', "ingotBrass", 'U', ATItems.bowl }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(centrifuge,
 				new Object[] { "pOp", "bUb", "IBI", 'I', Items.IRON_INGOT, 'B', Blocks.IRON_BLOCK, 'b', "ingotBrass",
 						'O', ATItems.centrifugeBarrel, 'U', ATItems.bowl, 'p', Blocks.PISTON }));
