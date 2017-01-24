@@ -6,6 +6,7 @@ import javax.annotation.Nullable;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -219,6 +220,9 @@ public class ItemPreparation extends ItemAT {
 				}
 			}
 		}
-		return stack;
+		if (entityLiving instanceof EntityPlayer && ((EntityPlayer) entityLiving).isCreative()) {
+			return stack;
+		}
+		return new ItemStack(Items.GLASS_BOTTLE);
 	}
 }
