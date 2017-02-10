@@ -34,7 +34,7 @@ public class TileIngredientJar extends TileAT implements IIngredientContainer, I
 	}
 
 	@Override
-	public Ingredient getIngredient(int iindex) {
+	public Ingredient getIngredient(int index) {
 		// TODO Auto-generated method stub
 		return null;
 	}

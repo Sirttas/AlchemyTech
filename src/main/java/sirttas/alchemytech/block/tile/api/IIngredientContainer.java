@@ -6,5 +6,5 @@ public interface IIngredientContainer extends IIngredientReceiver {
 
 	public void clear();
 
-	public Ingredient getIngredient(int iindex);
+	public Ingredient getIngredient(int index);
 }
