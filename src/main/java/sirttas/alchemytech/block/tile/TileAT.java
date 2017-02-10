@@ -16,6 +16,7 @@ import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import sirttas.alchemytech.block.tile.api.IForcableSync;
 import sirttas.alchemytech.network.NetworkUtil;
 
 public abstract class TileAT extends TileEntity implements ITickable, IInventory, IForcableSync {

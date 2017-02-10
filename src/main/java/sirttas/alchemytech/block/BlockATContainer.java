@@ -20,7 +20,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import sirttas.alchemytech.AlchemyTechTab;
 import sirttas.alchemytech.block.instrument.ConfigInstrument;
-import sirttas.alchemytech.block.tile.IForcableSync;
+import sirttas.alchemytech.block.tile.api.IForcableSync;
 
 public abstract class BlockATContainer extends BlockContainer implements IBlockAT {
 

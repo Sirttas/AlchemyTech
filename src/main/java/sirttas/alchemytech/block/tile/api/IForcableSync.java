@@ -1,4 +1,4 @@
-package sirttas.alchemytech.block.tile;
+package sirttas.alchemytech.block.tile.api;
 
 public interface IForcableSync {
 
