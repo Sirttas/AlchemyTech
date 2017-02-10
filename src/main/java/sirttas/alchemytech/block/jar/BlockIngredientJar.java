@@ -85,7 +85,9 @@ public class BlockIngredientJar extends BlockAT implements ITileEntityProvider {
 			ItemPreparation preparation = (ItemPreparation) heldItem.getItem();
 
 			if (player.isSneaking()) {
-
+				if (preparation.getIngredientCount(heldItem) < ItemPreparation.MAX_INGREDIENTS) {
+					preparation.addIngredient(heldItem, jar.removeIngredient(0));
+				}
 			} else {
 				if (preparation.removeIngredient(heldItem, jar.getIngredient(0)) != null) {
 					jar.addIngredient(jar.getIngredient(0));
