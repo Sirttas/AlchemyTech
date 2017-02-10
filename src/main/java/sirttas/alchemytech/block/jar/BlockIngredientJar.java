@@ -18,6 +18,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import sirttas.alchemytech.block.BlockAT;
 import sirttas.alchemytech.block.instrument.ConfigInstrument;
+import sirttas.alchemytech.ingredient.Ingredient;
 import sirttas.alchemytech.item.ItemPreparation;
 
 public class BlockIngredientJar extends BlockAT implements ITileEntityProvider {
@@ -80,6 +81,7 @@ public class BlockIngredientJar extends BlockAT implements ITileEntityProvider {
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand,
 			@Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
 		TileIngredientJar jar = (TileIngredientJar) world.getTileEntity(pos);
+		Ingredient ingredient = jar.getIngredient(0);
 
 		if (heldItem.getItem() instanceof ItemPreparation) {
 			ItemPreparation preparation = (ItemPreparation) heldItem.getItem();
@@ -87,10 +89,15 @@ public class BlockIngredientJar extends BlockAT implements ITileEntityProvider {
 			if (player.isSneaking()) {
 				if (preparation.getIngredientCount(heldItem) < ItemPreparation.MAX_INGREDIENTS) {
 					preparation.addIngredient(heldItem, jar.removeIngredient(0));
+					return true;
 				}
 			} else {
-				if (preparation.removeIngredient(heldItem, jar.getIngredient(0)) != null) {
-					jar.addIngredient(jar.getIngredient(0));
+				if (ingredient == null) {
+					jar.addIngredient(preparation.removeIngredientAt(heldItem, 0));
+					return true;
+				} else if (preparation.removeIngredient(heldItem, ingredient) != null) {
+					jar.addIngredient(ingredient);
+					return true;
 				}
 			}
 		}
