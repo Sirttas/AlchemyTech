@@ -5,6 +5,7 @@ import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import sirttas.alchemytech.block.tile.TileAT;
 import sirttas.alchemytech.block.tile.api.IIngredientContainer;
 import sirttas.alchemytech.block.tile.api.IIngredientSender;
+import sirttas.alchemytech.ingredient.Ingredient;
 
 public class TileIngredientJar extends TileAT implements IIngredientContainer, IIngredientSender {
 
@@ -18,5 +19,23 @@ public class TileIngredientJar extends TileAT implements IIngredientContainer, I
 	public void clear() {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void addIngredient(Ingredient ingredient) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Ingredient removeIngredient(int index) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Ingredient getIngredient(int iindex) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

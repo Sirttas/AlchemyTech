@@ -3,10 +3,18 @@ package sirttas.alchemytech.block;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.Nullable;
+
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -18,6 +26,7 @@ import sirttas.alchemytech.block.instrument.core.BlockInstrumentCore;
 import sirttas.alchemytech.block.instrument.extractor.BlockExtractor;
 import sirttas.alchemytech.block.instrument.mixer.BlockMixer;
 import sirttas.alchemytech.block.instrument.shaker.BlockShaker;
+import sirttas.alchemytech.block.jar.BlockIngredientJar;
 import sirttas.alchemytech.item.ATItems;
 
 public class ATBlocks {
@@ -33,6 +42,7 @@ public class ATBlocks {
 	public static BlockAT zincBlock;
 	public static BlockAT brassBlock;
 	public static BlockGlowingEssence glowingEssence;
+	public static BlockIngredientJar ingredientJar;
 
 	public static List<IBlockAT> blocks = new ArrayList<IBlockAT>();
 
@@ -49,6 +59,7 @@ public class ATBlocks {
 		zincBlock = new BlockAT("zincBlock", Material.IRON);
 		brassBlock = new BlockAT("brassBlock", Material.IRON);
 		glowingEssence = new BlockGlowingEssence();
+		ingredientJar = new BlockIngredientJar();
 
 		for (IBlockAT block : blocks) {
 			block.register();
@@ -62,6 +73,18 @@ public class ATBlocks {
 	}
 
 	public static void init() {
+	}
+
+	@SideOnly(Side.CLIENT)
+	public static void initColors() {
+		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new IBlockColor() {
+			@Override
+			public int colorMultiplier(IBlockState state, @Nullable IBlockAccess worldIn, @Nullable BlockPos pos,
+					int tintIndex) {
+				return worldIn != null && pos != null && tintIndex == 0 ? ingredientJar.getIngredientsColor(pos) : -1;
+			}
+		}, new Block[] { ingredientJar });
+
 	}
 
 	@SideOnly(Side.CLIENT)

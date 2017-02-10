@@ -1,0 +1,78 @@
+{
+	"__comment": "Designed by Blay09 with BDcraft Cubik PRO 0.96 Beta - http://bdcraft.net",
+	"textures": {
+		"particle": "alchemytech:blocks/milk_glass",
+		"milk_glass": "alchemytech:blocks/milk_glass",
+		"milk_lid": "alchemytech:blocks/milk_lid",
+		"milk_glass_top": "alchemytech:blocks/milk_glass_top"
+	},
+	"elements": {
+		"__comment": "Lid",
+		"from": [
+			7,
+			6.5,
+			7
+		],
+		"to": [
+			9,
+			9,
+			9
+		],
+		"faces": {
+			"down": {
+				"uv": [
+					0,
+					0,
+					16,
+					16
+				],
+				"texture": "#milk_lid"
+			},
+			"up": {
+				"uv": [
+					0,
+					0,
+					16,
+					16
+				],
+				"texture": "#milk_lid"
+			},
+			"north": {
+				"uv": [
+					0,
+					0,
+					16,
+					16
+				],
+				"texture": "#milk_lid"
+			},
+			"south": {
+				"uv": [
+					0,
+					0,
+					16,
+					16
+				],
+				"texture": "#milk_lid"
+			},
+			"west": {
+				"uv": [
+					0,
+					0,
+					16,
+					16
+				],
+				"texture": "#milk_lid"
+			},
+			"east": {
+				"uv": [
+					0,
+					0,
+					16,
+					16
+				],
+				"texture": "#milk_lid"
+			}
+		}
+	}
+}

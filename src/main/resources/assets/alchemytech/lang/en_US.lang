@@ -49,3 +49,5 @@ tile.zincOre.name=Zinc Ore
 tile.copperBlock.name=Copper Block
 tile.zincBlock.name=Zinc Block
 tile.brassBlock.name=Brass Block
+
+tile.ingredientJar.name=Ingredient Jar

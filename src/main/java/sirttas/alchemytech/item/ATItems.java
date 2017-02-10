@@ -60,10 +60,7 @@ public class ATItems {
 		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new IItemColor() {
 			@Override
 			public int getColorFromItemstack(ItemStack stack, int tintIndex) {
-				if (tintIndex == 0) {
-					return preparation.getIngredientsColor(stack);
-				}
-				return -1;
+				return tintIndex > 0 ? -1 : preparation.getIngredientsColor(stack);
 			}
 		}, new Item[] { preparation });
 
