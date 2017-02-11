@@ -89,23 +89,30 @@ public class BlockIngredientJar extends BlockAT implements ITileEntityProvider {
 		if (heldItem.getItem() instanceof ItemPreparation) {
 			ItemPreparation preparation = (ItemPreparation) heldItem.getItem();
 
-			if (player.isSneaking()) {
-				if (preparation.getIngredientCount(heldItem) < ItemPreparation.MAX_INGREDIENTS) {
-					preparation.addIngredient(heldItem, jar.removeIngredient(0));
-					return true;
-				}
-			} else {
-				if (ingredient == null) {
-					jar.addIngredient(preparation.removeIngredientAt(heldItem, 0));
-					return true;
-				} else if (preparation.removeIngredient(heldItem, ingredient) != null) {
-					jar.addIngredient(ingredient);
-					return true;
-				}
+			if (ingredient == null) {
+				jar.addIngredient(preparation.removeIngredientAt(heldItem, 0));
+				return true;
+			} else if (preparation.removeIngredient(heldItem, ingredient) != null) {
+				jar.addIngredient(ingredient);
+				return true;
 			}
 		}
 		return false;
 
+	}
+
+	@Override
+	public void onBlockClicked(World worldIn, BlockPos pos, EntityPlayer playerIn) {
+		TileIngredientJar jar = (TileIngredientJar) worldIn.getTileEntity(pos);
+		ItemStack heldItem = playerIn.getHeldItemMainhand();
+
+		if (heldItem.getItem() instanceof ItemPreparation) {
+			ItemPreparation preparation = (ItemPreparation) heldItem.getItem();
+
+			if (preparation.getIngredientCount(heldItem) < ItemPreparation.MAX_INGREDIENTS) {
+				preparation.addIngredient(heldItem, jar.removeIngredient(0));
+			}
+		}
 	}
 
 	@Override
