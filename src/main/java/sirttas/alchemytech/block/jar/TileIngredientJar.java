@@ -65,6 +65,7 @@ public class TileIngredientJar extends TileAT implements IIngredientContainer, I
 	@Override
 	public Ingredient removeIngredient(int index) {
 		Ingredient ret = this.ingredient;
+
 		this.ingredientCount--;
 		if (ingredientCount <= 0) {
 			this.ingredient = null;

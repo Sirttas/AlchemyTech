@@ -81,7 +81,7 @@ public class ATBlocks {
 			@Override
 			public int colorMultiplier(IBlockState state, @Nullable IBlockAccess worldIn, @Nullable BlockPos pos,
 					int tintIndex) {
-				return worldIn != null && pos != null && tintIndex == 0 ? ingredientJar.getIngredientsColor(pos) : -1;
+				return worldIn != null && pos != null && tintIndex == 8 ? ingredientJar.getIngredientsColor(pos) : -1;
 			}
 		}, new Block[] { ingredientJar });
 
@@ -95,6 +95,8 @@ public class ATBlocks {
 	}
 
 	public static void postInit() {
+		initColors();
+
 		GameRegistry.addRecipe(new ShapedOreRecipe(instrumentCore, new Object[] { "III", "I I", "ADA", 'A',
 				new ItemStack(Blocks.STONE, 1, 5), 'D', new ItemStack(Blocks.STONE, 1, 3), 'I', Items.IRON_INGOT }));
 

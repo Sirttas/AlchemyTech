@@ -15,7 +15,10 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import sirttas.alchemytech.block.BlockAT;
 import sirttas.alchemytech.block.instrument.ConfigInstrument;
 import sirttas.alchemytech.ingredient.Ingredient;
@@ -103,6 +106,13 @@ public class BlockIngredientJar extends BlockAT implements ITileEntityProvider {
 		}
 		return false;
 
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void initModel() {
+		super.initModel();
+		ClientRegistry.bindTileEntitySpecialRenderer(TileIngredientJar.class, new IngredientJarRenderer());
 	}
 
 }
