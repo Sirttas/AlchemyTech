@@ -28,12 +28,10 @@ import sirttas.alchemytech.item.ItemPreparation;
 public class BlockIngredientJar extends BlockAT implements ITileEntityProvider {
 
 	public static final String NAME = "ingredientJar";
-	private Class<? extends TileEntity> tileEntity = null;
 	private static final AxisAlignedBB BOUNDING_BOX = new AxisAlignedBB(0.3, 0, 0.3, 0.7, 0.5, 0.7);
 
 	public BlockIngredientJar() {
 		super(NAME, ConfigInstrument.DEFAULT_MATERIAL);
-		this.tileEntity = TileIngredientJar.class;
 		this.setHarvestLevel("Pickaxe", 1);
 		this.setHardness(2F);
 	}
@@ -57,9 +55,7 @@ public class BlockIngredientJar extends BlockAT implements ITileEntityProvider {
 	public void register() {
 		GameRegistry.register(this);
 		GameRegistry.register(new ItemBlock(this).setRegistryName(this.getRegistryName()));
-		if (tileEntity != null) {
-			GameRegistry.registerTileEntity(tileEntity, this.getRegistryName() + "TileEntity");
-		}
+		GameRegistry.registerTileEntity(TileIngredientJar.class, this.getRegistryName() + "TileEntity");
 	}
 
 	@Override

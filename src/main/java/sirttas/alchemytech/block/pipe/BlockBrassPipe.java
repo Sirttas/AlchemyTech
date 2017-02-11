@@ -1,20 +1,24 @@
 package sirttas.alchemytech.block.pipe;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import sirttas.alchemytech.block.ATBlocks;
 import sirttas.alchemytech.block.BlockAT;
 import sirttas.alchemytech.block.tile.api.IIngredientReceiver;
 import sirttas.alchemytech.block.tile.api.IIngredientSender;
 
-public class BlockBrassPipe extends BlockAT {
+public class BlockBrassPipe extends BlockAT implements ITileEntityProvider {
 
 	public static final PropertyBool NORTH = PropertyBool.create("north");
 	public static final PropertyBool EAST = PropertyBool.create("east");
@@ -27,7 +31,6 @@ public class BlockBrassPipe extends BlockAT {
 
 	public BlockBrassPipe() {
 		super(NAME, Material.IRON);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
@@ -74,6 +77,18 @@ public class BlockBrassPipe extends BlockAT {
 				.withProperty(WEST, Boolean.valueOf(this.canConnectTo(worldIn, pos.west())))
 				.withProperty(UP, Boolean.valueOf(this.canConnectTo(worldIn, pos.up())))
 				.withProperty(DOWN, Boolean.valueOf(this.canConnectTo(worldIn, pos.down())));
+	}
+
+	@Override
+	public TileEntity createNewTileEntity(World worldIn, int meta) {
+		return new TileBrassPipe();
+	}
+
+	@Override
+	public void register() {
+		GameRegistry.register(this);
+		GameRegistry.register(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+		GameRegistry.registerTileEntity(TileBrassPipe.class, this.getRegistryName() + "TileEntity");
 	}
 
 }
