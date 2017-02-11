@@ -27,7 +27,7 @@ public class TileIngredientJar extends TileAT implements IIngredientContainer, I
 	public NBTTagCompound writeToNBT(NBTTagCompound cmp) {
 		super.writeToNBT(cmp);
 		if (ingredient != null) {
-			cmp.setString("ingredient", ingredient.getUnlocalizedName());
+			cmp.setString("ingredient", ingredient.getRegistryName().toString());
 		}
 		cmp.setInteger("ingredientCount", ingredientCount);
 		return cmp;

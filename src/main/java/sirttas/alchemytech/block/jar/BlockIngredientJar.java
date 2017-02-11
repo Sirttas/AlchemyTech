@@ -5,6 +5,7 @@ import javax.annotation.Nullable;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -33,6 +34,8 @@ public class BlockIngredientJar extends BlockAT implements ITileEntityProvider {
 	public BlockIngredientJar() {
 		super(NAME, ConfigInstrument.DEFAULT_MATERIAL);
 		this.tileEntity = TileIngredientJar.class;
+		this.setHarvestLevel("Pickaxe", 1);
+		this.setHardness(2F);
 	}
 
 	@Override
@@ -94,6 +97,9 @@ public class BlockIngredientJar extends BlockAT implements ITileEntityProvider {
 				return true;
 			} else if (preparation.removeIngredient(heldItem, ingredient) != null) {
 				jar.addIngredient(ingredient);
+				if (preparation.getIngredientCount(heldItem) <= 0) {
+					player.setHeldItem(hand, new ItemStack(Items.GLASS_BOTTLE));
+				}
 				return true;
 			}
 		}
