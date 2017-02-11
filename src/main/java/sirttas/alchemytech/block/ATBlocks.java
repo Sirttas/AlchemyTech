@@ -103,6 +103,8 @@ public class ATBlocks {
 		GameRegistry.addRecipe(new ShapedOreRecipe(instrumentCore, new Object[] { "III", "I I", "ADA", 'A',
 				new ItemStack(Blocks.STONE, 1, 5), 'D', new ItemStack(Blocks.STONE, 1, 3), 'I', Items.IRON_INGOT }));
 
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ATBlocks.brassPipe, 2),
+				new Object[] { "B", "B", "B", 'B', "ingotBrass" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(mixer, new Object[] { "PbP", "UIU", "IBI", 'I', Items.IRON_INGOT,
 				'B', Blocks.IRON_BLOCK, 'b', "ingotBrass", 'U', ATItems.bowl, 'P', brassPipe }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(extractor, new Object[] { " P ", "bUb", "IBI", 'I', Items.IRON_INGOT,

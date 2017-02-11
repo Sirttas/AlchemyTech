@@ -70,8 +70,6 @@ public class ATItems {
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(brassIngot, 4),
 				new Object[] { "ingotCopper", "ingotCopper", "ingotCopper", "ingotZinc" }));
 
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ATBlocks.brassPipe, 2),
-				new Object[] { "B", "B", "B", 'B', "ingotBrass" }));
 		GameRegistry.addRecipe(
 				new ShapedOreRecipe(bowl, new Object[] { "I I", " B ", 'B', "ingotBrass", 'I', Items.IRON_INGOT }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(centrifugeBarrel,

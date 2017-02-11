@@ -1,14 +1,18 @@
 package sirttas.alchemytech.block.pipe;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import sirttas.alchemytech.block.ATBlocks;
 import sirttas.alchemytech.block.BlockAT;
+import sirttas.alchemytech.block.tile.api.IIngredientReceiver;
+import sirttas.alchemytech.block.tile.api.IIngredientSender;
 
 public class BlockBrassPipe extends BlockAT {
 
@@ -37,7 +41,11 @@ public class BlockBrassPipe extends BlockAT {
 	}
 
 	public boolean canConnectTo(IBlockAccess worldIn, BlockPos pos) {
-		return worldIn.getBlockState(pos).getBlock() == ATBlocks.brassPipe;
+		Block block = worldIn.getBlockState(pos).getBlock();
+		TileEntity entity = worldIn.getTileEntity(pos);
+
+		return block == ATBlocks.brassPipe || entity instanceof IIngredientSender
+				|| entity instanceof IIngredientReceiver;
 	}
 
 	@Override
