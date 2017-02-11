@@ -1,0 +1,23 @@
+{
+    "multipart": [
+        {   "apply": { "model": "alchemytech:brassPipeCore" }},
+        {   "when": { "north": "true" },
+            "apply": { "model": "alchemytech:brassPipeSide", "uvlock": true }
+        },
+        {   "when": { "east": "true" },
+            "apply": { "model": "alchemytech:brassPipeSide", "y": 90, "uvlock": true }
+        },
+        {   "when": { "south": "true" },
+            "apply": { "model": "alchemytech:brassPipeSide", "y": 180, "uvlock": true }
+        },
+        {   "when": { "west": "true" },
+            "apply": { "model": "alchemytech:brassPipeSide", "y": 270, "uvlock": true }
+        },
+        {   "when": { "up": "true" },
+            "apply": { "model": "alchemytech:brassPipeSide", "x": 270, "uvlock": true }
+        },
+       	{   "when": { "down": "true" },
+            "apply": { "model": "alchemytech:brassPipeSide", "x": 90, "uvlock": true }
+        }
+    ]
+}

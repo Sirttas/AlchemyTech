@@ -5,7 +5,6 @@ item.pipette.name=Pipette
 item.brassIngot.name=Brass Ingot
 item.copperIngot.name=Copper Ingot
 item.zincIngot.name=Zinc Ingot
-item.pipe.name=Brass Pipe
 item.bowl.name=Iron Bowl
 item.centrifugeBarrel.name=Centrifuge Barrel
 
@@ -51,3 +50,4 @@ tile.zincBlock.name=Zinc Block
 tile.brassBlock.name=Brass Block
 
 tile.ingredientJar.name=Ingredient Jar
+tile.brassPipe.name=Brass Pipe

@@ -21,7 +21,6 @@ public class ATItems {
 	public static ItemAT brassIngot;
 	public static ItemAT copperIngot;
 	public static ItemAT zincIngot;
-	public static ItemAT pipe;
 	public static ItemAT bowl;
 	public static ItemAT centrifugeBarrel;
 
@@ -31,7 +30,6 @@ public class ATItems {
 		brassIngot = GameRegistry.register(new ItemAT("brassIngot"));
 		copperIngot = GameRegistry.register(new ItemAT("copperIngot"));
 		zincIngot = GameRegistry.register(new ItemAT("zincIngot"));
-		pipe = GameRegistry.register(new ItemAT("pipe"));
 		bowl = GameRegistry.register(new ItemAT("bowl"));
 		centrifugeBarrel = GameRegistry.register(new ItemAT("centrifugeBarrel"));
 
@@ -50,7 +48,6 @@ public class ATItems {
 		brassIngot.initModel();
 		copperIngot.initModel();
 		zincIngot.initModel();
-		pipe.initModel();
 		bowl.initModel();
 		centrifugeBarrel.initModel();
 	}
@@ -73,8 +70,8 @@ public class ATItems {
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(brassIngot, 4),
 				new Object[] { "ingotCopper", "ingotCopper", "ingotCopper", "ingotZinc" }));
 
-		GameRegistry.addRecipe(
-				new ShapedOreRecipe(new ItemStack(pipe, 2), new Object[] { "B", "B", "B", 'B', "ingotBrass" }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ATBlocks.brassPipe, 2),
+				new Object[] { "B", "B", "B", 'B', "ingotBrass" }));
 		GameRegistry.addRecipe(
 				new ShapedOreRecipe(bowl, new Object[] { "I I", " B ", 'B', "ingotBrass", 'I', Items.IRON_INGOT }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(centrifugeBarrel,

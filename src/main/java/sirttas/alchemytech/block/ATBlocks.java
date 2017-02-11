@@ -27,6 +27,7 @@ import sirttas.alchemytech.block.instrument.extractor.BlockExtractor;
 import sirttas.alchemytech.block.instrument.mixer.BlockMixer;
 import sirttas.alchemytech.block.instrument.shaker.BlockShaker;
 import sirttas.alchemytech.block.jar.BlockIngredientJar;
+import sirttas.alchemytech.block.pipe.BlockBrassPipe;
 import sirttas.alchemytech.item.ATItems;
 
 public class ATBlocks {
@@ -41,6 +42,7 @@ public class ATBlocks {
 	public static BlockAT copperBlock;
 	public static BlockAT zincBlock;
 	public static BlockAT brassBlock;
+	public static BlockBrassPipe brassPipe;
 	public static BlockGlowingEssence glowingEssence;
 	public static BlockIngredientJar ingredientJar;
 
@@ -58,6 +60,7 @@ public class ATBlocks {
 		copperBlock = new BlockAT("copperBlock", Material.IRON);
 		zincBlock = new BlockAT("zincBlock", Material.IRON);
 		brassBlock = new BlockAT("brassBlock", Material.IRON);
+		brassPipe = new BlockBrassPipe();
 		glowingEssence = new BlockGlowingEssence();
 		ingredientJar = new BlockIngredientJar();
 
@@ -101,9 +104,9 @@ public class ATBlocks {
 				new ItemStack(Blocks.STONE, 1, 5), 'D', new ItemStack(Blocks.STONE, 1, 3), 'I', Items.IRON_INGOT }));
 
 		GameRegistry.addRecipe(new ShapedOreRecipe(mixer, new Object[] { "PbP", "UIU", "IBI", 'I', Items.IRON_INGOT,
-				'B', Blocks.IRON_BLOCK, 'b', "ingotBrass", 'U', ATItems.bowl, 'P', ATItems.pipe }));
+				'B', Blocks.IRON_BLOCK, 'b', "ingotBrass", 'U', ATItems.bowl, 'P', brassPipe }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(extractor, new Object[] { " P ", "bUb", "IBI", 'I', Items.IRON_INGOT,
-				'B', Blocks.IRON_BLOCK, 'b', "ingotBrass", 'U', ATItems.bowl, 'P', ATItems.pipe }));
+				'B', Blocks.IRON_BLOCK, 'b', "ingotBrass", 'U', ATItems.bowl, 'P', brassPipe }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(boiler, new Object[] { "IUI", "bUb", "IBI", 'I', Items.IRON_INGOT,
 				'B', Blocks.IRON_BLOCK, 'b', "ingotBrass", 'U', ATItems.bowl }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(centrifuge,
