@@ -5,7 +5,31 @@ import net.minecraft.util.EnumFacing;
 public class BrassPipeConnection {
 
 	public enum Type {
-		NONE, CONNECT, INSERT, EXTRACT
+		NONE(0), CONNECT(1), INSERT(2), EXTRACT(3);
+
+		private final int value;
+
+		private Type(int value) {
+			this.value = value;
+		}
+
+		public int getValue() {
+			return value;
+		}
+
+		public static Type fromInteger(int x) {
+			switch (x) {
+			case 0:
+				return NONE;
+			case 1:
+				return CONNECT;
+			case 2:
+				return INSERT;
+			case 3:
+				return EXTRACT;
+			}
+			return null;
+		}
 	}
 
 	private EnumFacing facing;

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import sirttas.alchemytech.block.pipe.BrassPipeConnection.Type;
@@ -129,6 +130,36 @@ public class TileBrassPipe extends TileAT {
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public void readFromNBT(NBTTagCompound compound) {
+		super.readFromNBT(compound);
+		this.connections = new HashMap<EnumFacing, BrassPipeConnection>();
+
+		for (EnumFacing face : EnumFacing.VALUES) {
+			if (compound.hasKey(face.getName())) {
+				BrassPipeConnection connection = new BrassPipeConnection();
+
+				connection.setFacing(face);
+				connection.setType(Type.fromInteger(compound.getInteger(face.getName())));
+			} else {
+				init();
+				return;
+			}
+		}
+
+	}
+
+	@Override
+	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
+		super.writeToNBT(compound);
+		if (connections != null) {
+			for (BrassPipeConnection connection : connections.values()) {
+				compound.setInteger(connection.getFacing().getName(), connection.getType().getValue());
+			}
+		}
+		return compound;
 	}
 
 }
