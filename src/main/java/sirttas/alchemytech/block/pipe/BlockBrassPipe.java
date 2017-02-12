@@ -1,5 +1,7 @@
 package sirttas.alchemytech.block.pipe;
 
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
@@ -89,6 +91,22 @@ public class BlockBrassPipe extends BlockAT implements ITileEntityProvider {
 		GameRegistry.register(this);
 		GameRegistry.register(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 		GameRegistry.registerTileEntity(TileBrassPipe.class, this.getRegistryName() + "TileEntity");
+	}
+
+	@Override
+	public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state) {
+		((TileBrassPipe) worldIn.getTileEntity(pos)).init();
+	}
+
+	@Override
+	public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
+		((TileBrassPipe) worldIn.getTileEntity(pos)).destroy();
+		super.breakBlock(worldIn, pos, state);
+	}
+
+	@Override
+	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
+		((TileBrassPipe) worldIn.getTileEntity(pos)).refresh();
 	}
 
 }

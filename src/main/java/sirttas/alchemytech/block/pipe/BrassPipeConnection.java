@@ -5,7 +5,7 @@ import net.minecraft.util.EnumFacing;
 public class BrassPipeConnection {
 
 	public enum Type {
-		NONE, CONNECTION, INSERT, EXTRACT
+		NONE, CONNECT, INSERT, EXTRACT
 	}
 
 	private EnumFacing facing;
