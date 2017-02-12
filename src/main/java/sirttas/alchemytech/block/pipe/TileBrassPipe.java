@@ -95,6 +95,9 @@ public class TileBrassPipe extends TileAT {
 
 	@Override
 	protected void serverUpdate() {
+		if (connections == null) {
+			this.init();
+		}
 		for (EnumFacing face : EnumFacing.VALUES) {
 			BrassPipeConnection connection = connections.get(face);
 
@@ -111,6 +114,21 @@ public class TileBrassPipe extends TileAT {
 				}
 			}
 		}
+	}
+
+	public boolean activatePipe(EnumFacing face) {
+		if (connections == null) {
+			this.init();
+		}
+		if (connections.get(face).getType() == Type.INSERT && getAdjacentTile(face) instanceof IIngredientSender) {
+			connections.get(face).setType(Type.EXTRACT);
+			return true;
+		} else if (connections.get(face).getType() == Type.EXTRACT
+				&& getAdjacentTile(face) instanceof IIngredientReceiver) {
+			connections.get(face).setType(Type.INSERT);
+			return true;
+		}
+		return false;
 	}
 
 }
