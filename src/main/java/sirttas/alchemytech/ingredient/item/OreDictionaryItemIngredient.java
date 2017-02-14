@@ -10,7 +10,7 @@ import sirttas.alchemytech.ingredient.api.IPostInitIngredient;
 
 public class OreDictionaryItemIngredient extends Ingredient implements IPostInitIngredient, IItemIngredient {
 
-	private ItemStack stack;
+	private List<ItemStack> stacks;
 	private String item;
 
 	public OreDictionaryItemIngredient() {
@@ -26,24 +26,28 @@ public class OreDictionaryItemIngredient extends Ingredient implements IPostInit
 		this.item = item;
 	}
 
+	private boolean containsStack(ItemStack stack) {
+		for (ItemStack st : stacks) {
+			if (st.isItemEqual(stack)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	@Override
 	public boolean isProducedFromItem(ItemStack stack) {
-		return this.stack != null ? this.stack.isItemEqual(stack) : false;
+		return this.stacks != null ? containsStack(stack) : false;
 	}
 
 	@Override
 	public ItemStack getStack() {
-		return stack != null ? stack.copy() : null;
+		return stacks != null ? stacks.get(0).copy() : null;
 	}
 
 	@Override
 	public void postInit() {
-		List<ItemStack> stacks = OreDictionary.getOres(item);
-
-		if (stacks != null && stacks.size() > 0) {
-			this.stack = stacks.get(0);
-		}
-
+		this.stacks = OreDictionary.getOres(item);
 	}
 
 }
