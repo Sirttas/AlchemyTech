@@ -34,7 +34,12 @@ public class ExtractorRecipe implements IIngredientRecipe<TileExtractor> {
 					}
 				}
 			}
-			instrument.setInventorySlotContents(0, new ItemStack(Items.GLASS_BOTTLE));
+			if (instrument.canExtract(0)) {
+				instrument.removeIngredient(0);
+			}
+			if (instrument.getStackInSlot(0) != null) {
+				instrument.setInventorySlotContents(0, new ItemStack(Items.GLASS_BOTTLE));
+			}
 		}
 
 	}
@@ -43,6 +48,8 @@ public class ExtractorRecipe implements IIngredientRecipe<TileExtractor> {
 	public boolean isAvalable(TileExtractor instrument) {
 		ItemStack stack = instrument.getStackInSlot(0);
 		if (stack != null && stack.getItem() instanceof ItemPreparation) {
+			return true;
+		} else if (instrument.canExtract(0)) {
 			return true;
 		}
 		return false;

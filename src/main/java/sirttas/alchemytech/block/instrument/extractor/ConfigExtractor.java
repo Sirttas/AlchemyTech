@@ -9,5 +9,6 @@ public class ConfigExtractor extends ConfigInstrument {
 	public static final String UNLOCALIZED_NAME = "tile." + NAME + ".name";
 
 	public class NBT extends ConfigInstrument.NBT {
+		public static final String INGREDIENT = "ingredient";
 	}
 }
