@@ -7,6 +7,7 @@ import java.util.List;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
+import sirttas.alchemytech.AlchemyTech;
 import sirttas.alchemytech.block.pipe.BrassPipeConnection.Type;
 import sirttas.alchemytech.block.tile.TileAT;
 import sirttas.alchemytech.block.tile.api.IIngredientReceiver;
@@ -34,7 +35,7 @@ public class TileBrassPipe extends TileAT {
 			if (connection.getType() == Type.CONNECT) {
 				TileBrassPipe other = (TileBrassPipe) getAdjacentTile(connection.getFacing());
 
-				if (!pipes.contains(other)) {
+				if (other != null && !pipes.contains(other)) {
 					IIngredientReceiver ret = other.searchReceiver(pipes, ingredient);
 
 					if (ret != null) {
@@ -64,6 +65,7 @@ public class TileBrassPipe extends TileAT {
 			connection.setType(Type.NONE);
 			if (other instanceof TileBrassPipe) {
 				connection.setType(Type.CONNECT);
+				((TileBrassPipe) other).connections.get(face.getOpposite()).setType(Type.CONNECT);
 			} else if (other instanceof IIngredientReceiver) {
 				connection.setType(Type.INSERT);
 			} else if (other instanceof IIngredientSender) {
@@ -82,10 +84,13 @@ public class TileBrassPipe extends TileAT {
 			if (connection.getType() == Type.NONE) {
 				if (other instanceof TileBrassPipe) {
 					connection.setType(Type.CONNECT);
+					AlchemyTech.T.info("updating pipe: " + face.toString() + " connected");
 				} else if (other instanceof IIngredientReceiver) {
 					connection.setType(Type.INSERT);
+					AlchemyTech.T.info("updating pipe: " + face.toString() + " connected (insert)");
 				} else if (other instanceof IIngredientSender) {
 					connection.setType(Type.EXTRACT);
+					AlchemyTech.T.info("updating pipe: " + face.toString() + " connected (extract)");
 				}
 			} else {
 				if (other == null) {
@@ -102,22 +107,25 @@ public class TileBrassPipe extends TileAT {
 
 	@Override
 	protected void serverUpdate() {
-		if (connections == null) {
+		if (connections == null || connections.size() < 6) {
 			this.init();
 		}
 		for (EnumFacing face : EnumFacing.VALUES) {
 			BrassPipeConnection connection = connections.get(face);
 
-			if (connection.getType() == Type.EXTRACT) {
-				IIngredientSender sender = (IIngredientSender) getWorld()
-						.getTileEntity(getPos().offset(connection.getFacing()));
+			if (connection != null && connection.getType() == Type.EXTRACT) {
+				TileEntity entity = getWorld().getTileEntity(getPos().offset(connection.getFacing()));
 
-				if (sender != null && sender.canExtract(0)) {
-					IIngredientReceiver receiver = this.searchReceiver(new ArrayList<TileBrassPipe>(),
-							sender.getIngredient(0));
+				if (entity != null && entity instanceof IIngredientSender) {
+					IIngredientSender sender = (IIngredientSender) entity;
 
-					if (receiver != null) {
-						receiver.addIngredient(sender.removeIngredient(0));
+					if (sender != null && sender.canExtract(0)) {
+						IIngredientReceiver receiver = this.searchReceiver(new ArrayList<TileBrassPipe>(),
+								sender.getIngredient(0));
+
+						if (receiver != null) {
+							receiver.addIngredient(sender.removeIngredient(0));
+						}
 					}
 				}
 			}
@@ -125,16 +133,19 @@ public class TileBrassPipe extends TileAT {
 	}
 
 	public boolean activatePipe(EnumFacing face) {
-		if (connections == null) {
+		if (connections == null || connections.size() < 6) {
 			this.init();
 		}
-		if (connections.get(face).getType() == Type.INSERT && getAdjacentTile(face) instanceof IIngredientSender) {
-			connections.get(face).setType(Type.EXTRACT);
-			return true;
-		} else if (connections.get(face).getType() == Type.EXTRACT
-				&& getAdjacentTile(face) instanceof IIngredientReceiver) {
-			connections.get(face).setType(Type.INSERT);
-			return true;
+		BrassPipeConnection connection = connections.get(face);
+
+		if (connection != null) {
+			if (connection.getType() == Type.INSERT && getAdjacentTile(face) instanceof IIngredientSender) {
+				connection.setType(Type.EXTRACT);
+				return true;
+			} else if (connection.getType() == Type.EXTRACT && getAdjacentTile(face) instanceof IIngredientReceiver) {
+				connections.get(face).setType(Type.INSERT);
+				return true;
+			}
 		}
 		return false;
 	}
@@ -150,6 +161,7 @@ public class TileBrassPipe extends TileAT {
 
 				connection.setFacing(face);
 				connection.setType(Type.fromInteger(compound.getInteger(face.getName())));
+				connections.put(face, connection);
 			} else {
 				init();
 				return;

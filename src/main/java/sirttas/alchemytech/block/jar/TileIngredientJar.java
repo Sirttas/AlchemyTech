@@ -79,7 +79,8 @@ public class TileIngredientJar extends TileAT implements IIngredientContainer, I
 
 	@Override
 	public boolean canReceive(Ingredient ingredient) {
-		return this.ingredient == null || ingredient == this.ingredient;
+		return (this.ingredient == null || ingredient == this.ingredient)
+				&& this.ingredientCount < ConfigIngredientJar.MAX_INGREDIENTS;
 	}
 
 	@Override

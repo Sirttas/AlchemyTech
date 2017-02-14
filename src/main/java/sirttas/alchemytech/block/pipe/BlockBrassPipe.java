@@ -76,6 +76,7 @@ public class BlockBrassPipe extends BlockAT implements ITileEntityProvider {
 		boxes.add(WEST_AABB);
 		boxes.add(UP_AABB);
 		boxes.add(SOUTH_AABB);
+		this.setTickRandomly(true);
 	}
 
 	@Override
@@ -258,7 +259,10 @@ public class BlockBrassPipe extends BlockAT implements ITileEntityProvider {
 			ItemStack heldItem) {
 		EnumFacing face = getFace(boundingBox);
 
-		return pipe.activatePipe(face);
+		if (face != null) {
+			return pipe.activatePipe(face);
+		}
+		return false;
 	}
 
 }

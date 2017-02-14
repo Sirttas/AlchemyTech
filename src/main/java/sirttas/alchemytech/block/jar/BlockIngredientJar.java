@@ -82,10 +82,13 @@ public class BlockIngredientJar extends BlockAT implements ITileEntityProvider {
 		TileIngredientJar jar = (TileIngredientJar) world.getTileEntity(pos);
 		Ingredient ingredient = jar.getIngredient(0);
 
-		if (heldItem.getItem() instanceof ItemPreparation) {
+		if (heldItem != null && heldItem.getItem() instanceof ItemPreparation) {
 			ItemPreparation preparation = (ItemPreparation) heldItem.getItem();
 
-			if (ingredient == null) {
+			if (player.isCreative()) {
+				jar.addIngredient(preparation.getIngredients(heldItem)[0]);
+				return true;
+			} else if (ingredient == null) {
 				jar.addIngredient(preparation.removeIngredientAt(heldItem, 0));
 				return true;
 			} else if (preparation.removeIngredient(heldItem, ingredient) != null) {
