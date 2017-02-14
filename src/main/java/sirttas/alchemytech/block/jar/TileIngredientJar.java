@@ -4,15 +4,13 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.util.ResourceLocation;
+import sirttas.alchemytech.block.jar.ConfigIngredientJar.NBT;
 import sirttas.alchemytech.block.tile.TileAT;
 import sirttas.alchemytech.block.tile.api.IIngredientContainer;
 import sirttas.alchemytech.block.tile.api.IIngredientSender;
 import sirttas.alchemytech.ingredient.Ingredient;
 
 public class TileIngredientJar extends TileAT implements IIngredientContainer, IIngredientSender {
-
-	// TODO: add an option for max ingredients
-	public static final int MAX_INGREDIENTS = 100;
 
 	private Ingredient ingredient = null;
 	private int ingredientCount = 0;
@@ -27,16 +25,16 @@ public class TileIngredientJar extends TileAT implements IIngredientContainer, I
 	public NBTTagCompound writeToNBT(NBTTagCompound cmp) {
 		super.writeToNBT(cmp);
 		if (ingredient != null) {
-			cmp.setString("ingredient", ingredient.getRegistryName().toString());
+			cmp.setString(NBT.INGREDIENT, ingredient.getRegistryName().toString());
 		}
-		cmp.setInteger("ingredientCount", ingredientCount);
+		cmp.setInteger(NBT.INGREDIENT_COUNT, ingredientCount);
 		return cmp;
 	}
 
 	@Override
 	public void readFromNBT(NBTTagCompound cmp) {
-		ingredient = Ingredient.REGISTRY.getObject(new ResourceLocation(cmp.getString("ingredient")));
-		ingredientCount = cmp.getInteger("ingredientCount");
+		ingredient = Ingredient.REGISTRY.getObject(new ResourceLocation(cmp.getString(NBT.INGREDIENT)));
+		ingredientCount = cmp.getInteger(NBT.INGREDIENT_COUNT);
 		super.readFromNBT(cmp);
 	}
 

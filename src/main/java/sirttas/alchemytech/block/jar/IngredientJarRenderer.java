@@ -49,7 +49,7 @@ public class IngredientJarRenderer extends TileEntitySpecialRenderer<TileIngredi
 			GlStateManager.pushMatrix();
 
 			GlStateManager.translate(x, y, z);
-			GlStateManager.scale(1f, tileEntity.getIngredientCount() / TileIngredientJar.MAX_INGREDIENTS, 1f);
+			GlStateManager.scale(1f, tileEntity.getIngredientCount() / ConfigIngredientJar.MAX_INGREDIENTS, 1f);
 			bindTexture(TextureMap.LOCATION_BLOCKS_TEXTURE);
 			blockRenderer.getBlockModelRenderer().renderModelBrightnessColor(modelMilkLiquid, 1, 0, 0, 0);
 			GlStateManager.popMatrix();

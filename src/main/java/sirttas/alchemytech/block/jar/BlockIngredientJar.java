@@ -27,18 +27,15 @@ import sirttas.alchemytech.item.ItemPreparation;
 
 public class BlockIngredientJar extends BlockAT implements ITileEntityProvider {
 
-	public static final String NAME = "ingredientJar";
-	private static final AxisAlignedBB BOUNDING_BOX = new AxisAlignedBB(0.3, 0, 0.3, 0.7, 0.5, 0.7);
-
 	public BlockIngredientJar() {
-		super(NAME, ConfigInstrument.DEFAULT_MATERIAL);
+		super(ConfigIngredientJar.NAME, ConfigInstrument.DEFAULT_MATERIAL);
 		this.setHarvestLevel("Pickaxe", 1);
 		this.setHardness(2F);
 	}
 
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-		return BOUNDING_BOX;
+		return ConfigIngredientJar.BOUNDING_BOX;
 	}
 
 	@Override
