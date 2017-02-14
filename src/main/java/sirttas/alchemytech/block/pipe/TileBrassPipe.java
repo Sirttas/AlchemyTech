@@ -11,6 +11,7 @@ import sirttas.alchemytech.block.pipe.BrassPipeConnection.Type;
 import sirttas.alchemytech.block.tile.TileAT;
 import sirttas.alchemytech.block.tile.api.IIngredientReceiver;
 import sirttas.alchemytech.block.tile.api.IIngredientSender;
+import sirttas.alchemytech.ingredient.Ingredient;
 
 public class TileBrassPipe extends TileAT {
 
@@ -27,21 +28,26 @@ public class TileBrassPipe extends TileAT {
 		return false;
 	}
 
-	private IIngredientReceiver searchReceiver(List<TileBrassPipe> pipes) {
+	private IIngredientReceiver searchReceiver(List<TileBrassPipe> pipes, Ingredient ingredient) {
 		pipes.add(this);
 		for (BrassPipeConnection connection : connections.values()) {
 			if (connection.getType() == Type.CONNECT) {
 				TileBrassPipe other = (TileBrassPipe) getAdjacentTile(connection.getFacing());
 
 				if (!pipes.contains(other)) {
-					IIngredientReceiver ret = other.searchReceiver(pipes);
+					IIngredientReceiver ret = other.searchReceiver(pipes, ingredient);
 
 					if (ret != null) {
 						return ret;
 					}
 				}
 			} else if (connection.getType() == Type.INSERT) {
-				return (IIngredientReceiver) getWorld().getTileEntity(getPos().offset(connection.getFacing()));
+				IIngredientReceiver receiver = (IIngredientReceiver) getWorld()
+						.getTileEntity(getPos().offset(connection.getFacing()));
+
+				if (receiver.canReceive(ingredient)) {
+					return receiver;
+				}
 			}
 		}
 		return null;
@@ -106,8 +112,9 @@ public class TileBrassPipe extends TileAT {
 				IIngredientSender sender = (IIngredientSender) getWorld()
 						.getTileEntity(getPos().offset(connection.getFacing()));
 
-				if (sender != null) {
-					IIngredientReceiver receiver = this.searchReceiver(new ArrayList<TileBrassPipe>());
+				if (sender != null && sender.canExtract(0)) {
+					IIngredientReceiver receiver = this.searchReceiver(new ArrayList<TileBrassPipe>(),
+							sender.getIngredient(0));
 
 					if (receiver != null) {
 						receiver.addIngredient(sender.removeIngredient(0));

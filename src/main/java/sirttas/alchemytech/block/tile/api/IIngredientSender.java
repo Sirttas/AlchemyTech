@@ -7,4 +7,6 @@ public interface IIngredientSender {
 	public Ingredient removeIngredient(int index);
 
 	public boolean canExtract(int index);
+
+	public Ingredient getIngredient(int index);
 }
