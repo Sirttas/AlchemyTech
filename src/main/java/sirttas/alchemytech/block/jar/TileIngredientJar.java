@@ -78,4 +78,14 @@ public class TileIngredientJar extends TileAT implements IIngredientContainer, I
 	public Ingredient getIngredient(int index) {
 		return this.ingredient;
 	}
+
+	@Override
+	public boolean canReceive(Ingredient ingredient) {
+		return this.ingredient == null || ingredient == this.ingredient;
+	}
+
+	@Override
+	public boolean canExtract(int index) {
+		return this.ingredientCount > 0;
+	}
 }
