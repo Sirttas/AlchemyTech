@@ -22,6 +22,9 @@ public class MixerRecipe implements IIngredientRecipe<TileMixer> {
 				result = new ItemStack(ATItems.preparation);
 			}
 
+			if (mixer.canExtract(0)) {
+				ATItems.preparation.addIngredient(result, mixer.removeIngredient(0));
+			}
 			for (int i = 0; i < 4
 					&& ATItems.preparation.getIngredientCount(result) < ItemPreparation.MAX_INGREDIENTS; i++) {
 				ItemStack stack = mixer.getStackInSlot(i);
@@ -57,6 +60,9 @@ public class MixerRecipe implements IIngredientRecipe<TileMixer> {
 				&& PotionUtils.getPotionFromItem(output).equals(PotionTypes.WATER)
 				|| output.getItem() instanceof ItemPreparation))) {
 			return false;
+		}
+		if (mixer.canExtract(0)) {
+			ingredientCount++;
 		}
 		for (int i = 0; i < 4; i++) {
 			ItemStack stack = mixer.getStackInSlot(i);

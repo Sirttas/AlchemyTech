@@ -6,16 +6,21 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.ResourceLocation;
 import sirttas.alchemytech.block.instrument.mixer.ConfigMixer.NBT;
+import sirttas.alchemytech.block.tile.api.IIngredientContainer;
+import sirttas.alchemytech.block.tile.api.IIngredientSender;
 import sirttas.alchemytech.block.tile.instrument.TileInstrument;
 import sirttas.alchemytech.helpers.NBTHelper;
+import sirttas.alchemytech.ingredient.Ingredient;
 import sirttas.alchemytech.inventory.ATInventory;
 import sirttas.alchemytech.item.ItemPreparation;
 
-public class TileMixer extends TileInstrument {
+public class TileMixer extends TileInstrument implements IIngredientContainer, IIngredientSender {
 
 	private final ATInventory input;
 	private ItemStack output;
+	private Ingredient ingredient;
 
 	public TileMixer() {
 		input = new ATInventory(4);
@@ -88,6 +93,7 @@ public class TileMixer extends TileInstrument {
 	public void clear() {
 		super.clear();
 		input.clear();
+		ingredient = null;
 		output = null;
 	}
 
@@ -109,6 +115,7 @@ public class TileMixer extends TileInstrument {
 		super.readFromNBT(compound);
 		NBTHelper.readInventory(compound, NBT.INPUT, input);
 		output = NBTHelper.readItemStack(compound, NBT.OUTPUT);
+		ingredient = Ingredient.REGISTRY.getObject(new ResourceLocation(compound.getString(NBT.INGREDIENT)));
 	}
 
 	@Override
@@ -116,6 +123,39 @@ public class TileMixer extends TileInstrument {
 		super.writeToNBT(compound);
 		NBTHelper.writeInventory(compound, NBT.INPUT, input);
 		NBTHelper.writeItemStack(compound, NBT.OUTPUT, output);
+		if (ingredient != null) {
+			compound.setString(NBT.INGREDIENT, ingredient.getRegistryName().toString());
+		}
 		return compound;
+	}
+
+	@Override
+	public void addIngredient(Ingredient ingredient) {
+		if (this.ingredient == null) {
+			this.ingredient = ingredient;
+		}
+	}
+
+	@Override
+	public boolean canReceive(Ingredient ingredient) {
+		return this.ingredient == null;
+	}
+
+	@Override
+	public Ingredient removeIngredient(int index) {
+		Ingredient ingredient = this.ingredient;
+
+		this.ingredient = null;
+		return ingredient;
+	}
+
+	@Override
+	public boolean canExtract(int index) {
+		return this.ingredient != null;
+	}
+
+	@Override
+	public Ingredient getIngredient(int index) {
+		return this.ingredient;
 	}
 }

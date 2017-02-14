@@ -28,5 +28,6 @@ public class ConfigMixer extends ConfigInstrument {
 
 		public static final String INPUT = "input";
 		public static final String OUTPUT = "output";
+		public static final String INGREDIENT = "ingredient";
 	}
 }
