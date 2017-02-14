@@ -32,8 +32,10 @@ public class TileBrassPipe extends TileAT {
 	private IIngredientReceiver searchReceiver(List<TileBrassPipe> pipes, Ingredient ingredient) {
 		pipes.add(this);
 		for (BrassPipeConnection connection : connections.values()) {
-			if (connection.getType() == Type.CONNECT) {
-				TileBrassPipe other = (TileBrassPipe) getAdjacentTile(connection.getFacing());
+			TileEntity entity = getAdjacentTile(connection.getFacing());
+
+			if (entity != null && entity instanceof TileBrassPipe && connection.getType() == Type.CONNECT) {
+				TileBrassPipe other = (TileBrassPipe) entity;
 
 				if (other != null && !pipes.contains(other)) {
 					IIngredientReceiver ret = other.searchReceiver(pipes, ingredient);
@@ -42,9 +44,8 @@ public class TileBrassPipe extends TileAT {
 						return ret;
 					}
 				}
-			} else if (connection.getType() == Type.INSERT) {
-				IIngredientReceiver receiver = (IIngredientReceiver) getWorld()
-						.getTileEntity(getPos().offset(connection.getFacing()));
+			} else if (entity != null && entity instanceof IIngredientReceiver && connection.getType() == Type.INSERT) {
+				IIngredientReceiver receiver = (IIngredientReceiver) entity;
 
 				if (receiver.canReceive(ingredient)) {
 					return receiver;
