@@ -4,10 +4,10 @@ import static sirttas.alchemytech.block.BlockAT.BIT_SIZE;
 
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;
-import sirttas.alchemytech.block.tile.renderer.InstrumentRenderer;
+import sirttas.alchemytech.block.tile.renderer.ATRenderer;
 import sirttas.alchemytech.model.ShakerPlateModel;
 
-public class ShakerRenderer extends InstrumentRenderer<TileShaker> {
+public class ShakerRenderer extends ATRenderer<TileShaker> {
 
 	private static final ResourceLocation IRON_TEXTURE = new ResourceLocation("alchemytech",
 			"textures/blocks/iron.png");

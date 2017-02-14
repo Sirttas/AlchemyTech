@@ -87,4 +87,12 @@ public class TileIngredientJar extends TileAT implements IIngredientContainer, I
 	public boolean canExtract(int index) {
 		return this.ingredientCount > 0;
 	}
+
+	public int getIngredientsColor() {
+		if (this.ingredient == null) {
+			return 0;
+		}
+		return this.ingredient.getColor();
+	}
+
 }

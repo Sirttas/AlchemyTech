@@ -2,9 +2,9 @@ package sirttas.alchemytech.block.instrument.mixer;
 
 import static sirttas.alchemytech.block.BlockAT.BIT_SIZE;
 
-import sirttas.alchemytech.block.tile.renderer.InstrumentRenderer;
+import sirttas.alchemytech.block.tile.renderer.ATRenderer;
 
-public class MixerRenderer extends InstrumentRenderer<TileMixer> {
+public class MixerRenderer extends ATRenderer<TileMixer> {
 	@Override
 	public void renderTileEntityAt(TileMixer instrument, double x, double y, double z, float partialTicks,
 			int destroyStage) {

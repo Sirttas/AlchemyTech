@@ -43,11 +43,6 @@ public class BlockIngredientJar extends BlockAT implements ITileEntityProvider {
 		return new TileIngredientJar();
 	}
 
-	public int getIngredientsColor(BlockPos pos) {
-		// TODO Auto-generated method stub
-		return 0xFF0000;
-	}
-
 	@Override
 	public void register() {
 		GameRegistry.register(this);

@@ -3,9 +3,9 @@ package sirttas.alchemytech.block.instrument.core;
 import static sirttas.alchemytech.block.BlockAT.BIT_SIZE;
 
 import net.minecraft.item.ItemStack;
-import sirttas.alchemytech.block.tile.renderer.InstrumentRenderer;
+import sirttas.alchemytech.block.tile.renderer.ATRenderer;
 
-public class InstrumentCoreRenderer extends InstrumentRenderer<TileInstrumentCore> {
+public class InstrumentCoreRenderer extends ATRenderer<TileInstrumentCore> {
 
 	@Override
 	public void renderTileEntityAt(TileInstrumentCore instrument, double x, double y, double z, float partialTicks,

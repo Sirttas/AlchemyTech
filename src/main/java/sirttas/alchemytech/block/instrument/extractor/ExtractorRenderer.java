@@ -2,9 +2,9 @@ package sirttas.alchemytech.block.instrument.extractor;
 
 import static sirttas.alchemytech.block.BlockAT.BIT_SIZE;
 
-import sirttas.alchemytech.block.tile.renderer.InstrumentRenderer;
+import sirttas.alchemytech.block.tile.renderer.ATRenderer;
 
-public class ExtractorRenderer extends InstrumentRenderer<TileExtractor> {
+public class ExtractorRenderer extends ATRenderer<TileExtractor> {
 
 	@Override
 	public void renderTileEntityAt(TileExtractor te, double x, double y, double z, float partialTicks, int destroyStage) {

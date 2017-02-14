@@ -4,10 +4,10 @@ import static sirttas.alchemytech.block.BlockAT.BIT_SIZE;
 
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.util.ResourceLocation;
-import sirttas.alchemytech.block.tile.renderer.InstrumentRenderer;
+import sirttas.alchemytech.block.tile.renderer.ATRenderer;
 import sirttas.alchemytech.model.CentrifugeBarrelModel;
 
-public class CentrifugeRenderer extends InstrumentRenderer<TileCentrifuge> {
+public class CentrifugeRenderer extends ATRenderer<TileCentrifuge> {
 
 	private static final ResourceLocation IRON_TEXTURE = new ResourceLocation("alchemytech",
 			"textures/blocks/iron.png");

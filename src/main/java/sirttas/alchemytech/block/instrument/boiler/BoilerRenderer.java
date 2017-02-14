@@ -2,9 +2,9 @@ package sirttas.alchemytech.block.instrument.boiler;
 
 import static sirttas.alchemytech.block.BlockAT.BIT_SIZE;
 
-import sirttas.alchemytech.block.tile.renderer.InstrumentRenderer;
+import sirttas.alchemytech.block.tile.renderer.ATRenderer;
 
-public class BoilerRenderer extends InstrumentRenderer<TileBoiler> {
+public class BoilerRenderer extends ATRenderer<TileBoiler> {
 
 	@Override
 	public void renderTileEntityAt(TileBoiler te, double x, double y, double z, float partialTicks, int destroyStage) {

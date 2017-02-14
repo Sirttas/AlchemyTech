@@ -3,18 +3,10 @@ package sirttas.alchemytech.block;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.Nullable;
-
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -79,18 +71,6 @@ public class ATBlocks {
 	}
 
 	@SideOnly(Side.CLIENT)
-	public static void initColors() {
-		Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(new IBlockColor() {
-			@Override
-			public int colorMultiplier(IBlockState state, @Nullable IBlockAccess worldIn, @Nullable BlockPos pos,
-					int tintIndex) {
-				return worldIn != null && pos != null && tintIndex == 8 ? ingredientJar.getIngredientsColor(pos) : -1;
-			}
-		}, new Block[] { ingredientJar });
-
-	}
-
-	@SideOnly(Side.CLIENT)
 	public static void initModels() {
 		for (IBlockAT block : blocks) {
 			block.initModel();
@@ -98,7 +78,6 @@ public class ATBlocks {
 	}
 
 	public static void postInit() {
-		initColors();
 
 		GameRegistry.addRecipe(new ShapedOreRecipe(instrumentCore, new Object[] { "III", "I I", "ADA", 'A',
 				new ItemStack(Blocks.STONE, 1, 5), 'D', new ItemStack(Blocks.STONE, 1, 3), 'I', Items.IRON_INGOT }));

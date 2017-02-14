@@ -17,7 +17,7 @@ import sirttas.alchemytech.AlchemyTechTab;
 
 public class BlockAT extends Block implements IBlockAT {
 
-	public static final double BIT_SIZE = 0.0625;
+	public static final float BIT_SIZE = 0.0625f;
 
 	private AxisAlignedBB bounds;
 
