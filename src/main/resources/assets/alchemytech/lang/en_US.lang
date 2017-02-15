@@ -41,6 +41,7 @@ tile.shaker.name=Shaker
 tile.extractor.name=Extractor
 tile.centrifuge.name=Centrifuge
 tile.boiler.name=Boiler
+tile.dissolver.name=Dissolver
 tile.instrumentCore.name=Instrument Core
 
 tile.copperOre.name=Malachite

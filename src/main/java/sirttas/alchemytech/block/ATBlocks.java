@@ -15,6 +15,7 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 import sirttas.alchemytech.block.instrument.boiler.BlockBoiler;
 import sirttas.alchemytech.block.instrument.centrifuge.BlockCentrifuge;
 import sirttas.alchemytech.block.instrument.core.BlockInstrumentCore;
+import sirttas.alchemytech.block.instrument.dissolver.BlockDissolver;
 import sirttas.alchemytech.block.instrument.extractor.BlockExtractor;
 import sirttas.alchemytech.block.instrument.mixer.BlockMixer;
 import sirttas.alchemytech.block.instrument.shaker.BlockShaker;
@@ -29,6 +30,7 @@ public class ATBlocks {
 	public static BlockExtractor extractor;
 	public static BlockBoiler boiler;
 	public static BlockCentrifuge centrifuge;
+	public static BlockDissolver dissolver;
 	public static BlockAT copperOre;
 	public static BlockAT zincOre;
 	public static BlockAT copperBlock;
@@ -47,6 +49,7 @@ public class ATBlocks {
 		extractor = new BlockExtractor();
 		boiler = new BlockBoiler();
 		centrifuge = new BlockCentrifuge();
+		dissolver = new BlockDissolver();
 		copperOre = new BlockAT("copperOre", Material.IRON);
 		zincOre = new BlockAT("zincOre", Material.IRON);
 		copperBlock = new BlockAT("copperBlock", Material.IRON);
