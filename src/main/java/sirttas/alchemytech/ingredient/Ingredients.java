@@ -19,6 +19,7 @@ import sirttas.alchemytech.ingredient.item.OreDictionaryItemIngredient;
 import sirttas.alchemytech.ingredient.recipe.IngredientRecipeRegistry;
 import sirttas.alchemytech.ingredient.recipe.instrument.BoilerRecipe;
 import sirttas.alchemytech.ingredient.recipe.instrument.CentrifugeRecipe;
+import sirttas.alchemytech.ingredient.recipe.instrument.DissolverRecipe;
 import sirttas.alchemytech.ingredient.recipe.instrument.ExtractorRecipe;
 import sirttas.alchemytech.ingredient.recipe.instrument.MixerRecipe;
 import sirttas.alchemytech.ingredient.recipe.instrument.ShakerRecipe;
@@ -143,6 +144,7 @@ public class Ingredients {
 	private static void initRecipes() {
 		IngredientRecipeRegistry.register(new MixerRecipe());
 		IngredientRecipeRegistry.register(new ExtractorRecipe());
+		IngredientRecipeRegistry.register(new DissolverRecipe());
 		IngredientRecipeRegistry.register(new ShakerRecipe(alteration, new Ingredient[] { netherWart, chorus }));
 		IngredientRecipeRegistry.register(new ShakerRecipe(energized, new Ingredient[] { alteration, redstone }));
 		IngredientRecipeRegistry.register(new ShakerRecipe(glowing, new Ingredient[] { alteration, glowstone }));

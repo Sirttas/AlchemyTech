@@ -1,6 +1,8 @@
 package sirttas.alchemytech.block.instrument.dissolver;
 
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import sirttas.alchemytech.block.instrument.dissolver.ConfigDissolver.NBT;
 import sirttas.alchemytech.block.tile.api.IIngredientContainer;
@@ -66,6 +68,16 @@ public class TileDissolver extends TileSingleSlotInstrument implements IIngredie
 			compound.setString(NBT.INGREDIENT, ingredient.getRegistryName().toString());
 		}
 		return compound;
+	}
+
+	@Override
+	public boolean canInsertItem(int index, ItemStack itemStackIn, EnumFacing direction) {
+		return index == 0;
+	}
+
+	@Override
+	public boolean isItemValidForSlot(int index, ItemStack stack) {
+		return index == 0;
 	}
 
 }

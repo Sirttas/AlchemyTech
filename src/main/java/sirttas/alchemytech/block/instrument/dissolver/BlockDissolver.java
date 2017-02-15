@@ -22,7 +22,7 @@ import sirttas.alchemytech.particle.ParticleMixerBubble;
 public class BlockDissolver extends BlockInstrument {
 
 	public BlockDissolver() {
-		super("dissolver", TileDissolver.class);
+		super(ConfigDissolver.NAME, TileDissolver.class);
 		addBoundingBox(FULL_BLOCK_AABB);
 	}
 
