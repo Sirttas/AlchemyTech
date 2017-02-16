@@ -82,32 +82,30 @@ public class ATBlocks {
 
 	public static void postInit() {
 
-		GameRegistry.addRecipe(new ShapedOreRecipe(instrumentCore, new Object[] { "III", "I I", "ADA", 'A',
-				new ItemStack(Blocks.STONE, 1, 5), 'D', new ItemStack(Blocks.STONE, 1, 3), 'I', Items.IRON_INGOT }));
-
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ATBlocks.brassPipe, 8),
-				new Object[] { "B", "B", "B", 'B', "ingotBrass" }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ATBlocks.ingredientJar, 2),
-				new Object[] { "GWG", "G G", "GBG", 'B', ATItems.bowl, 'G', Blocks.GLASS_PANE, 'W', Blocks.PLANKS }));
-
-		GameRegistry.addRecipe(new ShapedOreRecipe(mixer, new Object[] { "PbP", "UIU", "IBI", 'I', Items.IRON_INGOT,
-				'B', Blocks.IRON_BLOCK, 'b', "ingotBrass", 'U', ATItems.bowl, 'P', brassPipe }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(extractor, new Object[] { " P ", "bUb", "IBI", 'I', Items.IRON_INGOT,
-				'B', Blocks.IRON_BLOCK, 'b', "ingotBrass", 'U', ATItems.bowl, 'P', brassPipe }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(boiler, new Object[] { "IUI", "bUb", "IBI", 'I', Items.IRON_INGOT,
-				'B', Blocks.IRON_BLOCK, 'b', "ingotBrass", 'U', ATItems.bowl }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(dissolver, new Object[] { "IPI", "bUb", "IBI", 'I', Items.IRON_INGOT,
-				'B', Blocks.IRON_BLOCK, 'b', "ingotBrass", 'U', ATItems.bowl, 'P', brassPipe }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(centrifuge,
-				new Object[] { "pOp", "bUb", "IBI", 'I', Items.IRON_INGOT, 'B', Blocks.IRON_BLOCK, 'b', "ingotBrass",
-						'O', ATItems.centrifugeBarrel, 'U', ATItems.bowl, 'p', Blocks.PISTON }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(shaker, new Object[] { "pUp", "IBI", 'B', Blocks.IRON_BLOCK, 'I',
-				"ingotBrass", 'U', ATItems.bowl, 'p', Blocks.PISTON }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(instrumentCore, "III", "I I", "ADA", 'A',
+				new ItemStack(Blocks.STONE, 1, 5), 'D', new ItemStack(Blocks.STONE, 1, 3), 'I', Items.IRON_INGOT));
 
 		GameRegistry
-				.addRecipe(new ShapedOreRecipe(brassBlock, new Object[] { "III", "III", "III", 'I', "ingotBrass" }));
-		GameRegistry
-				.addRecipe(new ShapedOreRecipe(copperBlock, new Object[] { "III", "III", "III", 'I', "ingotCopper" }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(zincBlock, new Object[] { "III", "III", "III", 'I', "ingotZinc" }));
+				.addRecipe(new ShapedOreRecipe(new ItemStack(ATBlocks.brassPipe, 8), "B", "B", "B", 'B', "ingotBrass"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ATBlocks.ingredientJar, 2), "GWG", "G G", "GBG", 'B',
+				ATItems.bowl, 'G', Blocks.GLASS_PANE, 'W', Blocks.PLANKS));
+
+		GameRegistry.addRecipe(new ShapedOreRecipe(mixer, "PbP", "UIU", "IBI", 'I', Items.IRON_INGOT, 'B',
+				Blocks.IRON_BLOCK, 'b', "ingotBrass", 'U', ATItems.bowl, 'P', brassPipe));
+		GameRegistry.addRecipe(new ShapedOreRecipe(extractor, " P ", "bUb", "IBI", 'I', Items.IRON_INGOT, 'B',
+				Blocks.IRON_BLOCK, 'b', "ingotBrass", 'U', ATItems.bowl, 'P', brassPipe));
+		GameRegistry.addRecipe(new ShapedOreRecipe(boiler, "IUI", "bUb", "IBI", 'I', Items.IRON_INGOT, 'B',
+				Blocks.IRON_BLOCK, 'b', "ingotBrass", 'U', ATItems.bowl));
+		GameRegistry.addRecipe(new ShapedOreRecipe(dissolver, "IPI", "bUb", "IBI", 'I', Items.IRON_INGOT, 'B',
+				Blocks.IRON_BLOCK, 'b', "ingotBrass", 'U', ATItems.bowl, 'P', brassPipe));
+		GameRegistry.addRecipe(
+				new ShapedOreRecipe(centrifuge, "pOp", "bUb", "IBI", 'I', Items.IRON_INGOT, 'B', Blocks.IRON_BLOCK, 'b',
+						"ingotBrass", 'O', ATItems.centrifugeBarrel, 'U', ATItems.bowl, 'p', Blocks.PISTON));
+		GameRegistry.addRecipe(new ShapedOreRecipe(shaker, "pUp", "IBI", 'B', Blocks.IRON_BLOCK, 'I', "ingotBrass", 'U',
+				ATItems.bowl, 'p', Blocks.PISTON));
+
+		GameRegistry.addRecipe(new ShapedOreRecipe(brassBlock, "III", "III", "III", 'I', "ingotBrass"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(copperBlock, "III", "III", "III", 'I', "ingotCopper"));
+		GameRegistry.addRecipe(new ShapedOreRecipe(zincBlock, "III", "III", "III", 'I', "ingotZinc"));
 	}
 }

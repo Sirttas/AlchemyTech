@@ -67,16 +67,15 @@ public class ATItems {
 		initColors();
 
 		// TODO: add option to disable this craft
-		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(brassIngot, 4),
-				new Object[] { "ingotCopper", "ingotCopper", "ingotCopper", "ingotZinc" }));
+		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(brassIngot, 4), "ingotCopper", "ingotCopper",
+				"ingotCopper", "ingotZinc"));
 
+		GameRegistry.addRecipe(new ShapedOreRecipe(bowl, "I I", " B ", 'B', "ingotBrass", 'I', Items.IRON_INGOT));
 		GameRegistry.addRecipe(
-				new ShapedOreRecipe(bowl, new Object[] { "I I", " B ", 'B', "ingotBrass", 'I', Items.IRON_INGOT }));
-		GameRegistry.addRecipe(new ShapedOreRecipe(centrifugeBarrel,
-				new Object[] { "IBI", "I I", "IBI", 'B', bowl, 'I', Items.IRON_INGOT }));
+				new ShapedOreRecipe(centrifugeBarrel, "IBI", "I I", "IBI", 'B', bowl, 'I', Items.IRON_INGOT));
 		// TODO: remplace leather with rubber when it is avalable
-		GameRegistry.addRecipe(new ShapedOreRecipe(pipette,
-				new Object[] { "L  ", " G ", "  G", 'L', Items.LEATHER, 'G', Blocks.GLASS }));
+		GameRegistry
+				.addRecipe(new ShapedOreRecipe(pipette, "L  ", " G ", "  G", 'L', Items.LEATHER, 'G', Blocks.GLASS));
 
 		FurnaceRecipes.instance().addSmeltingRecipeForBlock(ATBlocks.copperOre, new ItemStack(copperIngot), 1.0F);
 		FurnaceRecipes.instance().addSmeltingRecipeForBlock(ATBlocks.zincOre, new ItemStack(zincIngot), 1.0F);
