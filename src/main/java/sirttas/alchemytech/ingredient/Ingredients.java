@@ -38,6 +38,9 @@ public class Ingredients {
 	public static ItemIngredient diamond;
 	public static ItemIngredient blaze;
 	public static ItemIngredient quartz;
+	public static ItemIngredient enderPearl;
+	public static ItemIngredient ghastTear;
+	public static ItemIngredient clay;
 	public static MultipleItemIngredient coal;
 	public static MultipleItemIngredient organicMatter;
 	public static EssenceIngredient alteration;
@@ -80,6 +83,12 @@ public class Ingredients {
 				.register(new ItemIngredient("blaze", new ItemStack(Items.BLAZE_POWDER)).setColor(0xAD8203));
 		quartz = (ItemIngredient) GameRegistry
 				.register(new ItemIngredient("quartz", new ItemStack(Items.QUARTZ)).setColor(0xFDFFEF));
+		enderPearl = (ItemIngredient) GameRegistry
+				.register(new ItemIngredient("enderPearl", new ItemStack(Items.ENDER_PEARL)).setColor(0x1A5144));
+		ghastTear = (ItemIngredient) GameRegistry
+				.register(new ItemIngredient("ghastTear", new ItemStack(Items.GHAST_TEAR)).setColor(0xE5EAE9));
+		clay = (ItemIngredient) GameRegistry
+				.register(new ItemIngredient("clay", new ItemStack(Items.CLAY_BALL)).setColor(0XBCBCBC));
 
 		coal = ((MultipleItemIngredient) GameRegistry.register(new MultipleItemIngredient("coal",
 				new ItemStack[] { new ItemStack(Items.COAL), new ItemStack(Items.COAL, 1, 1) }).setColor(0x1F2021)))

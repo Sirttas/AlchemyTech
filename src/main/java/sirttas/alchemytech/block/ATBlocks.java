@@ -85,7 +85,7 @@ public class ATBlocks {
 		GameRegistry.addRecipe(new ShapedOreRecipe(instrumentCore, new Object[] { "III", "I I", "ADA", 'A',
 				new ItemStack(Blocks.STONE, 1, 5), 'D', new ItemStack(Blocks.STONE, 1, 3), 'I', Items.IRON_INGOT }));
 
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ATBlocks.brassPipe, 2),
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ATBlocks.brassPipe, 8),
 				new Object[] { "B", "B", "B", 'B', "ingotBrass" }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ATBlocks.ingredientJar, 2),
 				new Object[] { "GWG", "G G", "GBG", 'B', ATItems.bowl, 'G', Blocks.GLASS_PANE, 'W', Blocks.PLANKS }));
@@ -96,6 +96,8 @@ public class ATBlocks {
 				'B', Blocks.IRON_BLOCK, 'b', "ingotBrass", 'U', ATItems.bowl, 'P', brassPipe }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(boiler, new Object[] { "IUI", "bUb", "IBI", 'I', Items.IRON_INGOT,
 				'B', Blocks.IRON_BLOCK, 'b', "ingotBrass", 'U', ATItems.bowl }));
+		GameRegistry.addRecipe(new ShapedOreRecipe(dissolver, new Object[] { "IPI", "bUb", "IBI", 'I', Items.IRON_INGOT,
+				'B', Blocks.IRON_BLOCK, 'b', "ingotBrass", 'U', ATItems.bowl, 'P', brassPipe }));
 		GameRegistry.addRecipe(new ShapedOreRecipe(centrifuge,
 				new Object[] { "pOp", "bUb", "IBI", 'I', Items.IRON_INGOT, 'B', Blocks.IRON_BLOCK, 'b', "ingotBrass",
 						'O', ATItems.centrifugeBarrel, 'U', ATItems.bowl, 'p', Blocks.PISTON }));

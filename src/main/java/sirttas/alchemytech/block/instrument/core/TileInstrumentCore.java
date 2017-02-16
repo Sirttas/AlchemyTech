@@ -99,7 +99,7 @@ public class TileInstrumentCore extends TileATContainer implements IInstrumentCo
 
 	@Override
 	public void consumeFuel(int amount) {
-		if (fuelCount <= amount - 1 || fuelCount <= 1) {
+		if (fuel != null && (fuelCount <= amount - 1 || fuelCount <= 1)) {
 			fuelCount += TileEntityFurnace.getItemBurnTime(fuel);
 			fuel.stackSize--;
 			if (fuel.stackSize == 0) {
