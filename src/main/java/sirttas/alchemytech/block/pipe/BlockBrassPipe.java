@@ -165,7 +165,7 @@ public class BlockBrassPipe extends BlockAT implements ITileEntityProvider {
 		double lastLength = 0;
 
 		for (final AxisAlignedBB box : boxes) {
-			if (isRendered(box, collisionBlockState)) {
+			if (isRendered(box, collisionBlockState, worldIn, pos)) {
 				final RayTraceResult result = rayTrace(pos, start, end, box);
 
 				if (result != null && result.typeOfHit == Type.BLOCK) {
@@ -199,21 +199,23 @@ public class BlockBrassPipe extends BlockAT implements ITileEntityProvider {
 		return null;
 	}
 
-	private boolean isRendered(AxisAlignedBB box, IBlockState state) {
-		if (state.getBlock() == this) {
+	private boolean isRendered(AxisAlignedBB box, IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+		IBlockState actualState = this.getActualState(state, worldIn, pos);
+
+		if (actualState.getBlock() == this) {
 			if (box.equals(BASE_AABB)) {
 				return true;
-			} else if (box.equals(DOWN_AABB) && state.getValue(DOWN).booleanValue()) {
+			} else if (box.equals(DOWN_AABB) && actualState.getValue(DOWN).booleanValue()) {
 				return true;
-			} else if (box.equals(UP_AABB) && state.getValue(UP).booleanValue()) {
+			} else if (box.equals(UP_AABB) && actualState.getValue(UP).booleanValue()) {
 				return true;
-			} else if (box.equals(NORTH_AABB) && state.getValue(NORTH).booleanValue()) {
+			} else if (box.equals(NORTH_AABB) && actualState.getValue(NORTH).booleanValue()) {
 				return true;
-			} else if (box.equals(SOUTH_AABB) && state.getValue(SOUTH).booleanValue()) {
+			} else if (box.equals(SOUTH_AABB) && actualState.getValue(SOUTH).booleanValue()) {
 				return true;
-			} else if (box.equals(WEST_AABB) && state.getValue(WEST).booleanValue()) {
+			} else if (box.equals(WEST_AABB) && actualState.getValue(WEST).booleanValue()) {
 				return true;
-			} else if (box.equals(EAST_AABB) && state.getValue(EAST).booleanValue()) {
+			} else if (box.equals(EAST_AABB) && actualState.getValue(EAST).booleanValue()) {
 				return true;
 			}
 		}
@@ -228,7 +230,7 @@ public class BlockBrassPipe extends BlockAT implements ITileEntityProvider {
 			final Vec3d hit = result.hitVec;
 
 			for (final AxisAlignedBB box : boxes) {
-				if (doesVectorColide(box.offset(pos), hit) && isRendered(box, state)) {
+				if (doesVectorColide(box.offset(pos), hit) && isRendered(box, state, worldIn, pos)) {
 					return box;
 				}
 			}
