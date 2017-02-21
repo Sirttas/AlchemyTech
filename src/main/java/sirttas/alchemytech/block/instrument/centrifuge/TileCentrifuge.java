@@ -2,9 +2,9 @@ package sirttas.alchemytech.block.instrument.centrifuge;
 
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import sirttas.alchemytech.block.tile.instrument.TileSingleSlotInstrument;
+import sirttas.alchemytech.block.tile.instrument.TileCraftingInstrument;
 
-public class TileCentrifuge extends TileSingleSlotInstrument {
+public class TileCentrifuge extends TileCraftingInstrument {
 
 	@Override
 	public String getName() {

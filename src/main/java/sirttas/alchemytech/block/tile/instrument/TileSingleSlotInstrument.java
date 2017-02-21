@@ -4,7 +4,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 import sirttas.alchemytech.block.instrument.ConfigInstrument.NBT;
-import sirttas.alchemytech.block.tile.api.IInstrumentTile;
 import sirttas.alchemytech.helpers.NBTHelper;
 import sirttas.alchemytech.item.ATItems;
 import sirttas.alchemytech.item.ItemPreparation;
@@ -75,13 +74,6 @@ public abstract class TileSingleSlotInstrument extends TileInstrument {
 		slot = null;
 	}
 
-	@Override
-	public boolean isReciptAvalable() {
-		if (slot == null && !(this instanceof IInstrumentTile)) {
-			return false;
-		}
-		return super.isReciptAvalable();
-	}
 
 	@Override
 	public void readFromNBT(NBTTagCompound compound) {
