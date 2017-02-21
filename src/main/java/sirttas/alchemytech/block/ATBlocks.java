@@ -37,7 +37,6 @@ public class ATBlocks {
 	public static BlockAT zincBlock;
 	public static BlockAT brassBlock;
 	public static BlockBrassPipe brassPipe;
-	public static BlockGlowingEssence glowingEssence;
 	public static BlockIngredientJar ingredientJar;
 
 	public static List<IBlockAT> blocks = new ArrayList<IBlockAT>();
@@ -56,7 +55,6 @@ public class ATBlocks {
 		zincBlock = new BlockAT("zincBlock", Material.IRON);
 		brassBlock = new BlockAT("brassBlock", Material.IRON);
 		brassPipe = new BlockBrassPipe();
-		glowingEssence = new BlockGlowingEssence();
 		ingredientJar = new BlockIngredientJar();
 
 		for (IBlockAT block : blocks) {
