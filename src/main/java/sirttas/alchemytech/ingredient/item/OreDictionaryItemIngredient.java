@@ -47,6 +47,7 @@ public class OreDictionaryItemIngredient extends Ingredient implements IPostInit
 
 	@Override
 	public void postInit() {
+		ItemIngredient.itemToIngredient.add(this);
 		this.stacks = OreDictionary.getOres(item);
 	}
 
