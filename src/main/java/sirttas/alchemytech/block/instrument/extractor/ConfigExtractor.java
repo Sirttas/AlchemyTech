@@ -12,5 +12,6 @@ public class ConfigExtractor extends ConfigInstrument {
 
 	public class NBT extends ConfigInstrument.NBT {
 		public static final String INGREDIENT = "ingredient";
+		public static final String INVENTORY = "inventory";
 	}
 }
