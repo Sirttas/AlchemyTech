@@ -5,7 +5,7 @@
 		"particle": "alchemytech:blocks/iron",
 		"texture": "alchemytech:blocks/iron",
 		"brass": "alchemytech:blocks/brass",
-		"chest": "minecraft:antity/chest/normal"
+		"chest": "minecraft:entity/chest/normal"
 	},
 	"elements": [
 		{

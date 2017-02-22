@@ -158,4 +158,26 @@ public class ATInventory implements IInventory {
 		compound.setTag(TAG_ITEMS, nbttaglist);
 		return compound;
 	}
+
+	public ItemStack tryInsertItem(ItemStack stack) {
+		ItemStack clone = stack.copy();
+		
+		for (int i = 0; i < size && clone != null; i++) {
+			if (slots[i].getItem() == clone.getItem()) {
+				int size = Math.min(size = slots[i].getItem().getItemStackLimit(slots[i]) - slots[i].stackSize,
+						clone.stackSize);
+				
+				slots[i].stackSize += size;
+				clone.stackSize -= size;
+
+				if (clone.stackSize == 0) {
+					clone = null;
+				}
+			} else if (slots[i] == null) {
+				slots[i] = clone;
+				clone = null;
+			}
+		}
+		return clone;
+	}
 }
