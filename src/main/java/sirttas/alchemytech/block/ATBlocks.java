@@ -12,6 +12,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
+import sirttas.alchemytech.block.api.IBlockAT;
 import sirttas.alchemytech.block.instrument.boiler.BlockBoiler;
 import sirttas.alchemytech.block.instrument.centrifuge.BlockCentrifuge;
 import sirttas.alchemytech.block.instrument.core.BlockInstrumentCore;

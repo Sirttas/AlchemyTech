@@ -1,4 +1,4 @@
-package sirttas.alchemytech.block;
+package sirttas.alchemytech.block.api;
 
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;

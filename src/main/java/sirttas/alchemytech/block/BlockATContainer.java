@@ -19,6 +19,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import sirttas.alchemytech.AlchemyTechTab;
+import sirttas.alchemytech.block.api.IBlockAT;
 import sirttas.alchemytech.block.instrument.ConfigInstrument;
 import sirttas.alchemytech.block.tile.api.IForcableSync;
 
