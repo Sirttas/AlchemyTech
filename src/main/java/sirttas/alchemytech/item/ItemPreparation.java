@@ -16,6 +16,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -146,9 +147,9 @@ public class ItemPreparation extends ItemAT {
 
 		for (Ingredient ingredient : getIngredients(stack)) {
 			if (ingredient instanceof IEssenceIngredient) {
-				tooltip.add("§b" + ingredient.getDisplayName());
+				tooltip.add(TextFormatting.AQUA + ingredient.getDisplayName());
 			} else if (ingredient instanceof IItemIngredient) {
-				tooltip.add("§f" + ingredient.getDisplayName());
+				tooltip.add(TextFormatting.WHITE + ingredient.getDisplayName());
 			} else {
 				tooltip.add(ingredient.getDisplayName());
 			}
