@@ -41,6 +41,7 @@ public class Ingredients {
 	public static ItemIngredient enderPearl;
 	public static ItemIngredient ghastTear;
 	public static ItemIngredient clay;
+	public static ItemIngredient bone;
 	public static MultipleItemIngredient coal;
 	public static MultipleItemIngredient organicMatter;
 	public static EssenceIngredient alteration;
@@ -88,7 +89,9 @@ public class Ingredients {
 		ghastTear = (ItemIngredient) GameRegistry
 				.register(new ItemIngredient("ghastTear", new ItemStack(Items.GHAST_TEAR)).setColor(0xE5EAE9));
 		clay = (ItemIngredient) GameRegistry
-				.register(new ItemIngredient("clay", new ItemStack(Items.CLAY_BALL)).setColor(0XBCBCBC));
+				.register(new ItemIngredient("clay", new ItemStack(Items.CLAY_BALL)).setColor(0xBCBCBC));
+		bone = (ItemIngredient) GameRegistry
+				.register(new ItemIngredient("bone", new ItemStack(Items.BONE)).setColor(0xF4FCD1));
 
 		coal = ((MultipleItemIngredient) GameRegistry.register(new MultipleItemIngredient("coal",
 				new ItemStack[] { new ItemStack(Items.COAL), new ItemStack(Items.COAL, 1, 1) }).setColor(0x1F2021)))
