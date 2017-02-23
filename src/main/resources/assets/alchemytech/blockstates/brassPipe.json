@@ -18,6 +18,24 @@
         },
        	{   "when": { "down": "true" },
             "apply": { "model": "alchemytech:brassPipeSide", "x": 90, "uvlock": true }
+        },
+        {   "when": { "north_extract": "true" },
+            "apply": { "model": "alchemytech:brassPipeExtract", "uvlock": true }
+        },
+        {   "when": { "east_extract": "true" },
+            "apply": { "model": "alchemytech:brassPipeExtract", "y": 90, "uvlock": true }
+        },
+        {   "when": { "south_extract": "true" },
+            "apply": { "model": "alchemytech:brassPipeExtract", "y": 180, "uvlock": true }
+        },
+        {   "when": { "west_extract": "true" },
+            "apply": { "model": "alchemytech:brassPipeExtract", "y": 270, "uvlock": true }
+        },
+        {   "when": { "up_extract": "true" },
+            "apply": { "model": "alchemytech:brassPipeExtract", "x": 270, "uvlock": true }
+        },
+       	{   "when": { "down_extract": "true" },
+            "apply": { "model": "alchemytech:brassPipeExtract", "x": 90, "uvlock": true }
         }
     ]
 }

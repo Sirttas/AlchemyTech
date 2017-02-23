@@ -30,6 +30,13 @@ public class TileBrassPipe extends TileAT {
 		return false;
 	}
 
+	public boolean isExtracting(EnumFacing face) {
+		if (connections != null) {
+			return this.connections.get(face).getType() == Type.EXTRACT;
+		}
+		return false;
+	}
+
 	private IIngredientReceiver searchReceiver(List<TileBrassPipe> pipes, Ingredient ingredient) {
 		pipes.add(this);
 		for (BrassPipeConnection connection : connections.values()) {

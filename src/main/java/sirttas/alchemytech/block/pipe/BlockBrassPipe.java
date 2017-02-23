@@ -42,6 +42,13 @@ public class BlockBrassPipe extends BlockAT implements ITileEntityProvider {
 	public static final PropertyBool UP = PropertyBool.create("up");
 	public static final PropertyBool DOWN = PropertyBool.create("down");
 
+	public static final PropertyBool NORTH_EXTRACT = PropertyBool.create("north_extract");
+	public static final PropertyBool EAST_EXTRACT = PropertyBool.create("east_extract");
+	public static final PropertyBool SOUTH_EXTRACT = PropertyBool.create("south_extract");
+	public static final PropertyBool WEST_EXTRACT = PropertyBool.create("west_extract");
+	public static final PropertyBool UP_EXTRACT = PropertyBool.create("up_extract");
+	public static final PropertyBool DOWN_EXTRACT = PropertyBool.create("down_extract");
+
 	private final List<AxisAlignedBB> boxes;
 
 	private static boolean doesVectorColide(AxisAlignedBB bb, Vec3d vec) {
@@ -82,7 +89,8 @@ public class BlockBrassPipe extends BlockAT implements ITileEntityProvider {
 
 	@Override
 	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[] { NORTH, EAST, WEST, SOUTH, UP, DOWN });
+		return new BlockStateContainer(this, new IProperty[] { NORTH, EAST, WEST, SOUTH, UP, DOWN, NORTH_EXTRACT,
+				EAST_EXTRACT, WEST_EXTRACT, SOUTH_EXTRACT, UP_EXTRACT, DOWN_EXTRACT });
 	}
 
 	/**
@@ -105,7 +113,10 @@ public class BlockBrassPipe extends BlockAT implements ITileEntityProvider {
 		if (te == null) {
 			return state.withProperty(NORTH, Boolean.FALSE).withProperty(EAST, Boolean.FALSE)
 					.withProperty(SOUTH, Boolean.FALSE).withProperty(WEST, Boolean.FALSE)
-					.withProperty(UP, Boolean.FALSE).withProperty(DOWN, Boolean.FALSE);
+					.withProperty(UP, Boolean.FALSE).withProperty(DOWN, Boolean.FALSE)
+					.withProperty(NORTH_EXTRACT, Boolean.FALSE).withProperty(EAST_EXTRACT, Boolean.FALSE)
+					.withProperty(SOUTH_EXTRACT, Boolean.FALSE).withProperty(WEST_EXTRACT, Boolean.FALSE)
+					.withProperty(UP_EXTRACT, Boolean.FALSE).withProperty(DOWN_EXTRACT, Boolean.FALSE);
 		}
 
 		return state.withProperty(NORTH, Boolean.valueOf(te.isConnectedTo(EnumFacing.NORTH)))
@@ -113,7 +124,13 @@ public class BlockBrassPipe extends BlockAT implements ITileEntityProvider {
 				.withProperty(SOUTH, Boolean.valueOf(te.isConnectedTo(EnumFacing.SOUTH)))
 				.withProperty(WEST, Boolean.valueOf(te.isConnectedTo(EnumFacing.WEST)))
 				.withProperty(UP, Boolean.valueOf(te.isConnectedTo(EnumFacing.UP)))
-				.withProperty(DOWN, Boolean.valueOf(te.isConnectedTo(EnumFacing.DOWN)));
+				.withProperty(DOWN, Boolean.valueOf(te.isConnectedTo(EnumFacing.DOWN)))
+				.withProperty(NORTH_EXTRACT, Boolean.valueOf(te.isExtracting(EnumFacing.NORTH)))
+				.withProperty(EAST_EXTRACT, Boolean.valueOf(te.isExtracting(EnumFacing.EAST)))
+				.withProperty(SOUTH_EXTRACT, Boolean.valueOf(te.isExtracting(EnumFacing.SOUTH)))
+				.withProperty(WEST_EXTRACT, Boolean.valueOf(te.isExtracting(EnumFacing.WEST)))
+				.withProperty(UP_EXTRACT, Boolean.valueOf(te.isExtracting(EnumFacing.UP)))
+				.withProperty(DOWN_EXTRACT, Boolean.valueOf(te.isExtracting(EnumFacing.DOWN)));
 	}
 
 	@Override
