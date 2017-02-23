@@ -117,12 +117,20 @@ public class BlockBrassPipe extends BlockAT implements ITileEntityProvider {
 	 */
 	@Override
 	public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
-		return state.withProperty(NORTH, Boolean.valueOf(this.canConnectTo(worldIn, pos.north())))
-				.withProperty(EAST, Boolean.valueOf(this.canConnectTo(worldIn, pos.east())))
-				.withProperty(SOUTH, Boolean.valueOf(this.canConnectTo(worldIn, pos.south())))
-				.withProperty(WEST, Boolean.valueOf(this.canConnectTo(worldIn, pos.west())))
-				.withProperty(UP, Boolean.valueOf(this.canConnectTo(worldIn, pos.up())))
-				.withProperty(DOWN, Boolean.valueOf(this.canConnectTo(worldIn, pos.down())));
+		TileBrassPipe te = (TileBrassPipe) worldIn.getTileEntity(pos);
+
+		if (te == null) {
+			return state.withProperty(NORTH, Boolean.FALSE).withProperty(EAST, Boolean.FALSE)
+					.withProperty(SOUTH, Boolean.FALSE).withProperty(WEST, Boolean.FALSE)
+					.withProperty(UP, Boolean.FALSE).withProperty(DOWN, Boolean.FALSE);
+		}
+
+		return state.withProperty(NORTH, Boolean.valueOf(te.isConnectedTo(EnumFacing.NORTH)))
+				.withProperty(EAST, Boolean.valueOf(te.isConnectedTo(EnumFacing.EAST)))
+				.withProperty(SOUTH, Boolean.valueOf(te.isConnectedTo(EnumFacing.SOUTH)))
+				.withProperty(WEST, Boolean.valueOf(te.isConnectedTo(EnumFacing.WEST)))
+				.withProperty(UP, Boolean.valueOf(te.isConnectedTo(EnumFacing.UP)))
+				.withProperty(DOWN, Boolean.valueOf(te.isConnectedTo(EnumFacing.DOWN)));
 	}
 
 	@Override

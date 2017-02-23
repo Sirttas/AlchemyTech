@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
@@ -34,17 +35,19 @@ public class TileBrassPipe extends TileAT {
 		for (BrassPipeConnection connection : connections.values()) {
 			TileEntity entity = getAdjacentTile(connection.getFacing());
 
-			if (entity != null && entity instanceof TileBrassPipe && connection.getType() == Type.CONNECT) {
+			if (entity == null) {
+				refresh(connection.getFacing());
+			} else if (entity instanceof TileBrassPipe && connection.getType() == Type.CONNECT) {
 				TileBrassPipe other = (TileBrassPipe) entity;
 
-				if (other != null && !pipes.contains(other)) {
+				if (!pipes.contains(other)) {
 					IIngredientReceiver ret = other.searchReceiver(pipes, ingredient);
 
 					if (ret != null) {
 						return ret;
 					}
 				}
-			} else if (entity != null && entity instanceof IIngredientReceiver && connection.getType() == Type.INSERT) {
+			} else if (entity instanceof IIngredientReceiver && connection.getType() == Type.INSERT) {
 				IIngredientReceiver receiver = (IIngredientReceiver) entity;
 
 				if (receiver.canReceive(ingredient)) {
@@ -53,6 +56,11 @@ public class TileBrassPipe extends TileAT {
 			}
 		}
 		return null;
+	}
+
+	private void reRenderBlock() {
+		Minecraft.getMinecraft().renderGlobal.markBlockRangeForRenderUpdate(pos.getX(), pos.getY(), pos.getZ(),
+				pos.getX(), pos.getY(), pos.getZ());
 	}
 
 	public void init() {
@@ -73,31 +81,34 @@ public class TileBrassPipe extends TileAT {
 				connection.setType(Type.EXTRACT);
 			}
 			connections.put(face, connection);
+		}
+	}
 
+	private void refresh(EnumFacing face) {
+		BrassPipeConnection connection = connections.get(face);
+		TileEntity other = getAdjacentTile(face);
+
+		if (connection.getType() == Type.NONE) {
+			if (other instanceof TileBrassPipe) {
+				connection.setType(Type.CONNECT);
+				AlchemyTech.T.info("updating pipe: " + face.toString() + " connected");
+			} else if (other instanceof IIngredientReceiver) {
+				connection.setType(Type.INSERT);
+				AlchemyTech.T.info("updating pipe: " + face.toString() + " connected (insert)");
+			} else if (other instanceof IIngredientSender) {
+				connection.setType(Type.EXTRACT);
+				AlchemyTech.T.info("updating pipe: " + face.toString() + " connected (extract)");
+			}
+		} else {
+			if (other == null) {
+				connection.setType(Type.NONE);
+			}
 		}
 	}
 
 	public void refresh() {
 		for (EnumFacing face : EnumFacing.VALUES) {
-			BrassPipeConnection connection = connections.get(face);
-			TileEntity other = getAdjacentTile(face);
-
-			if (connection.getType() == Type.NONE) {
-				if (other instanceof TileBrassPipe) {
-					connection.setType(Type.CONNECT);
-					AlchemyTech.T.info("updating pipe: " + face.toString() + " connected");
-				} else if (other instanceof IIngredientReceiver) {
-					connection.setType(Type.INSERT);
-					AlchemyTech.T.info("updating pipe: " + face.toString() + " connected (insert)");
-				} else if (other instanceof IIngredientSender) {
-					connection.setType(Type.EXTRACT);
-					AlchemyTech.T.info("updating pipe: " + face.toString() + " connected (extract)");
-				}
-			} else {
-				if (other == null) {
-					connection.setType(Type.NONE);
-				}
-			}
+			refresh(face);
 		}
 	}
 
@@ -111,9 +122,11 @@ public class TileBrassPipe extends TileAT {
 		if (connections == null || connections.size() < 6) {
 			this.init();
 		}
+
 		for (EnumFacing face : EnumFacing.VALUES) {
 			BrassPipeConnection connection = connections.get(face);
 
+			this.refresh(face);
 			if (connection != null && connection.getType() == Type.EXTRACT) {
 				TileEntity entity = getWorld().getTileEntity(getPos().offset(connection.getFacing()));
 
@@ -131,6 +144,11 @@ public class TileBrassPipe extends TileAT {
 				}
 			}
 		}
+	}
+
+	@Override
+	protected void clientUpdate() {
+		reRenderBlock();
 	}
 
 	public boolean activatePipe(EnumFacing face) {
