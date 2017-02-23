@@ -2,8 +2,7 @@ package sirttas.alchemytech.block.instrument.extractor.top;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import sirttas.alchemytech.block.instrument.extractor.ConfigExtractor;
-import sirttas.alchemytech.block.instrument.extractor.ConfigExtractor.NBT;
+import sirttas.alchemytech.block.instrument.extractor.top.ConfigExtractorTop.NBT;
 import sirttas.alchemytech.block.tile.TileATContainer;
 import sirttas.alchemytech.helpers.NBTHelper;
 import sirttas.alchemytech.inventory.ATInventory;
@@ -45,7 +44,7 @@ public class TileExtractorTop extends TileATContainer {
 
 	@Override
 	public String getName() {
-		return ConfigExtractor.TOP_UNLOCALIZED_NAME;
+		return ConfigExtractorTop.UNLOCALIZED_NAME;
 	}
 
 	public ItemStack tryInsertItem(ItemStack stack) {

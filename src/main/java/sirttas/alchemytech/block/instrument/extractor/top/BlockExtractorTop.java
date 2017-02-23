@@ -12,12 +12,11 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import sirttas.alchemytech.block.BlockATContainer;
-import sirttas.alchemytech.block.instrument.extractor.ConfigExtractor;
 
 public class BlockExtractorTop extends BlockATContainer {
 
 	public BlockExtractorTop() {
-		super(ConfigExtractor.TOP_NAME, TileExtractorTop.class);
+		super(ConfigExtractorTop.NAME, TileExtractorTop.class);
 	}
 
 	@Override
