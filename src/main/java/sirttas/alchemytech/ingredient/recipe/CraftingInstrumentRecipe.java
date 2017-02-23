@@ -5,25 +5,25 @@ import sirttas.alchemytech.block.tile.instrument.TileInstrument;
 import sirttas.alchemytech.ingredient.Ingredient;
 import sirttas.alchemytech.item.ItemPreparation;
 
-public abstract class SingleSlotIngredientRecipe<T extends TileInstrument> implements IIngredientRecipe<T> {
+public abstract class CraftingInstrumentRecipe<T extends TileInstrument> implements IIngredientRecipe<T> {
 
 	protected Ingredient[] output;
 	protected Ingredient[] input;
 	protected Class<T> clazz;
 
-	public SingleSlotIngredientRecipe(Ingredient output, Ingredient input) {
+	public CraftingInstrumentRecipe(Ingredient output, Ingredient input) {
 		this(output, new Ingredient[] { input });
 	}
 
-	public SingleSlotIngredientRecipe(Ingredient output, Ingredient[] input) {
+	public CraftingInstrumentRecipe(Ingredient output, Ingredient[] input) {
 		this(new Ingredient[] { output }, input);
 	}
 
-	public SingleSlotIngredientRecipe(Ingredient[] output, Ingredient input) {
+	public CraftingInstrumentRecipe(Ingredient[] output, Ingredient input) {
 		this(output, new Ingredient[] { input });
 	}
 
-	public SingleSlotIngredientRecipe(Ingredient[] output, Ingredient[] input) {
+	public CraftingInstrumentRecipe(Ingredient[] output, Ingredient[] input) {
 		this.output = output;
 		this.input = input;
 	}
