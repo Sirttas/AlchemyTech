@@ -42,23 +42,6 @@ public class BlockBrassPipe extends BlockAT implements ITileEntityProvider {
 	public static final PropertyBool UP = PropertyBool.create("up");
 	public static final PropertyBool DOWN = PropertyBool.create("down");
 
-	private static final String NAME = "brassPipe";
-
-	public static final AxisAlignedBB BASE_AABB = new AxisAlignedBB(6.5 * BIT_SIZE, 6.5 * BIT_SIZE, 6.5 * BIT_SIZE,
-			9.5 * BIT_SIZE, 9.5 * BIT_SIZE, 9.5 * BIT_SIZE);
-	public static final AxisAlignedBB WEST_AABB = new AxisAlignedBB(0, 7 * BIT_SIZE, 7 * BIT_SIZE, 6.5 * BIT_SIZE,
-			9 * BIT_SIZE, 9 * BIT_SIZE);
-	public static final AxisAlignedBB DOWN_AABB = new AxisAlignedBB(7 * BIT_SIZE, 0, 7 * BIT_SIZE, 9 * BIT_SIZE,
-			6.5 * BIT_SIZE, 9 * BIT_SIZE);
-	public static final AxisAlignedBB NORTH_AABB = new AxisAlignedBB(7 * BIT_SIZE, 7 * BIT_SIZE, 0, 9 * BIT_SIZE,
-			9 * BIT_SIZE, 6.5 * BIT_SIZE);
-	public static final AxisAlignedBB EAST_AABB = new AxisAlignedBB(9.5 * BIT_SIZE, 7 * BIT_SIZE, 7 * BIT_SIZE,
-			16 * BIT_SIZE, 9 * BIT_SIZE, 9 * BIT_SIZE);
-	public static final AxisAlignedBB UP_AABB = new AxisAlignedBB(7 * BIT_SIZE, 9.5 * BIT_SIZE, 7 * BIT_SIZE,
-			9 * BIT_SIZE, 16 * BIT_SIZE, 9 * BIT_SIZE);
-	public static final AxisAlignedBB SOUTH_AABB = new AxisAlignedBB(7 * BIT_SIZE, 7 * BIT_SIZE, 9.5 * BIT_SIZE,
-			9 * BIT_SIZE, 9 * BIT_SIZE, 16 * BIT_SIZE);
-
 	private final List<AxisAlignedBB> boxes;
 
 	private static boolean doesVectorColide(AxisAlignedBB bb, Vec3d vec) {
@@ -67,15 +50,15 @@ public class BlockBrassPipe extends BlockAT implements ITileEntityProvider {
 	}
 
 	public BlockBrassPipe() {
-		super(NAME, Material.IRON);
+		super(ConfigBrassPipe.NAME, Material.IRON);
 		boxes = new ArrayList<AxisAlignedBB>();
-		boxes.add(BASE_AABB);
-		boxes.add(EAST_AABB);
-		boxes.add(DOWN_AABB);
-		boxes.add(NORTH_AABB);
-		boxes.add(WEST_AABB);
-		boxes.add(UP_AABB);
-		boxes.add(SOUTH_AABB);
+		boxes.add(ConfigBrassPipe.BASE_AABB);
+		boxes.add(ConfigBrassPipe.EAST_AABB);
+		boxes.add(ConfigBrassPipe.DOWN_AABB);
+		boxes.add(ConfigBrassPipe.NORTH_AABB);
+		boxes.add(ConfigBrassPipe.WEST_AABB);
+		boxes.add(ConfigBrassPipe.UP_AABB);
+		boxes.add(ConfigBrassPipe.SOUTH_AABB);
 		this.setTickRandomly(true);
 	}
 
@@ -191,17 +174,17 @@ public class BlockBrassPipe extends BlockAT implements ITileEntityProvider {
 	}
 
 	private EnumFacing getFace(AxisAlignedBB box) {
-		if (box.equals(DOWN_AABB)) {
+		if (box.equals(ConfigBrassPipe.DOWN_AABB)) {
 			return EnumFacing.DOWN;
-		} else if (box.equals(UP_AABB)) {
+		} else if (box.equals(ConfigBrassPipe.UP_AABB)) {
 			return EnumFacing.UP;
-		} else if (box.equals(NORTH_AABB)) {
+		} else if (box.equals(ConfigBrassPipe.NORTH_AABB)) {
 			return EnumFacing.NORTH;
-		} else if (box.equals(SOUTH_AABB)) {
+		} else if (box.equals(ConfigBrassPipe.SOUTH_AABB)) {
 			return EnumFacing.SOUTH;
-		} else if (box.equals(WEST_AABB)) {
+		} else if (box.equals(ConfigBrassPipe.WEST_AABB)) {
 			return EnumFacing.WEST;
-		} else if (box.equals(EAST_AABB)) {
+		} else if (box.equals(ConfigBrassPipe.EAST_AABB)) {
 			return EnumFacing.EAST;
 		}
 		return null;
@@ -211,19 +194,19 @@ public class BlockBrassPipe extends BlockAT implements ITileEntityProvider {
 		IBlockState actualState = this.getActualState(state, worldIn, pos);
 
 		if (actualState.getBlock() == this) {
-			if (box.equals(BASE_AABB)) {
+			if (box.equals(ConfigBrassPipe.BASE_AABB)) {
 				return true;
-			} else if (box.equals(DOWN_AABB) && actualState.getValue(DOWN).booleanValue()) {
+			} else if (box.equals(ConfigBrassPipe.DOWN_AABB) && actualState.getValue(DOWN).booleanValue()) {
 				return true;
-			} else if (box.equals(UP_AABB) && actualState.getValue(UP).booleanValue()) {
+			} else if (box.equals(ConfigBrassPipe.UP_AABB) && actualState.getValue(UP).booleanValue()) {
 				return true;
-			} else if (box.equals(NORTH_AABB) && actualState.getValue(NORTH).booleanValue()) {
+			} else if (box.equals(ConfigBrassPipe.NORTH_AABB) && actualState.getValue(NORTH).booleanValue()) {
 				return true;
-			} else if (box.equals(SOUTH_AABB) && actualState.getValue(SOUTH).booleanValue()) {
+			} else if (box.equals(ConfigBrassPipe.SOUTH_AABB) && actualState.getValue(SOUTH).booleanValue()) {
 				return true;
-			} else if (box.equals(WEST_AABB) && actualState.getValue(WEST).booleanValue()) {
+			} else if (box.equals(ConfigBrassPipe.WEST_AABB) && actualState.getValue(WEST).booleanValue()) {
 				return true;
-			} else if (box.equals(EAST_AABB) && actualState.getValue(EAST).booleanValue()) {
+			} else if (box.equals(ConfigBrassPipe.EAST_AABB) && actualState.getValue(EAST).booleanValue()) {
 				return true;
 			}
 		}
